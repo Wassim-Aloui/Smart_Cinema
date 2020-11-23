@@ -74,7 +74,7 @@ QSqlQueryModel * Abonnee::search(int a,QString b , QString c)
 {
     QSqlQueryModel * model= new QSqlQueryModel();
     QString res=QString::number(a);
-    model->setQuery("select * from ABONNEE where ID ='"+res+"' and  NOM='"+b+"' and PRENOM ='"+c+"' ");
+    model->setQuery("select * from ABONNEE where ID like '"+res+"%' or NOM like '"+b+"%' or PRENOM like '"+c+"'%'");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
     model->setHeaderData(1, Qt::Horizontal,  QObject::tr("NOM"));
     model->setHeaderData(2, Qt::Horizontal,  QObject::tr("PRENOM"));

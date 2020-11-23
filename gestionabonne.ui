@@ -4445,7 +4445,7 @@ QLineEdit {
 }</string>
      </property>
      <property name="currentIndex">
-      <number>6</number>
+      <number>4</number>
      </property>
      <widget class="QWidget" name="tab_27">
       <attribute name="title">
@@ -5343,6 +5343,36 @@ border: none;
         <string notr="true">#tab_tri {
 background:#DCDCDC;
 }</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="afficher_abonne">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>190</y>
+         <width>141</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+color: #dcdcdc;
+background:#535353;
+border: none;
+font-size:20px;
+font-family:Arial, Helvetica, sans-serif;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+}
+QPushButton:hover {
+color:#fff;
+background:#FFD700;
+border: none;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Afficher</string>
        </property>
       </widget>
      </widget>

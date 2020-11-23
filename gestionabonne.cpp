@@ -26,23 +26,6 @@ ui->tab_abonnement->setModel(tmpabonnement.afficher());
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 gestionabonne::~gestionabonne()
@@ -272,4 +255,9 @@ void gestionabonne::on_typeButton_clicked()
 void gestionabonne::on_prixButton_clicked()
 {
     ui->tab_tri_abonnement->setModel(tmpabonnement.triprix());
+}
+
+void gestionabonne::on_afficher_abonne_clicked()
+{
+    ui->table_abonne->setModel(tmpabonnee.afficher());
 }

@@ -65,6 +65,8 @@ private slots:
 
     void on_prixButton_clicked();
 
+    void on_afficher_abonne_clicked();
+
 private:
     Ui::gestionabonne *ui;
     Abonnee tmpabonnee;
