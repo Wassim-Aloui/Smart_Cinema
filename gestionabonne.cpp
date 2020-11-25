@@ -4,7 +4,7 @@
 #include "abonnement.h"
 #include<QMessageBox>
 #include"connection.h"
-
+#include "statistiquee.h"
 
 gestionabonne::gestionabonne(QWidget *parent) :
     QDialog(parent),
@@ -20,12 +20,6 @@ ui->tab_abonnement->setModel(tmpabonnement.afficher());
     ui->id_abonnement_2->setValidator(new QIntValidator(0,99999999,this));
 
 //model = new CustomTableModel;
-
-
-
-
-
-
 }
 
 gestionabonne::~gestionabonne()
@@ -179,14 +173,22 @@ void gestionabonne::on_chercher_abonnee_clicked()
         int id = ui->id_rech_abonne_5->text().toInt();
         QString nom = ui->nom_rech_abonne_5->text();
         QString prenom = ui->prenom_rech_abonne_5->text();
-        ui->table_rech_abonne->setModel(tmpabonnee.search(id,nom,prenom));
+
+        if(id != 0)
+       { ui->table_rech_abonne->setModel(tmpabonnee.searchid(id));}
+
+          if(nom != "")
+            {ui->table_rech_abonne->setModel(tmpabonnee.searchnom(nom));}
+
+         if (prenom != "")
+            {ui->table_rech_abonne->setModel(tmpabonnee.searchprenom(prenom));}
 }
 void gestionabonne::on_radioButton_nom1_clicked()
 {
 
     bool test = tmpabonnee.tri();
     if(test){
-       ui->table_tri_abonne->setModel(tmpabonnee.tri());
+       ui->table_abonne->setModel(tmpabonnee.tri());
        QMessageBox::information(nullptr, QObject::tr("Tri des noms"),
                    QObject::tr("Abonnes triés.\n"),QMessageBox::Ok);
    }
@@ -201,7 +203,7 @@ void gestionabonne::on_radioButton_4_clicked()
 bool test=tmpabonnement.triduree();
 if(test)
 {
-    ui->tab_tri_abonnement->setModel(tmpabonnement.triduree());
+    ui->table_abonne->setModel(tmpabonnement.triduree());
         QMessageBox::information(nullptr, QObject::tr("Tri des durées"),
                                    QObject::tr("Abonnements triés.\n"),QMessageBox::Ok);
                      }
@@ -216,7 +218,7 @@ void gestionabonne::on_radioButton_ville_clicked()
 {
     bool test = tmpabonnee.triville();
     if(test){
-       ui->table_tri_abonne->setModel(tmpabonnee.triville());
+       ui->table_abonne->setModel(tmpabonnee.triville());
        QMessageBox::information(nullptr, QObject::tr("Tri des villes"),
                    QObject::tr("Abonnes triés.\n"),QMessageBox::Ok);
    }
@@ -229,7 +231,7 @@ void gestionabonne::on_radioButton_ville_clicked()
 void gestionabonne::on_radioButton_tarif_clicked()
 { bool test = tmpabonnee.tritarif();
     if(test){
-       ui->table_tri_abonne->setModel(tmpabonnee.tritarif());
+       ui->table_abonne->setModel(tmpabonnee.tritarif());
        QMessageBox::information(nullptr, QObject::tr("Tri des tarifs"),
                    QObject::tr("Abonnes triés.\n"),QMessageBox::Ok);
    }
@@ -260,4 +262,17 @@ void gestionabonne::on_prixButton_clicked()
 void gestionabonne::on_afficher_abonne_clicked()
 {
     ui->table_abonne->setModel(tmpabonnee.afficher());
+}
+
+void gestionabonne::on_radioButton_afficher_clicked()
+{
+    ui->table_rech_abonne->setModel(tmpabonnee.afficher());
+}
+
+
+
+void gestionabonne::on_statistique_clicked()
+{
+    statistiquee *s=new statistiquee();
+        s->show();
 }

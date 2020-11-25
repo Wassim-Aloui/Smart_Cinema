@@ -6,6 +6,7 @@
 #include<QtCharts>
 #include<QVBarModelMapper>
 #include<QSqlRelationalTableModel>
+#include<QVariant>
 
 
 class Abonnee
@@ -25,11 +26,16 @@ public:
        bool modifier(int,QString,QString,QString,QString);
         bool rech(int x);
         void setid(int i) { id = i; }
-QSqlQueryModel * search(int,QString,QString);
+QSqlQueryModel * searchid(int);
+QSqlQueryModel * searchnom(QString);
+QSqlQueryModel * searchprenom(QString);
  QSqlQueryModel * tri();
   QSqlQueryModel * tritarif();
  QSqlQueryModel * triville();
  QSqlQueryModel * stat();
+ int calculer(int);
+
+
 private :
          int id;
          QString  nom,prenom,tarif,ville;

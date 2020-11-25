@@ -23,11 +23,6 @@ public:
     explicit gestionabonne(QWidget *parent = nullptr);
     ~gestionabonne();
 
-    QSqlRelationalTableModel * modAbonnee;
-    QSortFilterProxyModel * proxyAbonnee;
-
-
-
 
 
 private slots:
@@ -66,6 +61,12 @@ private slots:
     void on_prixButton_clicked();
 
     void on_afficher_abonne_clicked();
+
+    void on_radioButton_afficher_clicked();
+
+
+
+    void on_statistique_clicked();
 
 private:
     Ui::gestionabonne *ui;

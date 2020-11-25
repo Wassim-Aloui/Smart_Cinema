@@ -70,11 +70,33 @@ bool Abonnee::rech(int x){
     query.bindValue(":id", x);
     return query.exec();
 }
-QSqlQueryModel * Abonnee::search(int a,QString b , QString c)
+QSqlQueryModel * Abonnee::searchid(int id)
 {
     QSqlQueryModel * model= new QSqlQueryModel();
-    QString res=QString::number(a);
-    model->setQuery("select * from ABONNEE where ID like '"+res+"%' or NOM like '"+b+"%' or PRENOM like '"+c+"'%'");
+    QString res=QString::number(id);
+    model->setQuery("select * from ABONNEE where ID like '"+res+"%'");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
+    model->setHeaderData(1, Qt::Horizontal,  QObject::tr("NOM"));
+    model->setHeaderData(2, Qt::Horizontal,  QObject::tr("PRENOM"));
+    model->setHeaderData(3, Qt::Horizontal,  QObject::tr("TARIF"));
+    model->setHeaderData(4, Qt::Horizontal,  QObject::tr("VILLE"));
+     return model;
+}
+QSqlQueryModel * Abonnee::searchnom(QString nom)
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select * from ABONNEE where NOM like '"+nom+"%'");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
+    model->setHeaderData(1, Qt::Horizontal,  QObject::tr("NOM"));
+    model->setHeaderData(2, Qt::Horizontal,  QObject::tr("PRENOM"));
+    model->setHeaderData(3, Qt::Horizontal,  QObject::tr("TARIF"));
+    model->setHeaderData(4, Qt::Horizontal,  QObject::tr("VILLE"));
+     return model;
+}
+QSqlQueryModel * Abonnee::searchprenom(QString prenom)
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select * from ABONNEE where PRENOM like '"+prenom+"%'");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
     model->setHeaderData(1, Qt::Horizontal,  QObject::tr("NOM"));
     model->setHeaderData(2, Qt::Horizontal,  QObject::tr("PRENOM"));
@@ -118,12 +140,23 @@ QSqlQueryModel * Abonnee::tritarif()
 }
 QSqlQueryModel * Abonnee::stat(){
     QSqlQueryModel * model= new QSqlQueryModel();
-    model->setQuery("SELECT count (*)as nombre, ville FROM ABONNEE GROUP BY VILLE;");
+    model->setQuery("SELECT count (*)as nombre, tarif FROM ABONNEE GROUP BY TARIF;");
     /*odel->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
     model->setHeaderData(1, Qt::Horizontal,  QObject::tr("NOM"));
     model->setHeaderData(2, Qt::Horizontal,  QObject::tr("PRENOM"));
     model->setHeaderData(3, Qt::Horizontal,  QObject::tr("TARIF"));*/
-    model->setHeaderData(4, Qt::Horizontal,  QObject::tr("VILLE"));
+    model->setHeaderData(1, Qt::Horizontal,  QObject::tr("TARIF"));
     return  model;
 }
-
+int Abonnee::calculer(int nombre)
+{
+    QSqlQuery query;
+    query.prepare("SELECT count (*)as nombre, tarif FROM ABONNEE GROUP BY TARIF;");
+    query.bindValue(":tarif",nombre);
+    query.exec();
+    int total=0;
+    while (query.next()){
+        total++;
+    }
+    return total;
+}

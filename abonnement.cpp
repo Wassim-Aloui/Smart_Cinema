@@ -57,18 +57,17 @@ bool Abonnement :: supprimer(int n)
     return query.exec();
 
 }
-bool Abonnement::modifiera(int n,int prix,QString d,QString t,int i){
+bool Abonnement::modifiera(int n,int p,QString d,QString t,int i){
     QSqlQuery query;
     QString res=QString::number(n);
-   QString p=QString::number(prix);
+  QString ress=QString::number(p);
     QString id=QString::number(i);
     query.prepare("UPDATE Abonnement set num=:num ,prix=:prix ,duree=:duree ,type=:type ,id_abonnee=:id where num ='"+res+"'");
     query.bindValue(":num",n);
-     query.bindValue(":prix",p);
+    query.bindValue(":prix",p);
       query.bindValue(":duree",d);
        query.bindValue(":type",t);
        query.bindValue(":id",id);
-
     return query.exec();
 }
 bool Abonnement::rech(int y){

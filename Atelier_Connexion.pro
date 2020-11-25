@@ -31,18 +31,21 @@ SOURCES += \
     gestionabonne.cpp \
         main.cpp \
         mainwindow.cpp \
-    connection.cpp
+    connection.cpp \
+    statistiquee.cpp
 
 HEADERS += \
     abonnee.h \
     abonnement.h \
     gestionabonne.h \
         mainwindow.h \
-    connection.h
+    connection.h \
+    statistiquee.h
 
 FORMS += \
         gestionabonne.ui \
-        mainwindow.ui
+        mainwindow.ui \
+        statistiquee.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
