@@ -6193,7 +6193,7 @@ QLineEdit {
 }</string>
      </property>
      <property name="currentIndex">
-      <number>4</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_abonne_2">
       <attribute name="title">
@@ -6446,8 +6446,8 @@ font-family:Arial, Helvetica, sans-serif;
       <widget class="QLabel" name="label">
        <property name="geometry">
         <rect>
-         <x>630</x>
-         <y>-20</y>
+         <x>580</x>
+         <y>-10</y>
          <width>241</width>
          <height>191</height>
         </rect>
