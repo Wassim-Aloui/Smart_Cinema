@@ -21,6 +21,12 @@ public:
         QSqlQueryModel * triduree();
         QSqlQueryModel * tritype();
         QSqlQueryModel * triprix();
+
+        QSqlQueryModel * searchnum(int);
+        QSqlQueryModel * searchduree(QString);
+        QSqlQueryModel * searchtype(QString);
+
+
 private :
          int num,prix,id;
          QString  duree,type;

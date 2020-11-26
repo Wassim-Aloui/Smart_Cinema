@@ -148,11 +148,11 @@ QSqlQueryModel * Abonnee::stat(){
     model->setHeaderData(1, Qt::Horizontal,  QObject::tr("TARIF"));
     return  model;
 }
-int Abonnee::calculer(int nombre)
+int Abonnee::calculer(int tarif)
 {
-    QSqlQuery query;
-    query.prepare("SELECT count (*)as nombre, tarif FROM ABONNEE GROUP BY TARIF;");
-    query.bindValue(":tarif",nombre);
+    QSqlQuery query ;
+    query.prepare("SELECT TARIF FROM abonnee;");
+    query.bindValue(":tarif",tarif);
     query.exec();
     int total=0;
     while (query.next()){

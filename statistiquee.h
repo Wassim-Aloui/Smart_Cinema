@@ -11,6 +11,7 @@
 #include<QtCharts/QCategoryAxis>
 #include<QGridLayout>
 #include"abonnee.h"
+
 QT_CHARTS_USE_NAMESPACE
 
 #include <QDialog>

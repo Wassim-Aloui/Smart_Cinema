@@ -109,4 +109,37 @@ QSqlQueryModel * Abonnement::triprix(){
    model->setHeaderData(4, Qt::Horizontal,  QObject::tr("ID_ABONNEE"));
      return  model;
 }
-
+QSqlQueryModel * Abonnement::searchnum(int num)
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    QString res=QString::number(num);
+    model->setQuery("select * from ABONNEMENT where NUM = '"+res+"'");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("NUM"));
+    model->setHeaderData(1, Qt::Horizontal,  QObject::tr("PRIX"));
+    model->setHeaderData(2, Qt::Horizontal,  QObject::tr("DUREE"));
+    model->setHeaderData(3, Qt::Horizontal,  QObject::tr("TYPE"));
+    model->setHeaderData(4, Qt::Horizontal,  QObject::tr("ID_ABONNEE"));
+     return model;
+}
+QSqlQueryModel * Abonnement::searchduree(QString duree)
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select * from ABONNEMENT where DUREE = '"+duree+"' ");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("NUM"));
+    model->setHeaderData(1, Qt::Horizontal,  QObject::tr("PRIX"));
+    model->setHeaderData(2, Qt::Horizontal,  QObject::tr("DUREE"));
+    model->setHeaderData(3, Qt::Horizontal,  QObject::tr("TYPE"));
+    model->setHeaderData(4, Qt::Horizontal,  QObject::tr("ID_ABONNEE"));
+     return model;
+}
+QSqlQueryModel * Abonnement::searchtype(QString type)
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select * from ABONNEMENT where TYPE = '"+type+"'");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("NUM"));
+    model->setHeaderData(1, Qt::Horizontal,  QObject::tr("PRIX"));
+    model->setHeaderData(2, Qt::Horizontal,  QObject::tr("DUREE"));
+    model->setHeaderData(3, Qt::Horizontal,  QObject::tr("TYPE"));
+    model->setHeaderData(4, Qt::Horizontal,  QObject::tr("ID_ABONNEE"));
+     return model;
+}

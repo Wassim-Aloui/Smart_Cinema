@@ -198,21 +198,6 @@ void gestionabonne::on_radioButton_nom1_clicked()
    }
 
 }
-void gestionabonne::on_radioButton_4_clicked()
-{Abonnement b;
-bool test=tmpabonnement.triduree();
-if(test)
-{
-    ui->table_abonne->setModel(tmpabonnement.triduree());
-        QMessageBox::information(nullptr, QObject::tr("Tri des durées"),
-                                   QObject::tr("Abonnements triés.\n"),QMessageBox::Ok);
-                     }
-                     else   {
-                        QMessageBox::critical(nullptr, QObject::tr("Tri des durées"),
-                                                QObject::tr("Abonnements non triés.\n"),QMessageBox::Ok);
-                     }
-
-}
 
 void gestionabonne::on_radioButton_ville_clicked()
 {
@@ -248,17 +233,6 @@ void gestionabonne::on_stat_abonnee_clicked()
 
 
 }
-
-void gestionabonne::on_typeButton_clicked()
-{
-    ui->tab_tri_abonnement->setModel(tmpabonnement.tritype());
-}
-
-void gestionabonne::on_prixButton_clicked()
-{
-    ui->tab_tri_abonnement->setModel(tmpabonnement.triprix());
-}
-
 void gestionabonne::on_afficher_abonne_clicked()
 {
     ui->table_abonne->setModel(tmpabonnee.afficher());
@@ -269,10 +243,48 @@ void gestionabonne::on_radioButton_afficher_clicked()
     ui->table_rech_abonne->setModel(tmpabonnee.afficher());
 }
 
-
-
 void gestionabonne::on_statistique_clicked()
 {
     statistiquee *s=new statistiquee();
         s->show();
+}
+
+
+void gestionabonne::on_radioButton_4_clicked()
+{Abonnement b;
+
+    ui->tab_abonnement->setModel(tmpabonnement.triduree());
+
+}
+
+void gestionabonne::on_typeButton_clicked()
+{
+    ui->tab_abonnement->setModel(tmpabonnement.tritype());
+}
+
+void gestionabonne::on_prixButton_clicked()
+{
+    ui->tab_abonnement->setModel(tmpabonnement.triprix());
+}
+
+
+void gestionabonne::on_afficher_abonnement_clicked()
+{
+    ui->tab_chercher_abonnement->setModel(tmpabonnement.afficher());
+}
+
+void gestionabonne::on_chercher_abonnement_4_clicked()
+{
+    int num = ui->num_5->text().toInt();
+    QString type = ui->type_5->text();
+    QString duree = ui->duree_5->text();
+
+    if(num != 0)
+   { ui->tab_chercher_abonnement->setModel(tmpabonnement.searchnum(num));}
+
+      if(type != "")
+        {ui->tab_chercher_abonnement->setModel(tmpabonnement.searchtype(type));}
+
+     if (duree != "")
+        {ui->tab_chercher_abonnement->setModel(tmpabonnement.searchduree(duree));}
 }

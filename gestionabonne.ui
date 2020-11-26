@@ -19,7 +19,7 @@
      <x>0</x>
      <y>0</y>
      <width>311</width>
-     <height>641</height>
+     <height>711</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -282,6 +282,12 @@ text-align: left;
       <height>41</height>
      </rect>
     </property>
+    <property name="maximumSize">
+     <size>
+      <width>311</width>
+      <height>16777215</height>
+     </size>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
 color: #FFFFFF;
@@ -504,7 +510,7 @@ text-align: left;
     </rect>
    </property>
    <property name="currentIndex">
-    <number>8</number>
+    <number>9</number>
    </property>
    <widget class="QWidget" name="Acceuil"/>
    <widget class="QWidget" name="gestion_des_employes"/>
@@ -4445,7 +4451,7 @@ QLineEdit {
 }</string>
      </property>
      <property name="currentIndex">
-      <number>5</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="tab_27">
       <attribute name="title">
@@ -5794,9 +5800,9 @@ border: none;
      </property>
      <property name="geometry">
       <rect>
-       <x>-10</x>
-       <y>-10</y>
-       <width>1001</width>
+       <x>0</x>
+       <y>0</y>
+       <width>1041</width>
        <height>771</height>
       </rect>
      </property>
@@ -6699,36 +6705,6 @@ font-family:Arial, Helvetica, sans-serif;
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="modifier_abonnement_3">
-       <property name="geometry">
-        <rect>
-         <x>720</x>
-         <y>540</y>
-         <width>141</width>
-         <height>51</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-color: #dcdcdc;
-background:#535353;
-border: none;
-font-size:20px;
-font-family:Arial, Helvetica, sans-serif;
-border: 1px solid #DCDCDC;
-border-radius: 8px;
-}
-QPushButton:hover {
-color:#fff;
-background:#FFD700;
-border: none;
-}
-</string>
-       </property>
-       <property name="text">
-        <string>Modifier</string>
-       </property>
-      </widget>
       <widget class="QLabel" name="nom_planning_9">
        <property name="geometry">
         <rect>
@@ -6765,7 +6741,7 @@ font-family:Arial, Helvetica, sans-serif;
        <property name="geometry">
         <rect>
          <x>200</x>
-         <y>300</y>
+         <y>280</y>
          <width>151</width>
          <height>16</height>
         </rect>
@@ -6883,7 +6859,7 @@ font-family:Arial, Helvetica, sans-serif;
        <property name="geometry">
         <rect>
          <x>200</x>
-         <y>390</y>
+         <y>360</y>
          <width>151</width>
          <height>16</height>
         </rect>
@@ -6942,8 +6918,8 @@ font-family:Arial, Helvetica, sans-serif;
       <widget class="QLabel" name="nom_planning_13">
        <property name="geometry">
         <rect>
-         <x>210</x>
-         <y>440</y>
+         <x>200</x>
+         <y>430</y>
          <width>151</width>
          <height>16</height>
         </rect>
@@ -7108,10 +7084,10 @@ border: none;
       <widget class="QTableView" name="tab_abonnement">
        <property name="geometry">
         <rect>
-         <x>70</x>
+         <x>190</x>
          <y>60</y>
-         <width>791</width>
-         <height>451</height>
+         <width>671</width>
+         <height>491</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -7120,12 +7096,124 @@ background:#DCDCDC;
 }</string>
        </property>
       </widget>
+      <widget class="QLabel" name="label_33">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>30</y>
+         <width>121</width>
+         <height>121</height>
+        </rect>
+       </property>
+       <property name="lineWidth">
+        <number>20</number>
+       </property>
+       <property name="midLineWidth">
+        <number>11</number>
+       </property>
+       <property name="text">
+        <string>TRI PAR :</string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::PlainText</enum>
+       </property>
+       <property name="scaledContents">
+        <bool>false</bool>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+       <property name="margin">
+        <number>4</number>
+       </property>
+       <property name="indent">
+        <number>2</number>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="radioButton_4">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>160</y>
+         <width>191</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QRadioButton {
+color: #535353;
+font-size:20px;
+font-family:Arial, Helvetica, sans-serif;
+text-align: left;
+}
+QRadioButton:hover {
+color:#FFD700;
+text-align: left;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Durée</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="prixButton">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>280</y>
+         <width>191</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QRadioButton {
+color: #535353;
+font-size:20px;
+font-family:Arial, Helvetica, sans-serif;
+text-align: left;
+}
+QRadioButton:hover {
+color:#FFD700;
+text-align: left;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Prix</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="typeButton">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>220</y>
+         <width>191</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QRadioButton {
+color: #535353;
+font-size:20px;
+font-family:Arial, Helvetica, sans-serif;
+text-align: left;
+}
+QRadioButton:hover {
+color:#FFD700;
+text-align: left;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Type</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="tab_14">
       <attribute name="title">
        <string>Recherche</string>
       </attribute>
-      <widget class="QLineEdit" name="num_abonnement">
+      <widget class="QLineEdit" name="num_5">
        <property name="geometry">
         <rect>
          <x>210</x>
@@ -7185,7 +7273,7 @@ font-family:Arial, Helvetica, sans-serif;
         <string>Rechercher abonnement</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="type_abonnement">
+      <widget class="QLineEdit" name="type_5">
        <property name="geometry">
         <rect>
          <x>200</x>
@@ -7213,7 +7301,7 @@ font-family:Arial, Helvetica, sans-serif;
         <string/>
        </property>
       </widget>
-      <widget class="QLineEdit" name="prix_abonnement">
+      <widget class="QLineEdit" name="duree_8">
        <property name="geometry">
         <rect>
          <x>200</x>
@@ -7246,7 +7334,7 @@ font-family:Arial, Helvetica, sans-serif;
         <rect>
          <x>-10</x>
          <y>110</y>
-         <width>241</width>
+         <width>211</width>
          <height>57</height>
         </rect>
        </property>
@@ -7278,7 +7366,7 @@ font-family:Arial, Helvetica, sans-serif;
         <rect>
          <x>60</x>
          <y>200</y>
-         <width>241</width>
+         <width>111</width>
          <height>57</height>
         </rect>
        </property>
@@ -7310,7 +7398,7 @@ font-family:Arial, Helvetica, sans-serif;
         <rect>
          <x>60</x>
          <y>310</y>
-         <width>241</width>
+         <width>111</width>
          <height>57</height>
         </rect>
        </property>
@@ -7334,38 +7422,7 @@ font-family:Arial, Helvetica, sans-serif;
 }</string>
        </property>
        <property name="text">
-        <string>Le prix</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="chercher_abonnement">
-       <property name="geometry">
-        <rect>
-         <x>220</x>
-         <y>390</y>
-         <width>131</width>
-         <height>71</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QLineEdit {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #dcdcdc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  background: #FFD700;
-  color: #FFFFFF;
-  font-size: 20px;
-font-family:Arial, Helvetica, sans-serif;
-}</string>
-       </property>
-       <property name="text">
-        <string>Chercher</string>
-       </property>
-       <property name="placeholderText">
-        <string/>
+        <string>Durée</string>
        </property>
       </widget>
       <widget class="QTableView" name="tab_chercher_abonnement">
@@ -7383,32 +7440,12 @@ background:#DCDCDC;
 }</string>
        </property>
       </widget>
-     </widget>
-     <widget class="QWidget" name="tab_16">
-      <attribute name="title">
-       <string>Tri des abonnements</string>
-      </attribute>
-      <widget class="QTableView" name="tab_tri_abonnement">
-       <property name="geometry">
-        <rect>
-         <x>160</x>
-         <y>70</y>
-         <width>701</width>
-         <height>451</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">#tab_tri {
-background:#DCDCDC;
-}</string>
-       </property>
-      </widget>
-      <widget class="QRadioButton" name="radioButton_4">
+      <widget class="QRadioButton" name="afficher_abonnement">
        <property name="geometry">
         <rect>
          <x>50</x>
-         <y>160</y>
-         <width>191</width>
+         <y>490</y>
+         <width>321</width>
          <height>31</height>
         </rect>
        </property>
@@ -7426,93 +7463,37 @@ text-align: left;
 </string>
        </property>
        <property name="text">
-        <string>Durée</string>
+        <string>Afficher tous les abonnements </string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="typeButton">
+      <widget class="QPushButton" name="chercher_abonnement_4">
        <property name="geometry">
         <rect>
-         <x>50</x>
-         <y>240</y>
-         <width>191</width>
-         <height>31</height>
+         <x>210</x>
+         <y>390</y>
+         <width>141</width>
+         <height>51</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">QRadioButton {
-color: #535353;
+        <string notr="true">QPushButton {
+color: #dcdcdc;
+background:#535353;
+border: none;
 font-size:20px;
 font-family:Arial, Helvetica, sans-serif;
-text-align: left;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
 }
-QRadioButton:hover {
-color:#FFD700;
-text-align: left;
+QPushButton:hover {
+color:#fff;
+background:#FFD700;
+border: none;
 }
 </string>
        </property>
        <property name="text">
-        <string>Type</string>
-       </property>
-      </widget>
-      <widget class="QRadioButton" name="prixButton">
-       <property name="geometry">
-        <rect>
-         <x>50</x>
-         <y>320</y>
-         <width>191</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QRadioButton {
-color: #535353;
-font-size:20px;
-font-family:Arial, Helvetica, sans-serif;
-text-align: left;
-}
-QRadioButton:hover {
-color:#FFD700;
-text-align: left;
-}
-</string>
-       </property>
-       <property name="text">
-        <string>Prix</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_33">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>50</y>
-         <width>121</width>
-         <height>121</height>
-        </rect>
-       </property>
-       <property name="lineWidth">
-        <number>20</number>
-       </property>
-       <property name="midLineWidth">
-        <number>11</number>
-       </property>
-       <property name="text">
-        <string>TRI PAR :</string>
-       </property>
-       <property name="textFormat">
-        <enum>Qt::PlainText</enum>
-       </property>
-       <property name="scaledContents">
-        <bool>false</bool>
-       </property>
-       <property name="wordWrap">
-        <bool>true</bool>
-       </property>
-       <property name="margin">
-        <number>4</number>
-       </property>
-       <property name="indent">
-        <number>2</number>
+        <string>Chercher</string>
        </property>
       </widget>
      </widget>
