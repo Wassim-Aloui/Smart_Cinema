@@ -293,3 +293,8 @@ void gestionabonne::on_afficher_abonnement_4_clicked()
 {
     ui->tab_abonnement->setModel(tmpabonnement.afficher());
 }
+
+void gestionabonne::on_statis_abonnement_clicked()
+{
+     ui->tableViewstatis->setModel(tmpabonnement.statis());
+}

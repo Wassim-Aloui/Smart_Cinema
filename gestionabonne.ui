@@ -7516,6 +7516,46 @@ text-align: left;
       <attribute name="title">
        <string>Statistique</string>
       </attribute>
+      <widget class="QTableView" name="tableViewstatis">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>50</y>
+         <width>291</width>
+         <height>192</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="statis_abonnement">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>270</y>
+         <width>141</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+color: #dcdcdc;
+background:#535353;
+border: none;
+font-size:20px;
+font-family:Arial, Helvetica, sans-serif;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+}
+QPushButton:hover {
+color:#fff;
+background:#FFD700;
+border: none;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Statistics</string>
+       </property>
+      </widget>
      </widget>
     </widget>
    </widget>

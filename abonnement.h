@@ -26,6 +26,8 @@ public:
         QSqlQueryModel * searchduree(QString);
         QSqlQueryModel * searchtype(QString);
 
+         QSqlQueryModel * statis();
+
 
 private :
          int num,prix,id;

@@ -76,6 +76,10 @@ private slots:
 
     void on_afficher_abonnement_4_clicked();
 
+
+
+    void on_statis_abonnement_clicked();
+
 private:
     Ui::gestionabonne *ui;
     Abonnee tmpabonnee;
