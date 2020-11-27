@@ -6,7 +6,7 @@ employe::employe()
     date_naissance=QDate(2000,01,01);
     salaire=0;
 }
-
+//test2
 
 employe::employe(int id,QString nom,QString prenom,QDate date_naissance,double salaire)
 {
