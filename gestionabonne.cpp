@@ -277,14 +277,19 @@ void gestionabonne::on_chercher_abonnement_4_clicked()
 {
     int num = ui->num_5->text().toInt();
     QString type = ui->type_5->text();
-    QString duree = ui->duree_5->text();
+    QString duree = ui->duree_8->text();
 
     if(num != 0)
    { ui->tab_chercher_abonnement->setModel(tmpabonnement.searchnum(num));}
 
       if(type != "")
-        {ui->tab_chercher_abonnement->setModel(tmpabonnement.searchtype(type));}
+      {ui->tab_chercher_abonnement->setModel(tmpabonnement.searchtype(type));}
 
      if (duree != "")
         {ui->tab_chercher_abonnement->setModel(tmpabonnement.searchduree(duree));}
+}
+
+void gestionabonne::on_afficher_abonnement_4_clicked()
+{
+    ui->tab_abonnement->setModel(tmpabonnement.afficher());
 }

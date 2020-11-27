@@ -59,9 +59,9 @@ bool Abonnee::modifier(int i,QString b,QString c,QString d,QString e){
     query.prepare("UPDATE Abonnee set nom=:nom ,prenom=:prenom ,tarif=:tarif,ville=:ville  where id ='"+res+"'");
     query.bindValue(":id",i);
     query.bindValue(":nom", b);
-     query.bindValue(":prenom",c);
-      query.bindValue(":tarif",d);
-       query.bindValue(":ville",e);
+    query.bindValue(":prenom",c);
+    query.bindValue(":tarif",d);
+    query.bindValue(":ville",e);
     return query.exec();
 }
 bool Abonnee::rech(int x){
@@ -141,22 +141,40 @@ QSqlQueryModel * Abonnee::tritarif()
 QSqlQueryModel * Abonnee::stat(){
     QSqlQueryModel * model= new QSqlQueryModel();
     model->setQuery("SELECT count (*)as nombre, tarif FROM ABONNEE GROUP BY TARIF;");
-    /*odel->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
-    model->setHeaderData(1, Qt::Horizontal,  QObject::tr("NOM"));
-    model->setHeaderData(2, Qt::Horizontal,  QObject::tr("PRENOM"));
-    model->setHeaderData(3, Qt::Horizontal,  QObject::tr("TARIF"));*/
     model->setHeaderData(1, Qt::Horizontal,  QObject::tr("TARIF"));
     return  model;
 }
-int Abonnee::calculer(int tarif)
+int Abonnee::calculer(int)
 {
     QSqlQuery query ;
-    query.prepare("SELECT TARIF FROM abonnee;");
-    query.bindValue(":tarif",tarif);
-    query.exec();
+    QSqlQuery q("select * from ABONNEE where TARIF='Etudiant'") ;
     int total=0;
-    while (query.next()){
+    while (q.next()){
         total++;
     }
     return total;
 }
+int Abonnee::calculerenfant(int )
+{
+    QSqlQuery query ;
+    QSqlQuery q("select * from ABONNEE where TARIF='Enfant'") ;
+    int total=0;
+    while (q.next()){
+        total++;
+    }
+    return total;
+}
+int Abonnee::calculertarif(int)
+{
+    QSqlQuery query ;
+    //query.prepare("select sum(case TARIF when 'Tarif plein' then 1 else 0 end) from ABONNEE;");
+    //query.bindValue(":tarif",t);
+    QSqlQuery q("select * from ABONNEE where TARIF='Tarif plein'") ;
+    //query.exec();
+    int total=0;
+    while (q.next()){
+        total++;
+    }
+    return total;
+}
+

@@ -10,7 +10,8 @@ statistiquee::statistiquee(QWidget *parent) :
  setWindowTitle("STATISTIQUE");
     QBarSet *set1=new QBarSet("Tarif");
 
-           *set1 <<tmpabonnee.calculer(1)<<tmpabonnee.calculer(2)<<tmpabonnee.calculer(3);
+
+      *set1 <<tmpabonnee.calculer(2)<<tmpabonnee.calculerenfant(1)<<tmpabonnee.calculertarif(0);
            QBarSeries *series=new QBarSeries();
            series->append(set1);
            set1->append(20.0);
@@ -18,22 +19,23 @@ statistiquee::statistiquee(QWidget *parent) :
            QChart *chart =new QChart();
            chart->addSeries(series);
            chart->setTitle("Le nombre d'abonnés par tarif");
-           chart->setAnimationOptions(QChart::GridAxisAnimations);
+           chart->setAnimationOptions(QChart::AllAnimations);
 
            QStringList categories;
            categories <<"Etudiant"<<"Enfant"<<"Tarif plein";
            QBarCategoryAxis *axis=new QBarCategoryAxis();
            axis->append(categories);
 
-           //chart->createDefaultAxes();
+           chart->createDefaultAxes();
            chart->setAxisX(axis,series);
 
-                   QValueAxis *axisY = new QValueAxis();
+                   /*QValueAxis *axisY = new QValueAxis();
                    axisY->setTitleText("NOMBRE D'ABONNES");
-                   axisY->setLabelFormat("%g");
+                   axisY->setLabelFormat("%.2f");
                    chart->addAxis(axisY, Qt::AlignLeft);
                    series->attachAxis(axisY);
                    series->attachAxis(axisY);
+                   series->attachAxis(axisY);*/
 
 
            QChartView *chartview=new QChartView(chart);
@@ -43,7 +45,11 @@ statistiquee::statistiquee(QWidget *parent) :
            mainLayout->addWidget(chartview, 1, 1);
            setLayout(mainLayout);
 
-           chartview->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Ignored);
+
+
+          // series->attachAxis(axisY);
+
+       //chartview->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Ignored);
 
 
 

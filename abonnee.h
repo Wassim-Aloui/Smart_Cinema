@@ -35,7 +35,8 @@ QSqlQueryModel * searchprenom(QString);
  QSqlQueryModel * triville();
  QSqlQueryModel * stat();
  int calculer(int);
-
+int calculerenfant(int);
+int calculertarif(int);
 
 private :
          int id;

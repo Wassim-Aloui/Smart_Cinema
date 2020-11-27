@@ -9,9 +9,9 @@ Abonnement::Abonnement(int num,int prix,int id,QString duree,QString type)
 {
 this->num=num;
 this->prix=prix;
- this->duree=duree;
-     this->type=type;
-    this->id=id;
+this->duree=duree;
+this->type=type;
+this->id=id;
 }
 int Abonnement ::get_num(){return num;}
 int Abonnement ::get_prix(){return prix;}
@@ -64,10 +64,10 @@ bool Abonnement::modifiera(int n,int p,QString d,QString t,int i){
     QString id=QString::number(i);
     query.prepare("UPDATE Abonnement set num=:num ,prix=:prix ,duree=:duree ,type=:type ,id_abonnee=:id where num ='"+res+"'");
     query.bindValue(":num",n);
-    query.bindValue(":prix",p);
+    query.bindValue(":prix",ress);
       query.bindValue(":duree",d);
        query.bindValue(":type",t);
-       query.bindValue(":id",id);
+       query.bindValue(":id",i);
     return query.exec();
 }
 bool Abonnement::rech(int y){
@@ -113,7 +113,7 @@ QSqlQueryModel * Abonnement::searchnum(int num)
 {
     QSqlQueryModel * model= new QSqlQueryModel();
     QString res=QString::number(num);
-    model->setQuery("select * from ABONNEMENT where NUM = '"+res+"'");
+    model->setQuery("select * from ABONNEMENT where NUM like '"+res+"%'");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("NUM"));
     model->setHeaderData(1, Qt::Horizontal,  QObject::tr("PRIX"));
     model->setHeaderData(2, Qt::Horizontal,  QObject::tr("DUREE"));
@@ -124,7 +124,7 @@ QSqlQueryModel * Abonnement::searchnum(int num)
 QSqlQueryModel * Abonnement::searchduree(QString duree)
 {
     QSqlQueryModel * model= new QSqlQueryModel();
-    model->setQuery("select * from ABONNEMENT where DUREE = '"+duree+"' ");
+    model->setQuery("select * from ABONNEMENT where DUREE like '"+duree+"%'");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("NUM"));
     model->setHeaderData(1, Qt::Horizontal,  QObject::tr("PRIX"));
     model->setHeaderData(2, Qt::Horizontal,  QObject::tr("DUREE"));
@@ -135,7 +135,7 @@ QSqlQueryModel * Abonnement::searchduree(QString duree)
 QSqlQueryModel * Abonnement::searchtype(QString type)
 {
     QSqlQueryModel * model= new QSqlQueryModel();
-    model->setQuery("select * from ABONNEMENT where TYPE = '"+type+"'");
+    model->setQuery("select * from ABONNEMENT where TYPE like '"+type+"%'");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("NUM"));
     model->setHeaderData(1, Qt::Horizontal,  QObject::tr("PRIX"));
     model->setHeaderData(2, Qt::Horizontal,  QObject::tr("DUREE"));
@@ -143,3 +143,4 @@ QSqlQueryModel * Abonnement::searchtype(QString type)
     model->setHeaderData(4, Qt::Horizontal,  QObject::tr("ID_ABONNEE"));
      return model;
 }
+
