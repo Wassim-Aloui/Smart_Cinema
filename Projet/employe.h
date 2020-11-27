@@ -12,10 +12,11 @@ class employe
     QString prenom;
     QDate date_naissance;
     double salaire;
+    QString email;
 
 public:
     employe();
-    employe(int,QString,QString,QDate,double);
+    employe(int,QString,QString,QDate,double,QString);
     ~employe();
 
     int getId();
@@ -28,6 +29,8 @@ public:
     void setDate_naissance(QDate);
     double getSalaire();
     void setSalaire(double);
+    QString getEmail();
+    void setEmail(QString);
 
     bool ajouter();
     bool supprimer(int);
@@ -42,6 +45,8 @@ public:
     QSqlQueryModel * chercher_employe_par_id(QString idd);
      QSqlQueryModel* Filter(int);
     //QSqlQueryModel* rechercher(QString str,QString str1,int i); ///const QString & QString
+    QStringList listemploye();
+    int calcul_employe(int,int);
 
 };
 

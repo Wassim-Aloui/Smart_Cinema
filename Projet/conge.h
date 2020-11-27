@@ -10,11 +10,12 @@ class Conge
     int duree;
     QDate date_c;
     QString type;
+    int id_emp;
 
 
 public:
     Conge();
-     Conge(int,int,QDate,QString);
+     Conge(int,int,QDate,QString,int);
      ~Conge();
 
      int getref();
@@ -25,7 +26,8 @@ public:
      void setdate(QDate);
      QString gettype();
      void settype(QString);
-
+     int getid_emp();
+     void setid_emp(int);
 
      bool ajouter1();
      bool supprimer(int);

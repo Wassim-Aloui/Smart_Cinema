@@ -5,6 +5,9 @@
 #include"employe.h"
 #include<QMessageBox>
 #include"conge.h"
+#include"smtp.h"
+#include"statistiques.h"
+#include<QValidator>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -57,6 +60,15 @@ private slots:
     void on_comboBox_currentIndexChanged(int index);
 
     void on_comboBox_currentIndexChanged(const QString &arg1);
+
+    void on_comboBox_currentTextChanged(const QString &arg1);
+
+    void sendMail();
+    void mailSent(QString);
+
+    void on_stats_clicked();
+
+    void on_id_emp_textChanged(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;

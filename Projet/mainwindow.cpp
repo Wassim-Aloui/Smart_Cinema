@@ -7,7 +7,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    ui->comboBox->addItem("ID");
+    connect(ui->sendBtn, SIGNAL(clicked()),this, SLOT(sendMail()));
+
+    QIntValidator *int_val=new QIntValidator(1,9999999);
+    ui->id_emp->setValidator(int_val);
 
 }
 
@@ -29,7 +32,7 @@ void MainWindow::on_g_cong_clicked()
 
 void MainWindow::on_ajouter_employe_2_clicked()
 {
-    employe e(ui->id_emp->text().toInt(),ui->nom_emp->text(),ui->prenom_emp->text(),ui->date_naissance_emp->date(),ui->salaire_emp->text().toDouble());
+    employe e(ui->id_emp->text().toInt(),ui->nom_emp->text(),ui->prenom_emp->text(),ui->date_naissance_emp->date(),ui->salaire_emp->text().toDouble(),ui->email_emp->text());
     bool test=e.ajouter();
     if(test){
         QMessageBox::information(nullptr, QObject::tr("Employe"),
@@ -40,6 +43,15 @@ void MainWindow::on_ajouter_employe_2_clicked()
         ui->prenom_emp->setText("");
         ui->date_naissance_emp->setDate(QDate(2000,01,01));
         ui->salaire_emp->setText("");
+
+        ui->comboBox->clear();
+        ui->comboBox->addItems(tmpemploye.listemploye());
+
+        ui->comboBox_id_emp->clear();
+        ui->comboBox_id_emp->addItems(tmpemploye.listemploye());
+
+        ui->comboBox_id_emp_2->clear();
+        ui->comboBox_id_emp_2->addItems(tmpemploye.listemploye());
     }
     else{
         QMessageBox::critical(nullptr, QObject::tr("Employe"),
@@ -54,6 +66,15 @@ void MainWindow::on_supprimer_employe_clicked()
         QMessageBox::information(nullptr, QObject::tr("Employe"),
                     QObject::tr("employé supprimé avec succés.\n"), QMessageBox::Cancel);
         ui->tab_employe->setModel(tmpemploye.afficher());
+
+        ui->comboBox->clear();
+        ui->comboBox->addItems(tmpemploye.listemploye());
+
+        ui->comboBox_id_emp->clear();
+        ui->comboBox_id_emp->addItems(tmpemploye.listemploye());
+
+        ui->comboBox_id_emp_2->clear();
+        ui->comboBox_id_emp_2->addItems(tmpemploye.listemploye());
     }
     else{
         QMessageBox::critical(nullptr, QObject::tr("Employe"),
@@ -75,7 +96,7 @@ void MainWindow::on_trouver_employe_3_clicked()
 
 void MainWindow::on_modifier_employe_2_clicked()
 {
-    employe e(ui->id_emp_2->text().toInt(),ui->nom_emp_2->text(),ui->prenom_emp_2->text(),ui->date_naissance_emp_2->date(),ui->salaire_emp_2->text().toDouble());
+    employe e(ui->id_emp_2->text().toInt(),ui->nom_emp_2->text(),ui->prenom_emp_2->text(),ui->date_naissance_emp_2->date(),ui->salaire_emp_2->text().toDouble(),ui->email_emp_2->text());
     bool test=e.modifier(ui->id_employe_mod->text().toInt());
     if(test){
         QMessageBox::information(nullptr, QObject::tr("Employe"),
@@ -97,6 +118,15 @@ void MainWindow::on_modifier_employe_2_clicked()
 void MainWindow::on_tab_widget_planning_2_currentChanged(int index)
 {
     ui->tab_employe->setModel(tmpemploye.afficher());
+
+    ui->comboBox->clear();
+    ui->comboBox->addItems(tmpemploye.listemploye());
+
+    ui->comboBox_id_emp->clear();
+    ui->comboBox_id_emp->addItems(tmpemploye.listemploye());
+
+    ui->comboBox_id_emp_2->clear();
+    ui->comboBox_id_emp_2->addItems(tmpemploye.listemploye());
 }
 void MainWindow::on_tab_widget_planning_currentChanged(int index)
 {
@@ -107,7 +137,7 @@ void MainWindow::on_tab_widget_planning_currentChanged(int index)
 
 void MainWindow::on_ajouter_conge_clicked()
 {
-    Conge c(ui->id_conge_e_1->text().toInt(),ui->duree_conge_e_1->text().toInt(),ui->date_conge_e_1->date(),ui->type_e_1->text());
+    Conge c(ui->id_conge_e_1->text().toInt(),ui->duree_conge_e_1->text().toInt(),ui->date_conge_e_1->date(),ui->type_e_1->text(),ui->comboBox_id_emp->currentText().toInt());
     bool test=c.ajouter1();
     if(test) {
         QMessageBox::information(nullptr, QObject::tr("Conge"),
@@ -127,7 +157,7 @@ void MainWindow::on_ajouter_conge_clicked()
 
 void MainWindow::on_modifier_conge_clicked()
 {
-    Conge c(ui->ref_conge_e2->text().toInt(),ui->duree_conge_e_2->text().toInt(),ui->date_conge_e_2->date(),ui->type_conge_e_2->text());
+    Conge c(ui->ref_conge_e2->text().toInt(),ui->duree_conge_e_2->text().toInt(),ui->date_conge_e_2->date(),ui->type_conge_e_2->text(),ui->comboBox_id_emp_2->currentText().toInt());
     bool test=c.modifier(ui->ref_conge_mod->text().toInt());
     if(test){
         QMessageBox::information(nullptr, QObject::tr("Conge"),
@@ -200,15 +230,38 @@ void MainWindow::on_rech_emp2_clicked()            ///
        QString l = ui->date_conge_e_8->text(); //id
          QString k = ui->date_conge_e_9->text();
 
-       if (m != ""){
-      ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_nom(m)) ;}
-       if (l != ""){
-      ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_id(l)) ;}
-       else if (k!= ""){
-      ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_prenom(k)) ;
-}
+     if((m!="")&&(k!="")&&(l!="")){
 
-       }
+     }
+     else if (m != ""){
+        if (l != ""){
+
+        }
+        else if(k!=""){
+
+        }
+        else{
+            ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_nom(m)) ;
+        }
+
+        }
+        else if (l != ""){
+         if(k!=""){
+
+         }
+         else{
+             ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_id(l)) ;
+         }
+
+        }
+        else if (k!= ""){
+            ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_prenom(k)) ;
+        }
+        else{
+            ui->tab_employe->setModel(tmpemploye.afficher());
+        }
+
+}
 
 
 
@@ -224,7 +277,7 @@ void MainWindow::on_tri_emp_3_clicked()
 void MainWindow::on_comboBox_activated(const QString &arg1)
 {
 
-ui->comboBox->setModel(tmpemploye.afficher());
+//ui->comboBox->setModel(tmpemploye.afficher());
 //ui->tab_employe_3->setModel(tmpemploye.Filter(id));
 
 
@@ -240,7 +293,7 @@ void MainWindow::on_comboBox_currentIndexChanged(const QString &arg1)
 {
       //QString value= ui->comboBox->currentText();
       //int id;
-      QSqlQuery qry;
+      /*QSqlQuery qry;
       qry.prepare("select id from employe where id='"+arg1+"' ");
       qry.bindValue(":id",ui->comboBox->currentText());
           if ( qry.exec() && qry.next())
@@ -249,7 +302,7 @@ void MainWindow::on_comboBox_currentIndexChanged(const QString &arg1)
        ui->nom_emp_2->setText(qry.value(1).toString());
         ui->prenom_emp_2->setText(qry.value(2).toString());
          ui->date_naissance_emp_2->setDate(qry.value(3).toDate());
-         ui->salaire_emp_2->setText(qry.value(4).toString()); }
+         ui->salaire_emp_2->setText(qry.value(4).toString()); }*/
     /*QString nom=ui->comboBox->currentText();
     employe e=tmpemploye.recherche_Id(ui->id_employe_mod->text().toInt());
     QString id= QString::number(e.getId());
@@ -262,3 +315,47 @@ void MainWindow::on_comboBox_currentIndexChanged(const QString &arg1)
 }
 
 
+
+void MainWindow::on_comboBox_currentTextChanged(const QString &arg1)
+{
+    employe e=tmpemploye.recherche_Id(ui->comboBox->currentText().toInt());
+    QString id= QString::number(e.getId());
+    QString salaire= QString::number(e.getSalaire());
+    ui->id_emp_2->setText(id);
+    ui->nom_emp_2->setText(e.getNom());
+    ui->prenom_emp_2->setText(e.getprenom());
+    ui->date_naissance_emp_2->setDate(e.getDate_naissance());
+    ui->salaire_emp_2->setText(salaire);
+}
+
+void MainWindow::sendMail()
+{
+    Smtp* smtp = new Smtp("lina.khammeri@esprit.tn","191JFT1097", "smtp.gmail.com", 465,30000);
+    connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+
+
+    smtp->sendMail("lina.khammeri@esprit.tn", ui->rcpt->text() , ui->subject->text(),ui->msg->toPlainText());
+}
+
+void MainWindow::mailSent(QString status)
+{
+    if(status == "Message sent")
+        QMessageBox::warning( 0, tr( "Qt Simple SMTP client" ), tr( "Message sent!\n\n" ) );
+}
+
+void MainWindow::on_stats_clicked()
+{
+    statistiques *s=new statistiques();
+    s->show();
+}
+
+void MainWindow::on_id_emp_textChanged(const QString &arg1)
+{
+    employe e=tmpemploye.recherche_Id(ui->id_emp->text().toInt());
+    if(e.getNom()!=""){
+        ui->test_id_emp->setText("employe existe");
+    }
+    else{
+        ui->test_id_emp->setText("");
+    }
+}

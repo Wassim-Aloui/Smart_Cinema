@@ -8,13 +8,14 @@ employe::employe()
 }
 //test2
 
-employe::employe(int id,QString nom,QString prenom,QDate date_naissance,double salaire)
+employe::employe(int id,QString nom,QString prenom,QDate date_naissance,double salaire,QString email)
 {
     this->id=id;
     this->nom=nom;
     this->prenom=prenom;
     this->date_naissance=date_naissance;
     this->salaire=salaire;
+    this->email=email;
 }
 employe::~employe()
 {
@@ -52,35 +53,61 @@ double employe::getSalaire(){
 void employe::setSalaire(double salaire){
     this->salaire=salaire;
 }
+QString employe::getEmail(){
+    return email;
+}
+void employe::setEmail(QString email){
+    this->email=email;
+}
+
+
+
 
 bool employe::ajouter(){
     QSqlQuery query;
-    query.prepare("insert into employe (id,nom,prenom,date_naissance,salaire) values (:id,:nom,:prenom,:date_naissance,:salaire)");
+    query.prepare("insert into employe (id,nom,prenom,date_naissance,salaire,email) values (:id,:nom,:prenom,:date_naissance,:salaire,:email)");
     query.bindValue(":id",id);
     query.bindValue(":nom",nom);
     query.bindValue(":prenom",prenom);
     query.bindValue(":date_naissance",date_naissance);
     query.bindValue(":salaire",salaire);
+    query.bindValue(":email",email);
 
     return query.exec();
 }
 
 bool employe::supprimer(int id){
-    QSqlQuery query;
-    query.prepare("delete from employe where id=:id");
-    query.bindValue(":id",id);
+    QSqlQuery q;
+    q.prepare("select * from employe where id=:id");
+    q.bindValue(":id",id);
+    q.exec();
+    int total=0;
+    while(q.next()){
+        total++;
+    }
+    if(total==1){
+        QSqlQuery query;
+        query.prepare("delete from employe where id=:id");
+        query.bindValue(":id",id);
 
-    return query.exec();
+        return query.exec();
+    }
+    else{
+        return false;
+    }
+
+
 }
 
 bool employe::modifier(int idc){
     QSqlQuery query;
-    query.prepare("update employe set id=:id,nom=:nom,prenom=:prenom,date_naissance=:date_naissance,salaire=:salaire where id=:idc");
+    query.prepare("update employe set id=:id,nom=:nom,prenom=:prenom,date_naissance=:date_naissance,salaire=:salaire,email=:email where id=:idc");
     query.bindValue(":id",id);
     query.bindValue(":nom",nom);
     query.bindValue(":prenom",prenom);
     query.bindValue(":date_naissance",date_naissance);
     query.bindValue(":salaire",salaire);
+    query.bindValue(":email",email);
     query.bindValue(":idc",idc);
 
     return query.exec();
@@ -94,6 +121,7 @@ QSqlQueryModel * employe::afficher(){
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("PRENOM"));
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("Date naissance"));
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("Salaire"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("Email"));
 
     return model;
 }
@@ -205,6 +233,7 @@ employe employe::recherche_Id(int id){
         e.setPrenom(query.value(2).toString());
         e.setDate_naissance(query.value(3).toDate());
         e.setSalaire(query.value(4).toDouble());
+        e.setEmail(query.value(5).toString());
     }
 
     return e;
@@ -220,4 +249,32 @@ QSqlQueryModel* employe::Filter(int){
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("DATE N"));
 
     return model;
+}
+
+QStringList employe::listemploye(){
+    QSqlQuery query;
+    query.prepare("select * from employe");
+    query.exec();
+    QStringList list;
+    while(query.next()){
+        list.append(query.value(0).toString());
+    }
+
+    return list;
+
+}
+
+int employe::calcul_employe(int min, int max){
+    QSqlQuery query;
+    query.prepare("select *from employe where salaire between :min and :max");
+    query.bindValue(":min",min);
+    query.bindValue(":max",max);
+    query.exec();
+
+    int total=0;
+    while(query.next()){
+        total++;
+    }
+
+    return total;
 }
