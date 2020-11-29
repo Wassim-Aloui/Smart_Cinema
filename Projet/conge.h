@@ -39,6 +39,9 @@ public:
      bool modifier(int);
      QSqlQueryModel* afficher();
      Conge recherche_ref(int);
+     QSqlQueryModel * chercher_conge_par_duree( int);
+     QSqlQueryModel * chercher_conge_par_type(QString);
+     QSqlQueryModel * chercher_conge_par_ref( int);
 };
 
 #endif // CONGE_H

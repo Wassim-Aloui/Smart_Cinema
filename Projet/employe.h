@@ -4,6 +4,7 @@
 #include<QDate>
 #include<QSqlQueryModel>
 #include<QSqlQuery>
+#include"conge.h"
 
 class employe
 {
@@ -13,6 +14,9 @@ class employe
     QDate date_naissance;
     double salaire;
     QString email;
+
+
+    Conge tmpconge;
 
 public:
     employe();
@@ -41,9 +45,13 @@ public:
     QSqlQueryModel* trier();
     QSqlQueryModel* trier1();
     QSqlQueryModel* trier2();
-    QSqlQueryModel * chercher_employe_par_nom(QString m);
-    QSqlQueryModel * chercher_employe_par_prenom(QString p);
-    QSqlQueryModel * chercher_employe_par_id(QString idd);
+    QSqlQueryModel * recherche_emp(const QString&);
+    QSqlQueryModel * chercher_emp_nom_id(const QString &str);
+     QSqlQueryModel * chercher_emp_nom_prenom(const QString &str);
+      QSqlQueryModel * chercher_emp_id_prenom(const QString &str);
+    QSqlQueryModel * chercher_employe_par_nom( QString);
+    QSqlQueryModel * chercher_employe_par_prenom(QString);
+    QSqlQueryModel * chercher_employe_par_id( int);
      QSqlQueryModel* Filter(int);
     //QSqlQueryModel* rechercher(QString str,QString str1,int i); ///const QString & QString
     QStringList listemploye();

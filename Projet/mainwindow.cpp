@@ -142,6 +142,8 @@ void MainWindow::on_tab_widget_planning_currentChanged(int index)
     ui->comboBox_4->addItems(tmpconge.listconge());
     ui->comboBox_id_emp->clear();
     ui->comboBox_id_emp->addItems(tmpemploye.listemploye());
+    ui->comboBox_id_emp_2->clear();
+    ui->comboBox_id_emp_2->addItems(tmpemploye.listemploye());
 }
 
 
@@ -157,8 +159,8 @@ void MainWindow::on_ajouter_conge_clicked()
         ui->duree_conge_e_1->setText("");
         ui->date_conge_e_1->setDate(QDate(2000,01,01));
         ui->type_e_1->setText("");
-        //ui->comboBox_id_emp_2->clear();
-        //ui->comboBox_id_emp_2->addItems(tmpemploye.listemploye());
+        ui->comboBox_id_emp->clear();
+       ui->comboBox_id_emp->addItems(tmpemploye.listemploye());
     }
     else{
         QMessageBox::critical(nullptr, QObject::tr("Conge"),
@@ -167,28 +169,6 @@ void MainWindow::on_ajouter_conge_clicked()
 }
 
 
-void MainWindow::on_modifier_conge_clicked()
-{
-    Conge c(ui->ref_conge_e2->text().toInt(),ui->duree_conge_e_2->text().toInt(),ui->date_conge_e_2->date(),ui->type_conge_e_2->text(),ui->comboBox_id_emp_2->currentText().toInt());
-    bool test=c.modifier(ui->comboc1->currentText().toInt());
-    if(test){
-        QMessageBox::information(nullptr, QObject::tr("Conge"),
-                    QObject::tr("congé modifié avec succés.\n"), QMessageBox::Cancel);
-        ui->tab_employe->setModel(tmpconge.afficher());
-        ui->ref_conge_e2->setText("");
-        ui->duree_conge_e_2->setText("");
-        ui->date_conge_e_2->setDate(QDate(2000,01,01));
-        ui->type_conge_e_2->setText("");
-        ui->ref_conge_mod->setText("");
-            ui->comboc1->clear();
-            ui->comboc1->addItems(tmpconge.listconge());
-
-    }
-    else{
-        QMessageBox::critical(nullptr, QObject::tr("Conge"),
-                    QObject::tr("Echec!\n"), QMessageBox::Cancel);
-    }
-}
 
 void MainWindow::on_supprimer_conge_clicked()
 {
@@ -255,27 +235,65 @@ void MainWindow::on_tri_emp_2_clicked()
 }
 
 
-void MainWindow::on_date_conge_e_7_textChanged(const QString &arg1)
+/*void MainWindow::on_date_conge_e_7_textChanged(const QString &arg1)
 {
     //ui->tab_employe_2->setModel(tmpemploye.rechercher(ui->date_conge_e_7->text())); ///lcase mta3 rechercher( ui->date_conge_e_7->text()))
+        bool nom=ui->checkBoxRechNom->isChecked();
+        bool prenom=ui->checkBoxRechPrenom->isChecked();
+        bool id=ui->checkBoxRechId->isChecked();
+        const QString rech=ui->date_conge_e_7->text();
 
-}
+        if((nom && prenom && id) || (!nom && !prenom && !id)){
+            ui->tab_employe_2->setModel(tmpemploye.recherche_emp(rech));
+            qDebug() <<"3!!";
+        }
+
+        else{
+            if(nom){
+                if(prenom){
+                    ui->tab_employe_2->setModel(tmpemploye.chercher_emp_nom_prenom(rech));
+                    qDebug()<<"nom w prenom";
+                }
+                else if(id){
+                    ui->tab_employe_2->setModel(tmpemploye.chercher_emp_nom_id(rech));
+                    qDebug()<<"nom w id";
+                }
+                else{
+                    ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_nom(rech));
+                }
+            }
+            else if(prenom){
+                if(id){
+                    ui->tab_employe_2->setModel(tmpemploye.chercher_emp_id_prenom(rech));
+                    qDebug()<<"prenom w id";
+                }
+                else{
+                    ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_prenom(rech));
+                }
+            }
+            else{
+                ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_id(rech));
+            }
+        }
+
+    }*/
 
 
 
-void MainWindow::on_rech_emp2_clicked()            ///
+
+/*void MainWindow::on_rech_emp2_clicked()
 {
   // ui->tab_employe_2->setModel(tmpemploye.rechercher(ui->date_conge_e_7->text(),ui->date_conge_e_9->text(),ui->date_conge_e_8->text().toInt())); ///lcase mta3 rechercher( ui->date_conge_e_7->text()))
    //ui->tab_employe_2->setModel(tmpemploye.rechercher(ui->date_conge_e_9->text()));
    QString m =ui->date_conge_e_7->text();
        QString l = ui->date_conge_e_8->text(); //id
          QString k = ui->date_conge_e_9->text();
-        /*if (k != ""){
+        if (k != ""){
            ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_prenom(k)) ;}
             if (l != ""){
            ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_id(l)) ;}
             if (m!= ""){
-           ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_nom(m)) ;*/
+           ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_nom(m)) ;
          if((m!="")&&(k!="")&&(l!="")){
                  ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_nom(m)) ;
                  ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_prenom(k)) ;
@@ -315,7 +333,7 @@ void MainWindow::on_rech_emp2_clicked()            ///
               }
 
 
-}
+} */
 
 
 
@@ -337,12 +355,6 @@ void MainWindow::on_comboBox_activated(const QString &arg1)
 
 }
 
-/*void MainWindow::on_comboBox_currentIndexChanged(int index)
-{// ui->comboBox->setModel(tmpemploye.afficher());
-   // ui->comboBox->currentIndex();
-       // ui->tab_employe_3->setModel(tmpemploye.Filter(index));
-}*/
-
 
 
 void MainWindow::on_comboBox_currentTextChanged(const QString &arg1)
@@ -355,7 +367,7 @@ void MainWindow::on_comboBox_currentTextChanged(const QString &arg1)
     ui->prenom_emp_2->setText(e.getprenom());
     ui->date_naissance_emp_2->setDate(e.getDate_naissance());
     ui->salaire_emp_2->setText(salaire);
-
+    ui->email_emp_2->setText(e.getEmail());
 }
 void MainWindow::on_combo2_currentTextChanged(const QString &arg1)
 {
@@ -478,6 +490,31 @@ void MainWindow::on_mdf_clicked()
     }
 }
 
+void MainWindow::on_modifier_conge_clicked()
+{
+    Conge c(ui->comboc1->currentText().toInt(),ui->duree_conge_e_2->text().toInt(),ui->date_conge_e_2->date(),ui->type_conge_e_2->text(),ui->comboc1->currentText().toInt());
+    bool test=c.modifier(ui->comboc1->currentText().toInt());
+    if(test){
+        QMessageBox::information(nullptr, QObject::tr("Conge"),
+                    QObject::tr("congé modifié avec succés.\n"), QMessageBox::Cancel);
+        ui->tab_affichage_conge->setModel(tmpconge.afficher());
+
+        ui->duree_conge_e_2->setText("");
+        ui->date_conge_e_2->setDate(QDate(2000,01,01));
+        ui->type_conge_e_2->setText("");
+        //ui->ref_conge_mod->setText("");
+        ui->comboc1->clear();
+        ui->comboc1->addItems(tmpconge.listconge());
+        ui->comboBox_id_emp_2->clear();
+        ui->comboBox_id_emp_2->currentText().toInt();
+
+    }
+    else{
+        QMessageBox::critical(nullptr, QObject::tr("Conge"),
+                    QObject::tr("Echec!\n"), QMessageBox::Cancel);
+    }
+}
+
 void MainWindow::on_id_conge_e_1_textChanged(const QString &arg1)
 {
     Conge c=tmpconge.recherche_ref(ui->id_conge_e_1->text().toInt());
@@ -518,3 +555,47 @@ void MainWindow::on_Touslesconges_3_clicked()
 
 
 
+
+void MainWindow::on_rech_emp2_clicked()
+{
+
+    QString nom_e =ui->date_conge_e_7->text();
+        int id_e = ui->date_conge_e_8->text().toInt(); //id
+          QString prenom_e = ui->date_conge_e_9->text();
+          if ( nom_e!= ""){
+         ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_nom(nom_e)) ;}
+         if (id_e != 0){
+            ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_id(id_e)) ;}
+
+             if (prenom_e!= ""){
+            ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_prenom(prenom_e)) ;
+
+
+}}
+
+
+void MainWindow::on_date_conge_e_4_textChanged(const QString &arg1)
+{
+    Conge c=tmpconge.recherche_ref(ui->date_conge_e_4->text().toInt());
+    if(c.gettype()!=""){
+        ui->label_35->setText("conge existe");
+    }
+    else{
+        ui->label_35->setText("");
+    }
+}
+
+void MainWindow::on_rech_emp2_2_clicked()
+{
+    int refc =ui->date_conge_e_4->text().toUInt();
+    int dureec = ui->heure_conge_e_4->text().toInt(); //id
+          QString typec = ui->heure_conge_e_5->text();
+          if ( refc != 0){
+         ui->tab_affichage_conge_2->setModel(tmpconge.chercher_conge_par_ref(refc)) ;}
+         if (dureec != 0){
+            ui->tab_affichage_conge_2->setModel(tmpconge.chercher_conge_par_duree(dureec)) ;}
+
+             if (typec!= ""){
+            ui->tab_affichage_conge_2->setModel(tmpconge.chercher_conge_par_type(typec)) ;
+}
+}

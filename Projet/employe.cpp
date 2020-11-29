@@ -86,6 +86,14 @@ bool employe::supprimer(int id){
         total++;
     }
     if(total==1){
+        QSqlQuery q;
+        q.prepare("select * from conge where id_emp=:idemp");
+        q.bindValue(":idemp",id);
+        q.exec();
+        while(q.next()){
+            tmpconge.supprimer(q.value(0).toInt());
+        }
+
         QSqlQuery query;
         query.prepare("delete from employe where id=:id");
         query.bindValue(":id",id);
@@ -137,11 +145,11 @@ QSqlQueryModel * employe::afficher(){
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("Salaire"));
     return model;
 }*/
-QSqlQueryModel * employe::chercher_employe_par_nom(QString m)
+QSqlQueryModel * employe::chercher_employe_par_nom( QString n)
  {
 
     {QSqlQueryModel *model = new QSqlQueryModel;
-        model->setQuery("SELECT * FROM EMPLOYE WHERE NOM like '"+m+"%' ");
+        model->setQuery("SELECT * FROM EMPLOYE WHERE NOM like '"+n+"%' ");
         model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
         model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
         model->setHeaderData(2, Qt::Horizontal, QObject::tr("PRENOM"));
@@ -165,12 +173,13 @@ QSqlQueryModel * employe::chercher_employe_par_prenom(QString p)
     }
 
  }
-QSqlQueryModel *employe::chercher_employe_par_id(QString idd)
+QSqlQueryModel *employe::chercher_employe_par_id(int idd)
  {
 
     {
         QSqlQueryModel *model = new QSqlQueryModel;
-        model->setQuery("SELECT * FROM EMPLOYE WHERE ID like '"+idd+"' ");
+        QString res=QString::number(idd);
+        model->setQuery("SELECT * FROM EMPLOYE WHERE ID like '"+res+"%' ");
         model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
         model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
         model->setHeaderData(2, Qt::Horizontal, QObject::tr("PRENOM"));
@@ -178,6 +187,41 @@ QSqlQueryModel *employe::chercher_employe_par_id(QString idd)
         model->setHeaderData(4, Qt::Horizontal, QObject::tr("Salaire"));
         return model ;
     }
+}
+QSqlQueryModel * employe::chercher_emp_nom_id(const QString &str){
+    QSqlQueryModel *model=new QSqlQueryModel();
+    model->setQuery("select * from departement where nom like '"+str+"%' or id like '"+str+"%'");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("PRENOM"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Date naissance"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Salaire"));
+
+
+    return model;
+}
+QSqlQueryModel * employe::chercher_emp_nom_prenom(const QString &str){
+    QSqlQueryModel *model=new QSqlQueryModel();
+    model->setQuery("select * from departement where nom like '"+str+"%' or prenom like '"+str+"%'" );
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("PRENOM"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Date naissance"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Salaire"));
+
+
+    return model;
+}
+QSqlQueryModel *employe::chercher_emp_id_prenom(const QString &str){
+    QSqlQueryModel *model=new QSqlQueryModel();
+    model->setQuery("select * from departement where id like '"+str+"%' or prenom like '"+str+"%'" );
+    model->setHeaderData(0,Qt::Horizontal, QObject::tr("ID_DEPARTEMENTs"));
+    model->setHeaderData(1,Qt::Horizontal, QObject::tr("NOM"));
+    model->setHeaderData(2,Qt::Horizontal, QObject::tr("NOMBRE_EMP"));
+    model->setHeaderData(3,Qt::Horizontal, QObject::tr("DATE_CR"));
+
+
+    return model;
 }
 
 QSqlQueryModel* employe:: trier()
@@ -293,7 +337,17 @@ QStringList employe::listemploye1(){
     return list;
 
 }
+QSqlQueryModel * employe::recherche_emp(const QString &str){
+    QSqlQueryModel *model=new QSqlQueryModel();
+    model->setQuery("select * from employet where nom like '"+str+"%' or id like '"+str+"%' or prenom like '"+str+"%'");
+    model->setHeaderData(0,Qt::Horizontal, QObject::tr("ID_DEPARTEMENTs"));
+    model->setHeaderData(1,Qt::Horizontal, QObject::tr("NOM"));
+    model->setHeaderData(2,Qt::Horizontal, QObject::tr("NOMBRE_EMP"));
+    model->setHeaderData(3,Qt::Horizontal, QObject::tr("DATE_CR"));
 
+
+    return model;
+}
 
 int employe::calcul_employe(int min, int max){
     QSqlQuery query;

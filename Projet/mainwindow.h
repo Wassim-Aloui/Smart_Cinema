@@ -101,6 +101,10 @@ private slots:
 
     void on_stats_2_clicked();
 
+    void on_date_conge_e_4_textChanged(const QString &arg1);
+
+    void on_rech_emp2_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     employe tmpemploye;

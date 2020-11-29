@@ -132,24 +132,80 @@ bool Conge::ajouter1(){
     return query.exec();
 }
 
+QSqlQueryModel * Conge::chercher_conge_par_duree( int d)
+ {
+
+    {QSqlQueryModel *model = new QSqlQueryModel;
+        QString res=QString::number(d);
+        model->setQuery("SELECT * FROM Conge WHERE duree like '"+res+"%' ");
+        model->setHeaderData(0, Qt::Horizontal, QObject::tr("REF"));
+        model->setHeaderData(1, Qt::Horizontal, QObject::tr("DUREE"));
+        model->setHeaderData(2, Qt::Horizontal, QObject::tr("DATE"));
+        model->setHeaderData(3, Qt::Horizontal, QObject::tr("TYPE"));
+        model->setHeaderData(4, Qt::Horizontal, QObject::tr("ID EMPLOYE"));
+        return model;
+    }
+
+ }
+QSqlQueryModel* Conge::chercher_conge_par_type( QString t)
+ {
+
+    {QSqlQueryModel *model = new QSqlQueryModel;
+        model->setQuery("SELECT * FROM conge WHERE type like '"+t+"%'  ");
+        model->setHeaderData(0, Qt::Horizontal, QObject::tr("REF"));
+        model->setHeaderData(1, Qt::Horizontal, QObject::tr("DUREE"));
+        model->setHeaderData(2, Qt::Horizontal, QObject::tr("DATE"));
+        model->setHeaderData(3, Qt::Horizontal, QObject::tr("TYPE"));
+        model->setHeaderData(4, Qt::Horizontal, QObject::tr("ID EMPLOYE"));
+        return model;
+    }
+
+ }
+QSqlQueryModel *Conge::chercher_conge_par_ref(int reff)
+ {
+
+    {
+        QSqlQueryModel *model = new QSqlQueryModel;
+        QString res=QString::number(reff);
+        model->setQuery("SELECT * FROM Conge WHERE ref like '"+res+"%' ");
+        model->setHeaderData(0, Qt::Horizontal, QObject::tr("REF"));
+        model->setHeaderData(1, Qt::Horizontal, QObject::tr("DUREE"));
+        model->setHeaderData(2, Qt::Horizontal, QObject::tr("DATE"));
+        model->setHeaderData(3, Qt::Horizontal, QObject::tr("TYPE"));
+        model->setHeaderData(4, Qt::Horizontal, QObject::tr("ID EMPLOYE"));
+        return model;
+    }
+}
 bool Conge::supprimer(int ref){
 
-    QSqlQuery query;
-    query.prepare("delete from Conge where ref=:ref");
-    query.bindValue(":ref",ref);
+    QSqlQuery q;
+    q.prepare("select * from conge where ref=:id");
+    q.bindValue(":id",ref);
+    q.exec();
+    int total=0; //mch mawjoud mayfasakhch
+    while(q.next()){
+        total++;
+    }
+    if(total==1){
+        QSqlQuery query;
+        query.prepare("delete from Conge where ref=:ref");
+        query.bindValue(":ref",ref);
 
-    return query.exec();
+        return query.exec();
+    }
+    else{
+        return false;
+    }
+
 }
 
 bool Conge::modifier(int refc){
     QSqlQuery query;
-    query.prepare("update Conge set ref=:ref,duree=:duree,date=:date,type=:type,id_emp=:id_emp where ref=:refc");
-    query.bindValue(":id",ref);
+    query.prepare("update Conge set duree=:duree,date_c=:date,type=:type where ref=:refc");
     query.bindValue(":duree",duree);
     query.bindValue(":date",date_c);
     query.bindValue(":type",type);
     query.bindValue(":refc",refc);
-    query.bindValue(":id_emp",id_emp);
 
     return query.exec();
 }
