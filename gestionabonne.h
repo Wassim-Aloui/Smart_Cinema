@@ -80,6 +80,25 @@ private slots:
 
     void on_statis_abonnement_clicked();
 
+    void on_statis_chart_clicked();
+
+
+
+
+    void on_radioButton_5_clicked();
+
+    void on_afficher_abonnement_3_clicked();
+
+    void on_afficher_abonnement_modif_clicked();
+
+
+
+
+
+    void on_modifier_affiche_abonnement_clicked();
+
+    void on_affiche_supp_abonnement_clicked();
+
 private:
     Ui::gestionabonne *ui;
     Abonnee tmpabonnee;

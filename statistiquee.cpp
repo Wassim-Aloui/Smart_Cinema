@@ -32,7 +32,7 @@ statistiquee::statistiquee(QWidget *parent) :
                    /*QValueAxis *axisY = new QValueAxis();
                    axisY->setTitleText("NOMBRE D'ABONNES");
                    axisY->setLabelFormat("%.2f");
-                   chart->addAxis(axisY, Qt::AlignLeft);
+                   chart->addAxis(axisY,Qt::AlignLeft);
                    series->attachAxis(axisY);
                    series->attachAxis(axisY);
                    series->attachAxis(axisY);*/
@@ -45,12 +45,7 @@ statistiquee::statistiquee(QWidget *parent) :
            mainLayout->addWidget(chartview, 1, 1);
            setLayout(mainLayout);
 
-
-
-          // series->attachAxis(axisY);
-
-       //chartview->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Ignored);
-
+           set1->setColor(Qt::black);
 
 
 

@@ -13,10 +13,20 @@ Abonnee::Abonnee(int id ,QString nom ,QString prenom,QString tarif,QString ville
     this->ville=ville;
 }
 QString Abonnee ::get_nom(){return nom;}
+void Abonnee::setnom(QString nom){
+    this->nom=nom;}
 QString Abonnee ::get_prenom(){return prenom;}
+void Abonnee::setprenom(QString prenom){
+    this->prenom=prenom;}
 QString Abonnee ::get_tarif(){return tarif;}
+void Abonnee::settarif(QString tarif){
+    this->tarif=tarif;}
 QString Abonnee ::get_ville(){return ville;}
+void Abonnee::setville(QString ville){
+    this->ville=ville;}
 int Abonnee ::get_id(){return id;}
+void Abonnee::setId(int id){
+    this->id=id;}
 
 bool Abonnee::ajouter()
 {
@@ -44,13 +54,27 @@ QSqlQueryModel * Abonnee::afficher(){
 
 }
 
-bool Abonnee :: supprimer(int idd)
+bool Abonnee :: supprimer(int id)
 {
-    QSqlQuery query;
-    QString res= QString::number(idd);
-    query.prepare("Delete from abonnee where ID = :id");
-    query.bindValue(":id",res);
-    return query.exec();
+    QSqlQuery q;
+    QString res= QString::number(id);
+    q.prepare("select * from abonnee where ID = :id");
+    q.bindValue(":id",res);
+    q.exec();
+    int total=0; //s'il n'existe pas
+    while(q.next()){
+        total++;
+    }
+    if(total==1){
+        QSqlQuery query;
+        query.prepare("delete from abonnee where id=:id");
+        query.bindValue(":id",id);
+
+        return query.exec();
+    }
+    else{
+        return false;
+    }
 
 }
 bool Abonnee::modifier(int i,QString b,QString c,QString d,QString e){
@@ -167,10 +191,7 @@ int Abonnee::calculerenfant(int )
 int Abonnee::calculertarif(int)
 {
     QSqlQuery query ;
-    //query.prepare("select sum(case TARIF when 'Tarif plein' then 1 else 0 end) from ABONNEE;");
-    //query.bindValue(":tarif",t);
     QSqlQuery q("select * from ABONNEE where TARIF='Tarif plein'") ;
-    //query.exec();
     int total=0;
     while (q.next()){
         total++;

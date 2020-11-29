@@ -5,7 +5,7 @@
 #include<QMessageBox>
 #include"connection.h"
 #include "statistiquee.h"
-
+#include"stat2.h"
 gestionabonne::gestionabonne(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::gestionabonne)
@@ -15,11 +15,13 @@ gestionabonne::gestionabonne(QWidget *parent) :
     ui->table_abonne->setModel(tmpabonnee.afficher());
     ui->id_abonne_e_1->setValidator (new QIntValidator(0,99999999, this));
     ui->id_modifier_abonne->setValidator(new QIntValidator(0,99999999,this));
-ui->tab_abonnement->setModel(tmpabonnement.afficher());
+     ui->id_supp_abonne->setValidator(new QIntValidator(0,99999999,this));
+
+    ui->tab_abonnement->setModel(tmpabonnement.afficher());
     ui->num_abonnement_1->setValidator (new QIntValidator(0,99999999, this));
     ui->id_abonnement_2->setValidator(new QIntValidator(0,99999999,this));
+    ui->id_abonnement_3->setValidator(new QIntValidator(0,99999999,this));
 
-//model = new CustomTableModel;
 }
 
 gestionabonne::~gestionabonne()
@@ -74,7 +76,7 @@ if(test)
 }
 else   {
     QMessageBox::critical(nullptr, QObject::tr("Supprimer un abonnee"),
-                               QObject::tr("Abonnee non supprimé.\n"),QMessageBox::Ok);
+                               QObject::tr("Echec !\nAbonné non trouvé.\n"),QMessageBox::Ok);
 }
 }
 
@@ -147,7 +149,7 @@ void gestionabonne::on_modifier_abonnement_2_clicked()
 {
 
     int num= ui->id_abonnement_2->text().toInt();
-   int prix= ui->prix_abonnement_2->text().toInt();
+   int prix= ui->prix_abonnement_3->text().toInt();
     QString duree= ui->duree_abonnement_2->text();
     QString type= ui->type_abonnement_2->text();
     int id= ui->ida_abonnement_2->text().toInt();
@@ -297,4 +299,34 @@ void gestionabonne::on_afficher_abonnement_4_clicked()
 void gestionabonne::on_statis_abonnement_clicked()
 {
      ui->tableViewstatis->setModel(tmpabonnement.statis());
+}
+
+void gestionabonne::on_statis_chart_clicked()
+{
+    Stat2 *s=new Stat2();
+        s->show();
+}
+void gestionabonne::on_radioButton_5_clicked()
+{
+    ui->tableView9->setModel(tmpabonnement.ajout());
+}
+void gestionabonne::on_afficher_abonnement_3_clicked()
+{
+    ui->tableViewsupp->setModel(tmpabonnement.afficher());
+}
+
+void gestionabonne::on_afficher_abonnement_modif_clicked()
+{
+     ui->tableViewmodif->setModel(tmpabonnement.afficher());
+}
+
+
+void gestionabonne::on_modifier_affiche_abonnement_clicked()
+{
+     ui->table_abonne_3->setModel(tmpabonnee.afficher());
+}
+
+void gestionabonne::on_affiche_supp_abonnement_clicked()
+{
+    ui->table_rech_abonne_3->setModel(tmpabonnee.afficher());
 }

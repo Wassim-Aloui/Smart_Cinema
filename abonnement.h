@@ -18,6 +18,7 @@ public:
         bool supprimer(int);
         bool modifiera(int,int,QString,QString,int);
         bool rech(int y);
+
         QSqlQueryModel * triduree();
         QSqlQueryModel * tritype();
         QSqlQueryModel * triprix();
@@ -26,8 +27,12 @@ public:
         QSqlQueryModel * searchduree(QString);
         QSqlQueryModel * searchtype(QString);
 
-         QSqlQueryModel * statis();
+        QSqlQueryModel * statis();
 
+        int calculertype1(int);
+        int calculertype2(int);
+        int calculertype3(int);
+        QSqlQueryModel * ajout();
 
 private :
          int num,prix,id;

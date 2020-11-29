@@ -1,5 +1,5 @@
 #include "abonnement.h"
-
+#include "abonnee.h"
 Abonnement::Abonnement()
 {
 num=prix=id=0;
@@ -60,8 +60,8 @@ bool Abonnement :: supprimer(int n)
 bool Abonnement::modifiera(int n,int p,QString d,QString t,int i){
     QSqlQuery query;
     QString res=QString::number(n);
-    QString ress=QString::number(p);
-    QString id=QString::number(i);
+    /*QString r=QString::number(p);
+    QString id=QString::number(i);*/
     query.prepare("UPDATE Abonnement set num=:num ,prix=:prix ,duree=:duree ,type=:type ,id_abonnee=:id where num ='"+res+"'");
     query.bindValue(":num",n);
     query.bindValue(":prix",p);
@@ -149,3 +149,38 @@ QSqlQueryModel * Abonnement::statis(){
     model->setHeaderData(1, Qt::Horizontal,  QObject::tr("TYPE"));
     return  model;
 }
+int Abonnement::calculertype1(int)
+    {
+        QSqlQuery query ;
+        QSqlQuery q("select * from ABONNEMENT where TYPE='Cinepass duo'") ;
+        int total=0;
+        while (q.next()){
+            total++;
+        }
+        return total;
+    }
+int Abonnement::calculertype2(int){
+    QSqlQuery query ;
+    QSqlQuery q("select * from ABONNEMENT where TYPE='Cinepass'");
+    int total=0;
+    while (q.next()){
+        total++;
+    }
+    return total;
+}
+int Abonnement::calculertype3(int){
+    QSqlQuery query ;
+    QSqlQuery q("select * from ABONNEMENT where TYPE='Cinepass -26'") ;
+    int total=0;
+    while (q.next()){
+        total++;
+    }
+    return total;
+}
+QSqlQueryModel * Abonnement::ajout(){
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("SELECT id FROM abonnee WHERE NOT EXISTS (SELECT id_abonnee FROM ABONNEMENT WHERE ABONNEE.id = abonnement.id_abonnee)");
+    model->setHeaderData(0, Qt::Horizontal,  QObject::tr("ID de l'ABONNE"));
+    return  model;
+}
+
