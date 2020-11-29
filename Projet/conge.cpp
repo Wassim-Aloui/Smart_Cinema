@@ -8,6 +8,30 @@ Conge::Conge()
     id_emp=0;
 }
 
+QStringList Conge::listconge(){
+    QSqlQuery query;
+    query.prepare("select * from conge");
+    query.exec();
+    QStringList list;
+    while(query.next()){
+        list.append(query.value(0).toString());
+    }
+
+    return list;
+
+}
+QStringList Conge::listconge1(){
+    QSqlQuery query;
+    query.prepare("select * from conge");
+    query.exec();
+    QStringList list;
+    while(query.next()){
+        list.append(query.value(5).toString());
+    }
+
+    return list;
+
+}
 
 Conge::Conge(int ref, int duree,QDate date,QString type,int id_emp)
 {
@@ -20,6 +44,45 @@ Conge::Conge(int ref, int duree,QDate date,QString type,int id_emp)
 Conge::~Conge()
 {
 
+}
+QSqlQueryModel* Conge:: trier()
+{
+
+    QSqlQueryModel * model=new QSqlQueryModel();
+     model->setQuery("select * from conge order by id_emp ");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("REF"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("DUREE"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("DATE"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("TYPE"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("ID EMPLOYE"));
+
+    return model;
+}
+
+QSqlQueryModel* Conge:: trier1()
+{
+
+    QSqlQueryModel * model=new QSqlQueryModel();
+    model->setQuery("select * from conge order by duree ");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("REF"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("DUREE"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("DATE"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("TYPE"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("ID EMPLOYE"));
+    return model;
+}
+QSqlQueryModel* Conge:: trier2()
+{
+
+    QSqlQueryModel * model=new QSqlQueryModel();
+    model->setQuery("select * from conge order by type ");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("REF"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("DUREE"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("DATE"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("TYPE"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("ID EMPLOYE"));
+
+    return model;
 }
 
 int Conge::getref(){
@@ -93,12 +156,12 @@ bool Conge::modifier(int refc){
 
 QSqlQueryModel * Conge::afficher(){
     QSqlQueryModel * model=new QSqlQueryModel();
-    model->setQuery("select ref,duree,date_c,type,nom from Conge inner join employe on conge.id_emp=employe.id");
+    model->setQuery("select ref,duree,date_c,type,id from Conge inner join employe on conge.id_emp=employe.id");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("REF"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("DUREE"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("DATE"));
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("TYPE"));
-    model->setHeaderData(4, Qt::Horizontal, QObject::tr("EMPLOYE"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr(" ID EMPLOYE"));
 
     return model;
 }
@@ -118,4 +181,18 @@ Conge Conge::recherche_ref(int ref){
     }
 
     return c;
+}
+int Conge::calcul_conge(int min, int max){
+    QSqlQuery query;
+    query.prepare("select *from conge where duree between :min and :max");
+    query.bindValue(":min",min);
+    query.bindValue(":max",max);
+    query.exec();
+
+    int total=0;
+    while(query.next()){
+        total++;
+    }
+
+    return total;
 }

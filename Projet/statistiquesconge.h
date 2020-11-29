@@ -1,5 +1,6 @@
-#ifndef STATISTIQUES_H
-#define STATISTIQUES_H
+#ifndef STATISTIQUESCONGE_H
+#define STATISTIQUESCONGE_H
+
 
 #include <QMainWindow>
 #include<QtCharts/QChartView>
@@ -12,26 +13,26 @@
 #include<QtCharts/QCategoryAxis>
 #include<QtCharts/QPieSeries>
 #include<QtCharts/QPieSlice>
-#include"employe.h"
-
+#include"conge.h"
 
 QT_CHARTS_USE_NAMESPACE
+
+
 namespace Ui {
-class statistiques;
+class statistiquesconge;
 }
-
-class statistiques : public QMainWindow
-{
-    Q_OBJECT
-
+class statistiquesconge
+{  Q_OBJECT
 public:
-    explicit statistiques(QWidget *parent = nullptr);
-    ~statistiques();
+
+    statistiquesconge();
+
+    explicit statistiquesconge(QWidget *parent = nullptr);
+    ~statistiquesconge();
 
 private:
-    Ui::statistiques *ui;
-    employe tmpemploye;
-
+    Ui::statistiquesconge *ui;
+    Conge tmpemploye;
 };
 
-#endif // STATISTIQUES_H
+#endif // STATISTIQUESCONGE_H

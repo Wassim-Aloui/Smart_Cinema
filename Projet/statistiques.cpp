@@ -19,7 +19,6 @@ statistiques::statistiques(QWidget *parent) :
     chart->addSeries(series);
     chart->setTitle("les salaires des employes");
     chart->setAnimationOptions(QChart::AllAnimations);
-
     QChartView *chartview=new QChartView(chart);
 
     this->setCentralWidget(chartview);

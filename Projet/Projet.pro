@@ -17,6 +17,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     smtp.cpp \
+    statcng.cpp \
     statistiques.cpp
 
 HEADERS += \
@@ -25,10 +26,12 @@ HEADERS += \
     employe.h \
     mainwindow.h \
     smtp.h \
+    statcng.h \
     statistiques.h
 
 FORMS += \
     mainwindow.ui \
+    statcng.ui \
     statistiques.ui
 
 # Default rules for deployment.

@@ -37,6 +37,7 @@ public:
     bool modifier(int);
     QSqlQueryModel* afficher();
     employe recherche_Id(int);
+    employe recherche_mail(QString);
     QSqlQueryModel* trier();
     QSqlQueryModel* trier1();
     QSqlQueryModel* trier2();
@@ -46,6 +47,7 @@ public:
      QSqlQueryModel* Filter(int);
     //QSqlQueryModel* rechercher(QString str,QString str1,int i); ///const QString & QString
     QStringList listemploye();
+    QStringList listemploye1();
     int calcul_employe(int,int);
 
 };

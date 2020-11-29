@@ -7,6 +7,7 @@
 #include"conge.h"
 #include"smtp.h"
 #include"statistiques.h"
+#include"statcng.h"
 #include<QValidator>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -69,6 +70,36 @@ private slots:
     void on_stats_clicked();
 
     void on_id_emp_textChanged(const QString &arg1);
+
+    void on_modif_clicked();
+
+    void on_combo2_currentTextChanged(const QString &arg1);
+
+    void on_date_conge_e_8_textChanged(const QString &arg1);
+
+    void on_sendBtn_clicked();
+
+    void on_rcpt_textChanged(const QString &arg1);
+
+    void on_combomail_currentTextChanged(const QString &arg1);
+
+    void on_modif_2_clicked();
+
+    void on_mdf_clicked();
+
+    void on_id_conge_e_1_textChanged(const QString &arg1);
+
+    void on_comboc1_currentTextChanged(const QString &arg1);
+
+    void on_Touslesconges_clicked();
+
+    void on_Touslesconges_2_clicked();
+
+    void on_Touslesconges_3_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_stats_2_clicked();
 
 private:
     Ui::MainWindow *ui;

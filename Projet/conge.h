@@ -14,10 +14,15 @@ class Conge
 
 
 public:
+     int calcul_conge(int,int);
     Conge();
      Conge(int,int,QDate,QString,int);
      ~Conge();
-
+     QSqlQueryModel* trier();
+     QSqlQueryModel* trier1();
+     QSqlQueryModel* trier2();
+     QStringList listconge();
+     QStringList listconge1();
      int getref();
      void setref(int);
      int getduree();

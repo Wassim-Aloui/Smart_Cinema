@@ -81,7 +81,7 @@ bool employe::supprimer(int id){
     q.prepare("select * from employe where id=:id");
     q.bindValue(":id",id);
     q.exec();
-    int total=0;
+    int total=0; //mch mawjoud mayfasakhch
     while(q.next()){
         total++;
     }
@@ -238,6 +238,24 @@ employe employe::recherche_Id(int id){
 
     return e;
 }
+
+employe employe::recherche_mail(QString mail){
+    QSqlQuery query;
+    query.prepare("select *from employe where email like '"+mail+"' ");
+    query.bindValue(":email",email);
+    query.exec();
+    employe e;
+    while(query.next()){
+        e.setId(query.value(0).toInt());
+        e.setNom(query.value(1).toString());
+        e.setPrenom(query.value(2).toString());
+        e.setDate_naissance(query.value(3).toDate());
+        e.setSalaire(query.value(4).toDouble());
+        e.setEmail(query.value(5).toString());
+    }
+
+    return e;
+}
 QSqlQueryModel* employe::Filter(int){
     QSqlQueryModel* model=new QSqlQueryModel();
     QString res=QString::number(id);
@@ -263,6 +281,19 @@ QStringList employe::listemploye(){
     return list;
 
 }
+QStringList employe::listemploye1(){
+    QSqlQuery query;
+    query.prepare("select * from employe");
+    query.exec();
+    QStringList list;
+    while(query.next()){
+        list.append(query.value(5).toString());
+    }
+
+    return list;
+
+}
+
 
 int employe::calcul_employe(int min, int max){
     QSqlQuery query;
