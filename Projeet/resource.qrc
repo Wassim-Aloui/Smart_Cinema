@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/admin.png</file>
+        <file>icons/login.png</file>
+        <file>icons/lock_user_man_secure-512.png</file>
+    </qresource>
+</RCC>
