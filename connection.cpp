@@ -1,6 +1,6 @@
 #include "connection.h"
 //Test Tutoriel Git
-//Test
+//Test 2
 
 Connection::Connection()
 {
