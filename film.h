@@ -3,6 +3,12 @@
 #include<QString>
 #include<QSqlQuery>
 #include<QSqlQueryModel>
+#include <QDebug>
+#include<QFile>
+#include <QFileDialog>
+#include <QCoreApplication>
+#include <QTextStream>
+#include<QTableView>
 class film
 {
 public:
@@ -14,12 +20,22 @@ public:
     QString get_duree();
     int get_note();
     QString get_genre();
+    void setId(int);
+    void setNom(QString);
+    void setDate_sortie(QString);
+    void setDuree(QString);
+    void setNote(int);
+    void setGenre(QString);
     bool ajouter();
     QSqlQueryModel *afficher();
     bool supprimer (int);
-    bool modifier(int,QString,QString,QString,int,QString);
+    bool modifier(int);
     bool rech(int x);
-    QSqlQueryModel*rechercher(QString a,QString b,QString c);
+    QSqlQueryModel * chercher_film_avancee(QString id,QString nom,QString genre);
+    QSqlQueryModel * trier(QString);
+    void exporter(QTableView *table);
+    QStringList listfilm();
+     film recherche_Id(int);
 private:
     QString nom,date_sortie,duree,genre;
     int id,note;

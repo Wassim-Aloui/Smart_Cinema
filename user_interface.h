@@ -40,6 +40,22 @@ private slots:
     void on_Trier_planning_clicked();
     void on_Exporter_planning_clicked();
 
+    void on_Trier_film_clicked();
+
+    void on_comboBox_supprimer_planning_currentTextChanged(const QString &arg1);
+
+    void on_tab_Widget_planning_currentChanged(int index);
+
+    void on_comboBox_modifier_planning_currentTextChanged(const QString &arg1);
+
+    void on_Exporter_film_clicked();
+
+    void on_comboBox_supprimer_film_currentTextChanged(const QString &arg1);
+
+    void on_tab_widget_film_currentChanged(int index);
+
+    void on_comboBox_modifier_film_currentTextChanged(const QString &arg1);
+
 private:
     Ui::user_interface *ui;
     planning tmpplanning;
