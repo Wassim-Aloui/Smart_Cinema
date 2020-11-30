@@ -1,5 +1,5 @@
 #include "employe.h"
-
+#include<QtDebug>
 employe::employe()
 {
     id=0;
@@ -107,6 +107,22 @@ bool employe::supprimer(int id){
 
 }
 
+QSqlQueryModel *employe::chercher_emp_avancee(QString nom,QString prenom,QString email)
+ {
+
+    {
+        QSqlQueryModel *model = new QSqlQueryModel;
+        model->setQuery("SELECT * FROM employe WHERE upper(NOM) Like upper('"+nom+"%') and upper(prenom) Like upper('"+prenom+"%') and upper(email) like upper('"+email+"%') ");
+        model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
+        model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
+        model->setHeaderData(2, Qt::Horizontal, QObject::tr("PRENOM"));
+        model->setHeaderData(3, Qt::Horizontal, QObject::tr("Date naissance"));
+        model->setHeaderData(4, Qt::Horizontal, QObject::tr("Salaire"));
+          model->setHeaderData(5, Qt::Horizontal, QObject::tr("Email"));
+        qDebug() << model;
+        return model ;
+    }
+}
 bool employe::modifier(int idc){
     QSqlQuery query;
     query.prepare("update employe set id=:id,nom=:nom,prenom=:prenom,date_naissance=:date_naissance,salaire=:salaire,email=:email where id=:idc");
@@ -155,6 +171,7 @@ QSqlQueryModel * employe::chercher_employe_par_nom( QString n)
         model->setHeaderData(2, Qt::Horizontal, QObject::tr("PRENOM"));
         model->setHeaderData(3, Qt::Horizontal, QObject::tr("Date naissance"));
         model->setHeaderData(4, Qt::Horizontal, QObject::tr("Salaire"));
+          model->setHeaderData(5, Qt::Horizontal, QObject::tr("Email"));
         return model ;
     }
 
@@ -300,6 +317,9 @@ employe employe::recherche_mail(QString mail){
 
     return e;
 }
+
+
+
 QSqlQueryModel* employe::Filter(int){
     QSqlQueryModel* model=new QSqlQueryModel();
     QString res=QString::number(id);

@@ -1,5 +1,5 @@
 #include "conge.h"
-
+#include<QtDebug>
 Conge::Conge()
 {
     ref=duree=0;
@@ -161,6 +161,31 @@ QSqlQueryModel* Conge::chercher_conge_par_type( QString t)
     }
 
  }
+
+
+QSqlQueryModel *Conge::chercher_cng_avancee(QString  r,QString  r1,QString r2)
+ {
+
+    {
+        QSqlQueryModel *model = new QSqlQueryModel;
+          QString res=QString::number(ref);
+        QString res1=QString::number(duree);
+
+        model->setQuery("SELECT * FROM conge WHERE upper(res) Like upper('"+r+"%') and upper(res1) Like upper('"+r1+"%') and upper(type) like upper('"+r2+"%') ");
+        model->setHeaderData(0, Qt::Horizontal, QObject::tr("REF"));
+        model->setHeaderData(1, Qt::Horizontal, QObject::tr("DUREE"));
+        model->setHeaderData(2, Qt::Horizontal, QObject::tr("DATE"));
+        model->setHeaderData(3, Qt::Horizontal, QObject::tr("TYPE"));
+        model->setHeaderData(4, Qt::Horizontal, QObject::tr("ID EMPLOYE"));
+        qDebug() << model;
+        return model ;
+    }
+}
+
+
+
+
+
 QSqlQueryModel *Conge::chercher_conge_par_ref(int reff)
  {
 
@@ -210,9 +235,11 @@ bool Conge::modifier(int refc){
     return query.exec();
 }
 
+
+
 QSqlQueryModel * Conge::afficher(){
     QSqlQueryModel * model=new QSqlQueryModel();
-    model->setQuery("select ref,duree,date_c,type,id from Conge inner join employe on conge.id_emp=employe.id");
+    model->setQuery("select ref,duree,date_c,type,id,nom from Conge inner join employe on conge.id_emp=employe.id");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("REF"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("DUREE"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("DATE"));

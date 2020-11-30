@@ -15,10 +15,10 @@ MainWindow::MainWindow(QWidget *parent)
    // ui->id_emp_2->setValidator(int_val);
 
     ui->salaire_emp_2->setValidator(int_val);
-    ui->date_conge_e_8->setValidator(int_val);
+   // ui->date_conge_e_8->setValidator(int_val);
     ui->id_conge_e_1->setValidator(int_val);
     ui->duree_conge_e_1->setValidator(int_val);
-    ui->date_conge_e_4->setValidator(int_val);
+  //  ui->date_conge_e_4->setValidator(int_val);
     ui->heure_conge_e_4->setValidator(int_val);
     ui->ref_conge_e2->setValidator(int_val);
     ui->duree_conge_e_2->setValidator(int_val);
@@ -76,17 +76,7 @@ void MainWindow::on_ajouter_employe_2_clicked()
 }
 
 
-/*void MainWindow::on_trouver_employe_3_clicked()
-{
-    employe e=tmpemploye.recherche_Id(ui->id_employe_mod->text().toInt());
-    QString id= QString::number(e.getId());
-    QString salaire= QString::number(e.getSalaire());
-   // ui->id_emp_2->setText(id);
-    ui->nom_emp_2->setText(e.getNom());
-    ui->prenom_emp_2->setText(e.getprenom());
-    ui->date_naissance_emp_2->setDate(e.getDate_naissance());
-    ui->salaire_emp_2->setText(salaire);
-}/*
+
 
 /*void MainWindow::on_modifier_employe_2_clicked()
 {
@@ -553,12 +543,18 @@ void MainWindow::on_Touslesconges_3_clicked()
 }
 
 
-
-
-
 void MainWindow::on_rech_emp2_clicked()
 {
+    QString nom_e =ui->date_conge_e_7->text();
+    QString prenom_e = ui->date_conge_e_8->text();
+    QString email_e = ui->date_conge_e_9->text();
 
+    ui->tab_employe_2->setModel(tmpemploye.chercher_emp_avancee(nom_e,prenom_e,email_e));
+}
+
+
+/*void MainWindow::on_rech_emp2_clicked()
+{
     QString nom_e =ui->date_conge_e_7->text();
         int id_e = ui->date_conge_e_8->text().toInt(); //id
           QString prenom_e = ui->date_conge_e_9->text();
@@ -571,7 +567,9 @@ void MainWindow::on_rech_emp2_clicked()
             ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_prenom(prenom_e)) ;
 
 
-}}
+}}*/
+
+
 
 
 void MainWindow::on_date_conge_e_4_textChanged(const QString &arg1)
@@ -599,3 +597,15 @@ void MainWindow::on_rech_emp2_2_clicked()
             ui->tab_affichage_conge_2->setModel(tmpconge.chercher_conge_par_type(typec)) ;
 }
 }
+
+
+
+
+/*void MainWindow::on_rech_emp2_2_clicked()
+{
+    QString ref_c =ui->date_conge_e_4->text();
+    QString duree_c = ui->heure_conge_e_4->text();
+    QString type_c = ui->heure_conge_e_5->text();
+
+    ui->tab_affichage_conge_2->setModel(tmpconge.chercher_cng_avancee(ref_c,duree_c,type_c));
+}*/

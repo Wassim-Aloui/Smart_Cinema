@@ -37,6 +37,7 @@ public:
      bool ajouter1();
      bool supprimer(int);
      bool modifier(int);
+     QSqlQueryModel * chercher_cng_avancee(QString ,QString  ,QString );
      QSqlQueryModel* afficher();
      Conge recherche_ref(int);
      QSqlQueryModel * chercher_conge_par_duree( int);

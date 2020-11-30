@@ -8,8 +8,8 @@ statcng::statcng(QWidget *parent) :
     ui->setupUi(this);
     QPieSeries *series=new QPieSeries();
     series->append("< 15",tmpconge.calcul_conge(0,15));
-    series->append("[15..30]",tmpconge.calcul_conge(15,30));
-series->append("[30..60]",tmpconge.calcul_conge(30,60));
+    series->append("[15..20]",tmpconge.calcul_conge(15,20));
+series->append("[20..30]",tmpconge.calcul_conge(20,30));
 
     QPieSlice *slice1=series->slices().at(1);
     slice1->setExploded(true);
