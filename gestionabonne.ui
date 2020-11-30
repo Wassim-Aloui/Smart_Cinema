@@ -510,7 +510,7 @@ text-align: left;
     </rect>
    </property>
    <property name="currentIndex">
-    <number>8</number>
+    <number>9</number>
    </property>
    <widget class="QWidget" name="Acceuil"/>
    <widget class="QWidget" name="gestion_des_employes"/>
@@ -4451,7 +4451,7 @@ QLineEdit {
 }</string>
      </property>
      <property name="currentIndex">
-      <number>5</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_27">
       <attribute name="title">
@@ -6862,36 +6862,6 @@ border: none;
        <property name="pixmap">
         <pixmap>../read.png</pixmap>
        </property>
-      </widget>
-      <widget class="QComboBox" name="comboBox">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>160</y>
-         <width>121</width>
-         <height>26</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>A</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>B</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>C</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>D</string>
-        </property>
-       </item>
       </widget>
      </widget>
      <widget class="QWidget" name="tab_23">
