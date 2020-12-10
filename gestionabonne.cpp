@@ -11,7 +11,7 @@ gestionabonne::gestionabonne(QWidget *parent) :
     ui(new Ui::gestionabonne)
 {
     ui->setupUi(this);
-    setWindowTitle("Gestion des abonnees et abonnements");
+    setWindowTitle("Gestion des abonnés et abonnements");
     ui->table_abonne->setModel(tmpabonnee.afficher());
     ui->id_abonne_e_1->setValidator (new QIntValidator(0,99999999, this));
     ui->id_modifier_abonne->setValidator(new QIntValidator(0,99999999,this));
