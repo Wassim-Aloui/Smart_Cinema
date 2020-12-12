@@ -14,14 +14,14 @@ class film
 public:
     film();
     film(int,QString,QString,QString,int,QString);
-    int get_id();
-    QString get_nom();
+    int get_id_film();
+    QString get_nom_film();
     QString get_date_sortie();
     QString get_duree();
     int get_note();
     QString get_genre();
-    void setId(int);
-    void setNom(QString);
+    void setId_film(int);
+    void setNom_film(QString);
     void setDate_sortie(QString);
     void setDuree(QString);
     void setNote(int);
@@ -31,14 +31,14 @@ public:
     bool supprimer (int);
     bool modifier(int);
     bool rech(int x);
-    QSqlQueryModel * chercher_film_avancee(QString id,QString nom,QString genre);
+    QSqlQueryModel * chercher_film_avancee(QString id_film,QString nom_film,QString genre);
     QSqlQueryModel * trier(QString);
-    void exporter(QTableView *table);
+
     QStringList listfilm();
-     film recherche_Id(int);
+     film recherche_Id_film(int);
 private:
-    QString nom,date_sortie,duree,genre;
-    int id,note;
+    QString nom_film,date_sortie,duree,genre;
+    int id_film,note;
 };
 
 #endif // FILM_H

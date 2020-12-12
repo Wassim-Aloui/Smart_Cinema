@@ -521,7 +521,7 @@ text-align: left;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="Acceuil"/>
     <widget class="QWidget" name="gestion_des_employes"/>

@@ -34,11 +34,11 @@ void user_interface::on_g_plng_clicked()
 
 void user_interface::on_ajouter_planning_clicked()
 {
-   int id= ui->id_planning_e_1->text().toInt();
-    QString nom= ui->nom_planning_e_1->text();
+   int id_planning= ui->id_planning_e_1->text().toInt();
+    QString nom_planning= ui->nom_planning_e_1->text();
     QString date_planning = ui->date_planning_e_1->text();
     QString heure = ui->heure_e_1->text();
-    planning p(id,nom,date_planning,heure);
+    planning p(id_planning,nom_planning,date_planning,heure);
     bool test=p.ajouter();
     if (test)
     {
@@ -58,8 +58,8 @@ QSqlQueryModel * planning::afficher()
 {
    QSqlQueryModel * model= new QSqlQueryModel();
 model->setQuery("select * from planning");
-model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
-model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
+model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID_planning"));
+model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM_planning"));
 model->setHeaderData(2, Qt::Horizontal, QObject::tr("DATE_PLANNING"));
 model->setHeaderData(3, Qt::Horizontal, QObject::tr("HEURE"));
     return model;
@@ -124,13 +124,13 @@ void user_interface::on_modifier_planning_clicked()
 
 void user_interface::on_ajouter_film_clicked()
 {
-    int id= ui->id_film_e->text().toInt();
-     QString nom= ui->nom_film_e->text();
+    int id_film= ui->id_film_e->text().toInt();
+     QString nom_film= ui->nom_film_e->text();
      QString date_sortie = ui->date_sortie_e->text();
      QString duree = ui->duree_e->text();
      int note= ui->note_e->text().toInt();
       QString genre= ui->genre_e->text();
-     film f(id,nom,date_sortie,duree,note,genre);
+     film f(id_film,nom_film,date_sortie,duree,note,genre);
      bool test=f.ajouter();
      if (test)
      {
@@ -150,8 +150,8 @@ QSqlQueryModel * film::afficher()
 {
    QSqlQueryModel * model= new QSqlQueryModel();
 model->setQuery("select * from film");
-model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
-model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
+model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID_film"));
+model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM_film"));
 model->setHeaderData(2, Qt::Horizontal, QObject::tr("DATE_SORTIE"));
 model->setHeaderData(3, Qt::Horizontal, QObject::tr("DUREE"));
 model->setHeaderData(4, Qt::Horizontal, QObject::tr("NOTE"));
@@ -211,10 +211,10 @@ void user_interface::on_modifier_film_clicked()
 
 void user_interface::on_chercher_film_clicked()
 {
-    QString id = ui->id_film_e_4->text();
-    QString nom = ui->nom_film_e_4->text();
+    QString id_film = ui->id_film_e_4->text();
+    QString nom_film = ui->nom_film_e_4->text();
     QString genre = ui->genre_film_e_4->text();
-    ui->tableView_recherche->setModel(tmpfilm.chercher_film_avancee(id,nom,genre));
+    ui->tableView_recherche->setModel(tmpfilm.chercher_film_avancee(id_film,nom_film,genre));
 }
 
 
@@ -228,8 +228,29 @@ void user_interface::on_Trier_planning_clicked()
 
 void user_interface::on_Exporter_planning_clicked()
 {
-    tmpplanning.exporter(ui->tab_affichage_planning);
-        ui->statusbar->showMessage("EXPORT TABLE ",5000);
+    QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export PDF", QString(), "*.pdf");
+        if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append("planning.pdf"); }
+
+        QPrinter printer(QPrinter::PrinterResolution);
+        printer.setOutputFormat(QPrinter::PdfFormat);
+        printer.setPaperSize(QPrinter::A4);
+        printer.setOutputFileName(fileName);
+
+        QTextDocument doc;
+        QSqlQuery q;
+        q.prepare("SELECT * FROM PLANNING ");
+        q.exec();
+        QString pdf="<br> <img src='C:/Users/admin/Desktop/Atelier_Connexion/Pathé_Logo.png' height='42' width='144'/> <h1  style='color:red'>       LISTE DU PLANNING  <br></h1>\n <br> <table>  <tr>  <th> ID </th> <th> NOM </th> <th> DATE </th> <th> HEURE  </th>   </tr>" ;
+
+
+        while ( q.next()) {
+
+            pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"    </td>  <td>   " + q.value(1).toString() +"</td>  <td>" +q.value(2).toString() +"  "" " "</td>      <td>     "+q.value(3).toString()+"--------"+"</td>       <td>"+q.value(4).toString()+"       </td>" ;
+
+        }
+        doc.setHtml(pdf);
+        doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
+        doc.print(&printer);
 }
 
 void user_interface::on_chercher_planning_clicked()
@@ -250,17 +271,17 @@ void user_interface::on_Trier_film_clicked()
 void user_interface::on_comboBox_supprimer_planning_currentTextChanged(const QString &arg1)
 {
 
-   planning p =tmpplanning.recherche_Id(ui->comboBox_supprimer_planning->currentText().toInt());
-    QString id= QString::number(p.get_id());
-    ui->nom_planning_e_2->setText(p.get_nom());
+   planning p =tmpplanning.recherche_Id_planning(ui->comboBox_supprimer_planning->currentText().toInt());
+    QString id= QString::number(p.get_id_planning());
+    ui->nom_planning_e_2->setText(p.get_nom_planning());
     ui->date_planning_e_2->setText(p.get_date_planning());
     ui->heure_e_2->setText(p.get_heure());
 }
 void user_interface::on_comboBox_modifier_planning_currentTextChanged(const QString &arg1)
 {
-    planning p =tmpplanning.recherche_Id(ui->comboBox_modifier_planning->currentText().toInt());
-     QString id= QString::number(p.get_id());
-     ui->nom_planning_e_2->setText(p.get_nom());
+    planning p =tmpplanning.recherche_Id_planning(ui->comboBox_modifier_planning->currentText().toInt());
+     QString id= QString::number(p.get_id_planning());
+     ui->nom_planning_e_2->setText(p.get_nom_planning());
      ui->date_planning_e_2->setText(p.get_date_planning());
      ui->heure_e_2->setText(p.get_heure());
 }
@@ -279,17 +300,38 @@ void user_interface::on_tab_Widget_planning_currentChanged(int index)
 
 void user_interface::on_Exporter_film_clicked()
 {
-    tmpfilm.exporter(ui->tab_affichage_film);
-    ui->statusbar->showMessage("EXPORT TABLE ",5000);
+    QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export PDF", QString(), "*.pdf");
+        if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append("liste des films.pdf"); }
+
+        QPrinter printer(QPrinter::PrinterResolution);
+        printer.setOutputFormat(QPrinter::PdfFormat);
+        printer.setPaperSize(QPrinter::A4);
+        printer.setOutputFileName(fileName);
+
+        QTextDocument doc;
+        QSqlQuery q;
+        q.prepare("SELECT * FROM FILM ");
+        q.exec();
+        QString pdf="<br> <img src='C:/Users/admin/Desktop/Atelier_Connexion/Pathé_Logo.png' height='42' width='144'/> <h1  style='color:red'>       LISTE DES FILMS  <br></h1>\n <br> <table>  <tr>  <th> ID </th> <th> NOM </th> <th> DATE </th> <th> DUREE</th>  <th> NOTE </th> <th> GENRE  </th>   </tr>" ;
+
+
+        while ( q.next()) {
+
+            pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"    </td>  <td>   " + q.value(1).toString() +"</td>  <td>" +q.value(2).toString() +"  "" " "</td>      <td>     "+q.value(3).toString()+"--"+"</td>       <td>"+q.value(4).toString()+"         <td>"+q.value(5).toString()+"     </td>" ;
+
+        }
+        doc.setHtml(pdf);
+        doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
+        doc.print(&printer);
 }
 
 void user_interface::on_comboBox_supprimer_film_currentTextChanged(const QString &arg1)
 {
-    film f =tmpfilm.recherche_Id(ui->comboBox_supprimer_film->currentText().toInt());
-     QString id= QString::number(f.get_id());
+    film f =tmpfilm.recherche_Id_film(ui->comboBox_supprimer_film->currentText().toInt());
+     QString id= QString::number(f.get_id_film());
       QString note= QString::number(f.get_note());
 
-     ui->nom_film_e_2->setText(f.get_nom());
+     ui->nom_film_e_2->setText(f.get_nom_film());
      ui->date_sortie_e_2->setText(f.get_date_sortie());
      ui->duree_e_2->setText(f.get_duree());
      ui->note_e_2->setText(note);
@@ -310,11 +352,11 @@ void user_interface::on_tab_widget_film_currentChanged(int index)
 
 void user_interface::on_comboBox_modifier_film_currentTextChanged(const QString &arg1)
 {
-    film f =tmpfilm.recherche_Id(ui->comboBox_modifier_film->currentText().toInt());
-     QString id= QString::number(f.get_id());
+    film f =tmpfilm.recherche_Id_film(ui->comboBox_modifier_film->currentText().toInt());
+     QString id= QString::number(f.get_id_film());
       QString note= QString::number(f.get_note());
 
-     ui->nom_film_e_2->setText(f.get_nom());
+     ui->nom_film_e_2->setText(f.get_nom_film());
      ui->date_sortie_e_2->setText(f.get_date_sortie());
      ui->duree_e_2->setText(f.get_duree());
      ui->note_e_2->setText(note);

@@ -2,23 +2,23 @@
 
 film::film()
 {
-    id=note=0;
-    nom=date_sortie=duree=genre="";
+    id_film=note=0;
+    nom_film=date_sortie=duree=genre="";
 }
-film::film(int id ,QString nom,QString date_sortie,QString duree,int note,QString genre)
+film::film(int id_film ,QString nom_film,QString date_sortie,QString duree,int note,QString genre)
 {
-    this->id=id;
-    this->nom=nom;
+    this->id_film=id_film;
+    this->nom_film=nom_film;
     this->date_sortie=date_sortie;
     this->duree=duree;
     this->note=note;
     this->genre=genre;
 }
-void film::setId(int id){
-    this->id=id;
+void film::setId_film(int id_film){
+    this->id_film=id_film;
 }
-void film::setNom(QString nom){
-    this->nom=nom;
+void film::setNom_film(QString nom_film){
+    this->nom_film=nom_film;
 }
 void film::setDate_sortie(QString date_sortie){
     this->date_sortie=date_sortie;
@@ -44,8 +44,8 @@ QStringList film::listfilm(){
     return list;
 
 }
-int film::get_id(){return id;}
-QString film::get_nom(){return nom ;}
+int film::get_id_film(){return id_film;}
+QString film::get_nom_film(){return nom_film ;}
 QString film::get_date_sortie(){return date_sortie;}
 QString film::get_duree(){return duree;}
 int film::get_note(){return note;}
@@ -54,13 +54,13 @@ QString film::get_genre(){return genre;}
 bool film::ajouter()
 {
 QSqlQuery query;
-QString res=QString::number(id);
+QString res=QString::number(id_film);
 QString ress=QString::number(note);
-query.prepare("INSERT INTO FILM (ID,NOM,DATE_SORTIE,DUREE,NOTE,GENRE) "
-              "VALUES (:id,:nom,:date_sortie,:duree,:note,:genre)");
+query.prepare("INSERT INTO FILM (ID_film,NOM_film,DATE_SORTIE,DUREE,NOTE,GENRE) "
+              "VALUES (:id_film,:nom_film,:date_sortie,:duree,:note,:genre)");
 
-query.bindValue(":id", res);
-query.bindValue(":nom", nom);
+query.bindValue(":id_film", res);
+query.bindValue(":nom_film", nom_film);
 query.bindValue(":date_sortie", date_sortie);
 query.bindValue(":duree", duree);
 query.bindValue(":note", ress);
@@ -73,16 +73,16 @@ bool film::supprimer(int idd)
 {
 QSqlQuery query;
 QString res=QString::number(idd);
-query.prepare("Delete from film where ID = :id ");
-query.bindValue(":id", res);
+query.prepare("Delete from film where ID_film = :id_film ");
+query.bindValue(":id_film", res);
 return    query.exec();
 
 }
 bool film::modifier(int idc){
     QSqlQuery query;
-    query.prepare("update film set id=:id,nom=:nom,date_sortie=:date_sortie,duree=:duree,note=:note,genre=:genre where id=:idc");
-    query.bindValue(":id",id);
-    query.bindValue(":nom",nom);
+    query.prepare("update film set id_film=:id_film,nom_film=:nom_film,date_sortie=:date_sortie,duree=:duree,note=:note,genre=:genre where id=:idc");
+    query.bindValue(":id_film",id_film);
+    query.bindValue(":nom_film",nom_film);
     query.bindValue(":date_sortie",date_sortie);
     query.bindValue(":duree",duree);
     query.bindValue(":note",note);
@@ -93,8 +93,8 @@ bool film::modifier(int idc){
 }
 bool film::rech(int x){
     QSqlQuery query;
-    query.prepare("select * from film where ID = :id;");
-    query.bindValue(":id", x);
+    query.prepare("select * from film where ID_film = :id_film;");
+    query.bindValue(":id_film", x);
     return query.exec();
 }
 
@@ -103,14 +103,14 @@ QSqlQueryModel *film::trier(QString x)
     QSqlQueryModel * model= new QSqlQueryModel();
     qDebug()<<x<<endl;
     if(x=="Nom")
-        model->setQuery("select * from FILM order by nom ");
+        model->setQuery("select * from FILM order by nom_film ");
     else if(x=="Note")
         model->setQuery("select * from FILM order by note ");
     else if (x=="Duree")
         model->setQuery("select * from FILM order by duree ");
 
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_film"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom_film"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("date_sortie"));
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("duree"));
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("note"));
@@ -118,14 +118,14 @@ QSqlQueryModel *film::trier(QString x)
 
         return model;
 }
-QSqlQueryModel *film::chercher_film_avancee(QString id,QString nom,QString genre)
+QSqlQueryModel *film::chercher_film_avancee(QString id_film,QString nom_film,QString genre)
  {
 
     {
         QSqlQueryModel *model = new QSqlQueryModel;
-        model->setQuery("SELECT * FROM film WHERE upper(ID) Like upper('%"+id+"%') and upper(nom) Like upper('%"+nom+"%') and upper(genre) like upper('%"+genre+"%') ");
-        model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
-        model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
+        model->setQuery("SELECT * FROM film WHERE upper(ID_film) Like upper('%"+id_film+"%') and upper(nom_film) Like upper('%"+nom_film+"%') and upper(genre) like upper('%"+genre+"%') ");
+        model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID_film"));
+        model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM_film"));
         model->setHeaderData(2, Qt::Horizontal, QObject::tr("date_sortie"));
         model->setHeaderData(3, Qt::Horizontal, QObject::tr("duree"));
         model->setHeaderData(4, Qt::Horizontal, QObject::tr("note"));
@@ -134,47 +134,16 @@ QSqlQueryModel *film::chercher_film_avancee(QString id,QString nom,QString genre
         return model ;
     }
 }
-void film::exporter(QTableView *table)
-{
-    QString filters("CSV files (.csv);;All files (.*)");
-        QString defaultFilter("csv files (*.csv)");
-        QString fileName = QFileDialog::getSaveFileName(0, "Save file", QCoreApplication::applicationDirPath(),
-                                                        filters, &defaultFilter);
-        QFile file(fileName);
-        QAbstractItemModel *model =  table->model();
-        if (file.open(QFile::WriteOnly | QFile::Truncate)) {
-            QTextStream data(&file);
-            QStringList strList;
-            for (int i = 0; i < model->columnCount(); i++) {
-                if (model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString().length() > 0)
-                    strList.append("\"" + model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString() + "\"");
-                else
-                    strList.append("");
-            }
-            data << strList.join(";") << "\n";
-            for (int i = 0; i < model->rowCount(); i++) {
-                strList.clear();
-                for (int j = 0; j < model->columnCount(); j++) {
 
-                    if (model->data(model->index(i, j)).toString().length() > 0)
-                        strList.append("\"" + model->data(model->index(i, j)).toString() + "\"");
-                    else
-                        strList.append("");
-                }
-                data << strList.join(";") + "\n";
-            }
-            file.close();
-        }
-}
-film film::recherche_Id(int id){
+film film::recherche_Id_film(int id_film){
     QSqlQuery query;
-    query.prepare("select *from film where id=:id");
-    query.bindValue(":id",id);
+    query.prepare("select *from film where id_film=:id_film");
+    query.bindValue(":id__film",id_film);
     query.exec();
     film f;
     while(query.next()){
-        f.setId(query.value(0).toInt());
-        f.setNom(query.value(1).toString());
+        f.setId_film(query.value(0).toInt());
+        f.setNom_film(query.value(1).toString());
         f.setDate_sortie(query.value(2).toString());
         f.setDuree(query.value(3).toString());
         f.setNote(query.value(4).toInt());
