@@ -10,7 +10,11 @@ userInterface::userInterface(QWidget *parent) :
     ui(new Ui::userInterface)
 {
     ui->setupUi(this);
-
+     
+    QTimer *timer=new QTimer(this);
+    connect(timer,SIGNAL(timeout()),this,SLOT(showTime()));
+    timer->start();
+        
     //image admin
     QPixmap icon_admin(":icons/admin.png");
     ui->icon_admin->setPixmap(icon_admin.scaled(200,200,Qt::KeepAspectRatio));
@@ -36,6 +40,14 @@ userInterface::userInterface(QWidget *parent) :
 userInterface::~userInterface()
 {
     delete ui;
+}
+
+//afficher le temps
+void userInterface::showTime()
+{
+    QTime time=QTime::currentTime();
+    QString time_txt=time.toString("hh:mm:ss");
+    ui->Time_label->setText(time_txt);
 }
 
 void userInterface::on_g_prd_clicked()
