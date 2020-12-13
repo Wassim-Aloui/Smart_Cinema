@@ -537,20 +537,9 @@ void MainWindow::on_Touslesconges_2_clicked()
      ui->tab_affichage_conge->setModel(tmpconge.trier1());
 }
 
-void MainWindow::on_Touslesconges_3_clicked()
-{
-     ui->tab_affichage_conge->setModel(tmpconge.trier2());
-}
 
 
-void MainWindow::on_rech_emp2_clicked()
-{
-    QString nom_e =ui->date_conge_e_7->text();
-    QString prenom_e = ui->date_conge_e_8->text();
-    QString email_e = ui->date_conge_e_9->text();
 
-    ui->tab_employe_2->setModel(tmpemploye.chercher_emp_avancee(nom_e,prenom_e,email_e));
-}
 
 
 /*void MainWindow::on_rech_emp2_clicked()
@@ -596,6 +585,17 @@ void MainWindow::on_rech_emp2_2_clicked()
              if (typec!= ""){
             ui->tab_affichage_conge_2->setModel(tmpconge.chercher_conge_par_type(typec)) ;
 }
+}
+
+void MainWindow::on_rech_emp2_clicked()
+    {
+        QString nom_e =ui->date_conge_e_7->text();
+        QString prenom_e = ui->date_conge_e_8->text();
+        QString email_e = ui->date_conge_e_9->text();
+
+        ui->tab_employe_2->setModel(tmpemploye.chercher_emp_avancee(nom_e,prenom_e,email_e));
+
+     ui->tab_affichage_conge->setModel(tmpconge.trier2());
 }
 
 
