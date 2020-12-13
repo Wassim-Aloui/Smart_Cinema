@@ -8,8 +8,8 @@ nom=prenom=tarif=ville="";
 Abonnee::Abonnee(int id ,QString nom ,QString prenom,QString tarif,QString ville){
     this->id=id;
     this->nom=nom;
-     this->prenom=prenom;
-     this->tarif=tarif;
+    this->prenom=prenom;
+    this->tarif=tarif;
     this->ville=ville;
 }
 QString Abonnee ::get_nom(){return nom;}

@@ -7,7 +7,7 @@ statistiquee::statistiquee(QWidget *parent) :
     ui(new Ui::statistiquee)
 {
     ui->setupUi(this);
- setWindowTitle("STATISTIQUE");
+ setWindowTitle("STATISTIQUE selon les tarifs des abonnés");
     QBarSet *set1=new QBarSet("Tarif");
 
 

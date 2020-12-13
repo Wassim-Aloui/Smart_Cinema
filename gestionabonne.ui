@@ -510,7 +510,7 @@ text-align: left;
     </rect>
    </property>
    <property name="currentIndex">
-    <number>9</number>
+    <number>8</number>
    </property>
    <widget class="QWidget" name="Acceuil"/>
    <widget class="QWidget" name="gestion_des_employes"/>
@@ -4451,7 +4451,7 @@ QLineEdit {
 }</string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>5</number>
      </property>
      <widget class="QWidget" name="tab_27">
       <attribute name="title">
@@ -4818,7 +4818,7 @@ font-family:Arial, Helvetica, sans-serif;
 }</string>
        </property>
        <property name="text">
-        <string>Tarifs</string>
+        <string>Tarif</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_60">
@@ -4840,7 +4840,7 @@ font-family:Arial, Helvetica, sans-serif;
       <widget class="QLabel" name="tarif_7">
        <property name="geometry">
         <rect>
-         <x>180</x>
+         <x>170</x>
          <y>400</y>
          <width>191</width>
          <height>16</height>
@@ -5911,7 +5911,7 @@ text-align: left;
          <x>520</x>
          <y>190</y>
          <width>331</width>
-         <height>241</height>
+         <height>201</height>
         </rect>
        </property>
       </widget>
@@ -6013,28 +6013,11 @@ border: none;
         <enum>Qt::AutoText</enum>
        </property>
       </widget>
-      <widget class="QLabel" name="label_40">
-       <property name="geometry">
-        <rect>
-         <x>-60</x>
-         <y>180</y>
-         <width>451</width>
-         <height>231</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap>../mariem.png</pixmap>
-       </property>
-      </widget>
       <zorder>tableViewstat</zorder>
       <zorder>stat_abonnee</zorder>
       <zorder>statistique</zorder>
       <zorder>label_39</zorder>
       <zorder>label_38</zorder>
-      <zorder>label_40</zorder>
      </widget>
     </widget>
    </widget>
@@ -6438,7 +6421,7 @@ QLineEdit {
 }</string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>5</number>
      </property>
      <widget class="QWidget" name="tab_abonne_2">
       <attribute name="title">

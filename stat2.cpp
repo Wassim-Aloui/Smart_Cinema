@@ -6,7 +6,7 @@ Stat2::Stat2(QWidget *parent) :
     ui(new Ui::Stat2)
 {
     ui->setupUi(this);
-    setWindowTitle("STATISTIQUE");
+    setWindowTitle("STATISTIQUE selon les types des abonnements");
        QBarSet *set1=new QBarSet("Type d'abonnement");
 
 
