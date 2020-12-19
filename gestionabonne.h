@@ -93,6 +93,9 @@ private slots:
 
     void on_affiche_supp_abonnement_clicked();
 
+
+         void showTime();
+
 private:
     Ui::gestionabonne *ui;
     Abonnee tmpabonnee;

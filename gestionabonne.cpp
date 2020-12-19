@@ -6,6 +6,9 @@
 #include"connection.h"
 #include "statistiquee.h"
 #include"stat2.h"
+
+#include<QTimer>
+#include<QDateTime>
 gestionabonne::gestionabonne(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::gestionabonne)
@@ -22,11 +25,32 @@ gestionabonne::gestionabonne(QWidget *parent) :
     ui->id_abonnement_2->setValidator(new QIntValidator(0,99999999,this));
     ui->id_abonnement_3->setValidator(new QIntValidator(0,99999999,this));
 
+QTimer *timer=new QTimer(this);
+connect (timer,SIGNAL(timeout()),this,SLOT(showTime()));
+timer->start();
+
+QDateTime dateTime=QDateTime::currentDateTime();
+QString datetimetext=dateTime.toString();
+ui->date->setText(datetimetext);
 }
 
 gestionabonne::~gestionabonne()
 {
     delete ui;
+}
+
+//affichage timing
+void gestionabonne::showTime()
+{
+    QTime time=QTime::currentTime();
+    QString time_txt=time.toString("hh : mm : ss");
+    if((time.second() % 2s) == 0)
+    {
+        time_txt[3] = ' ';
+        time_txt[8] = ' ';
+
+    }
+    ui->clock->setText(time_txt);
 }
 
 void gestionabonne::on_g_abonnes_clicked()
@@ -330,3 +354,5 @@ void gestionabonne::on_affiche_supp_abonnement_clicked()
 {
     ui->table_rech_abonne_3->setModel(tmpabonnee.afficher());
 }
+
+

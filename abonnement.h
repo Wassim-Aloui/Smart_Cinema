@@ -3,6 +3,9 @@
 #include<QString>
 #include<QSqlQuery>
 #include <QSqlQueryModel>
+
+
+
 class Abonnement
 {
 public:
@@ -37,6 +40,9 @@ public:
 private :
          int num,prix,id;
          QString  duree,type;
+
+
+
 };
 
 #endif // ABONNEMENT_H
