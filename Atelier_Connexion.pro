@@ -5,7 +5,8 @@
 #-------------------------------------------------
 
 QT       += core gui sql printsupport
-QT += printsupport
+QT += printsupport network
+gui+= printsupport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Atelier_Connexion
@@ -30,6 +31,7 @@ SOURCES += \
         mainwindow.cpp \
     connection.cpp \
     planning.cpp \
+    smtp.cpp \
     user_interface.cpp
 
 HEADERS += \
@@ -37,6 +39,7 @@ HEADERS += \
         mainwindow.h \
     connection.h \
     planning.h \
+    smtp.h \
     user_interface.h
 
 FORMS += \

@@ -2,7 +2,11 @@
 #define USER_INTERFACE_H
 #include"planning.h"
 #include"film.h"
+#include"smtp.h"
 #include <QMainWindow>
+
+#include<QPrintDialog>
+#include<qtextbrowser.h>
 
 namespace Ui {
 class user_interface;
@@ -55,6 +59,8 @@ private slots:
     void on_tab_widget_film_currentChanged(int index);
 
     void on_comboBox_modifier_film_currentTextChanged(const QString &arg1);
+
+    void on_Mail_clicked();
 
 private:
     Ui::user_interface *ui;

@@ -2493,7 +2493,7 @@ QLineEdit {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -3533,38 +3533,6 @@ font-family:Arial, Helvetica, sans-serif;
        <attribute name="title">
         <string>Afficher</string>
        </attribute>
-       <widget class="QRadioButton" name="radioButton">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>160</y>
-          <width>151</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QRadioButton {
-color: #dcdcdc;
-background:#535353;
-border: none;
-font-size:20px;
-font-family:Arial, Helvetica, sans-serif;
-text-align: left;
-border: 1px solid #FFD700;
-border-radius: 8px;
-}
-QRadioButton:hover {
-color:#fff;
-background:#FFD700;
-border: none;
-text-align: left;
-}
-</string>
-        </property>
-        <property name="text">
-         <string>Tous les films</string>
-        </property>
-       </widget>
        <widget class="QTableView" name="tab_affichage_film">
         <property name="geometry">
          <rect>
@@ -3583,8 +3551,8 @@ background:#DCDCDC;
        <widget class="QComboBox" name="comboBox_film">
         <property name="geometry">
          <rect>
-          <x>50</x>
-          <y>340</y>
+          <x>20</x>
+          <y>40</y>
           <width>141</width>
           <height>61</height>
          </rect>
@@ -3623,8 +3591,8 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QPushButton" name="Trier_film">
         <property name="geometry">
          <rect>
-          <x>120</x>
-          <y>460</y>
+          <x>130</x>
+          <y>140</y>
           <width>141</width>
           <height>51</height>
          </rect>
@@ -3680,16 +3648,11 @@ border: none;
          <string>Exporter</string>
         </property>
        </widget>
-      </widget>
-      <widget class="QWidget" name="tab_5">
-       <attribute name="title">
-        <string>Recherche</string>
-       </attribute>
-       <widget class="QLabel" name="label_16">
+       <widget class="QLabel" name="label_22">
         <property name="geometry">
          <rect>
-          <x>70</x>
-          <y>60</y>
+          <x>0</x>
+          <y>260</y>
           <width>391</width>
           <height>16</height>
          </rect>
@@ -3715,15 +3678,15 @@ font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
         <property name="text">
-         <string>Saisir l'identifiant et le nom du film à chercher</string>
+         <string>chercher selon :</string>
         </property>
        </widget>
-       <widget class="QLabel" name="id_film_4">
+       <widget class="QLabel" name="id_film_5">
         <property name="geometry">
          <rect>
-          <x>180</x>
-          <y>180</y>
-          <width>151</width>
+          <x>0</x>
+          <y>290</y>
+          <width>91</width>
           <height>16</height>
          </rect>
         </property>
@@ -3751,12 +3714,40 @@ font-family:Arial, Helvetica, sans-serif;
          <string>Date</string>
         </property>
        </widget>
+       <widget class="QLineEdit" name="id_film_e_4">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>270</y>
+          <width>171</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #FFD700;
+  color: #FFFFFF;
+  font-size: 20px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
        <widget class="QLabel" name="nom_film_4">
         <property name="geometry">
          <rect>
-          <x>190</x>
-          <y>280</y>
-          <width>151</width>
+          <x>-10</x>
+          <y>350</y>
+          <width>91</width>
           <height>16</height>
          </rect>
         </property>
@@ -3783,99 +3774,13 @@ font-family:Arial, Helvetica, sans-serif;
          <string>Nom</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="id_film_e_4">
-        <property name="geometry">
-         <rect>
-          <x>410</x>
-          <y>160</y>
-          <width>211</width>
-          <height>71</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #dcdcdc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  background: #FFD700;
-  color: #FFFFFF;
-  font-size: 20px;
-font-family:Arial, Helvetica, sans-serif;
-}</string>
-        </property>
-        <property name="placeholderText">
-         <string/>
-        </property>
-       </widget>
        <widget class="QLineEdit" name="nom_film_e_4">
         <property name="geometry">
          <rect>
-          <x>410</x>
-          <y>260</y>
-          <width>211</width>
-          <height>71</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #dcdcdc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  background: #FFD700;
-  color: #FFFFFF;
-  font-size: 20px;
-font-family:Arial, Helvetica, sans-serif;
-}</string>
-        </property>
-        <property name="placeholderText">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="chercher_film">
-        <property name="geometry">
-         <rect>
-          <x>720</x>
-          <y>260</y>
-          <width>141</width>
+          <x>90</x>
+          <y>330</y>
+          <width>171</width>
           <height>51</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
-color: #dcdcdc;
-background:#535353;
-border: none;
-font-size:20px;
-font-family:Arial, Helvetica, sans-serif;
-border: 1px solid #DCDCDC;
-border-radius: 8px;
-}
-QPushButton:hover {
-color:#fff;
-background:#FFD700;
-border: none;
-}
-</string>
-        </property>
-        <property name="text">
-         <string>Chercher</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="genre_film_e_4">
-        <property name="geometry">
-         <rect>
-          <x>410</x>
-          <y>360</y>
-          <width>211</width>
-          <height>71</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -3900,9 +3805,9 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QLabel" name="nom_film_5">
         <property name="geometry">
          <rect>
-          <x>190</x>
-          <y>390</y>
-          <width>151</width>
+          <x>-10</x>
+          <y>410</y>
+          <width>101</width>
           <height>16</height>
          </rect>
         </property>
@@ -3929,13 +3834,258 @@ font-family:Arial, Helvetica, sans-serif;
          <string>Genre</string>
         </property>
        </widget>
-       <widget class="QTableView" name="tableView_recherche">
+       <widget class="QLineEdit" name="genre_film_e_4">
         <property name="geometry">
          <rect>
-          <x>200</x>
-          <y>430</y>
-          <width>621</width>
-          <height>101</height>
+          <x>90</x>
+          <y>390</y>
+          <width>171</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #FFD700;
+  color: #FFFFFF;
+  font-size: 20px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="chercher_film">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>470</y>
+          <width>141</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+color: #dcdcdc;
+background:#535353;
+border: none;
+font-size:20px;
+font-family:Arial, Helvetica, sans-serif;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+}
+QPushButton:hover {
+color:#fff;
+background:#FFD700;
+border: none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Chercher</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_6">
+       <attribute name="title">
+        <string>Envoi mail</string>
+       </attribute>
+       <widget class="QPushButton" name="Mail">
+        <property name="geometry">
+         <rect>
+          <x>620</x>
+          <y>420</y>
+          <width>141</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+color: #dcdcdc;
+background:#535353;
+border: none;
+font-size:20px;
+font-family:Arial, Helvetica, sans-serif;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+}
+QPushButton:hover {
+color:#fff;
+background:#FFD700;
+border: none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Mail</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="nom_film_3">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>110</y>
+          <width>151</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  color: #808080;
+  font-size: 15px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
+        </property>
+        <property name="text">
+         <string>Envoyer à</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="envoyera">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>80</y>
+          <width>281</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #FFD700;
+  color: #FFFFFF;
+  font-size: 20px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="date_sortie_3">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>190</y>
+          <width>181</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  color: #808080;
+  font-size: 15px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
+        </property>
+        <property name="text">
+         <string>Objet</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="objet">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>150</y>
+          <width>281</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #FFD700;
+  color: #FFFFFF;
+  font-size: 20px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="date_sortie_4">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>300</y>
+          <width>181</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  color: #808080;
+  font-size: 15px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
+        </property>
+        <property name="text">
+         <string>msg</string>
+        </property>
+       </widget>
+       <widget class="QPlainTextEdit" name="msg">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>260</y>
+          <width>301</width>
+          <height>141</height>
          </rect>
         </property>
        </widget>

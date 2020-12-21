@@ -2,6 +2,7 @@
 #include "ui_user_interface.h"
 #include"planning.h"
 #include"film.h"
+#include "smtp.h"
 #include<QMessageBox>
 user_interface::user_interface(QWidget *parent) :
     QMainWindow(parent),
@@ -214,7 +215,7 @@ void user_interface::on_chercher_film_clicked()
     QString id_film = ui->id_film_e_4->text();
     QString nom_film = ui->nom_film_e_4->text();
     QString genre = ui->genre_film_e_4->text();
-    ui->tableView_recherche->setModel(tmpfilm.chercher_film_avancee(id_film,nom_film,genre));
+    ui->tab_affichage_film->setModel(tmpfilm.chercher_film_avancee(id_film,nom_film,genre));
 }
 
 
@@ -361,4 +362,11 @@ void user_interface::on_comboBox_modifier_film_currentTextChanged(const QString 
      ui->duree_e_2->setText(f.get_duree());
      ui->note_e_2->setText(note);
      ui->genre_e_2->setText(f.get_genre());
+}
+
+void user_interface::on_Mail_clicked()
+{
+    Smtp* smtp = new Smtp("fatma.louhichi@esprit.tn", "191JFT1375", "smtp.gmail.com", 465);
+
+        smtp->sendMail("fatma.louhichi@esprit.tn", ui->envoyera->text() , ui->objet->text() ,ui->msg->toPlainText());
 }
