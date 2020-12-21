@@ -555,7 +555,7 @@ text-align: left;
     </rect>
    </property>
    <property name="currentIndex">
-    <number>9</number>
+    <number>8</number>
    </property>
    <widget class="QWidget" name="Acceuil"/>
    <widget class="QWidget" name="gestion_des_employes"/>
@@ -4496,7 +4496,7 @@ QLineEdit {
 }</string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab_27">
       <attribute name="title">
@@ -4869,7 +4869,7 @@ font-family:Arial, Helvetica, sans-serif;
       <widget class="QLabel" name="label_60">
        <property name="geometry">
         <rect>
-         <x>570</x>
+         <x>560</x>
          <y>10</y>
          <width>301</width>
          <height>111</height>
@@ -5412,8 +5412,8 @@ font-family:Arial, Helvetica, sans-serif;
       <widget class="QLabel" name="id_abonne_4">
        <property name="geometry">
         <rect>
-         <x>-20</x>
-         <y>100</y>
+         <x>40</x>
+         <y>110</y>
          <width>201</width>
          <height>71</height>
         </rect>
@@ -5539,22 +5539,6 @@ text-align: left;
        </property>
        <property name="text">
         <string>Afficher tous les abonnés</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_61">
-       <property name="geometry">
-        <rect>
-         <x>-70</x>
-         <y>80</y>
-         <width>241</width>
-         <height>71</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap>../cc.png</pixmap>
        </property>
       </widget>
       <widget class="QLabel" name="label_65">
@@ -6020,22 +6004,6 @@ border: none;
         <string>Open the Chart</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_38">
-       <property name="geometry">
-        <rect>
-         <x>-510</x>
-         <y>150</y>
-         <width>1171</width>
-         <height>311</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap>../a.png</pixmap>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_39">
        <property name="geometry">
         <rect>
@@ -6058,11 +6026,6 @@ border: none;
         <enum>Qt::AutoText</enum>
        </property>
       </widget>
-      <zorder>tableViewstat</zorder>
-      <zorder>stat_abonnee</zorder>
-      <zorder>statistique</zorder>
-      <zorder>label_39</zorder>
-      <zorder>label_38</zorder>
      </widget>
     </widget>
    </widget>
@@ -6078,6 +6041,18 @@ border: none;
        <width>1041</width>
        <height>771</height>
       </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>1041</width>
+       <height>771</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
      </property>
      <property name="palette">
       <palette>
@@ -6419,6 +6394,9 @@ border: none;
        <bold>false</bold>
       </font>
      </property>
+     <property name="contextMenuPolicy">
+      <enum>Qt::DefaultContextMenu</enum>
+     </property>
      <property name="styleSheet">
       <string notr="true">#QWidget {
 background:#404040;
@@ -6467,6 +6445,12 @@ QLineEdit {
      </property>
      <property name="currentIndex">
       <number>0</number>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>16</width>
+       <height>16</height>
+      </size>
      </property>
      <widget class="QWidget" name="tab_abonne_2">
       <attribute name="title">
@@ -6686,22 +6670,6 @@ font-family:Arial, Helvetica, sans-serif;
         <string/>
        </property>
       </widget>
-      <widget class="QLabel" name="label">
-       <property name="geometry">
-        <rect>
-         <x>590</x>
-         <y>120</y>
-         <width>241</width>
-         <height>191</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap>../FARAH/m.png</pixmap>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="type_abonnement_1">
        <property name="geometry">
         <rect>
@@ -6825,7 +6793,7 @@ font-family:Arial, Helvetica, sans-serif;
       <widget class="QTableView" name="tableView9">
        <property name="geometry">
         <rect>
-         <x>630</x>
+         <x>650</x>
          <y>320</y>
          <width>181</width>
          <height>171</height>
@@ -6835,11 +6803,17 @@ font-family:Arial, Helvetica, sans-serif;
       <widget class="QRadioButton" name="radioButton_5">
        <property name="geometry">
         <rect>
-         <x>660</x>
+         <x>650</x>
          <y>500</y>
-         <width>120</width>
+         <width>141</width>
          <height>24</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
        </property>
        <property name="text">
         <string>Les abonnés </string>
@@ -6889,6 +6863,22 @@ border: none;
        </property>
        <property name="pixmap">
         <pixmap>../read.png</pixmap>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>590</x>
+         <y>30</y>
+         <width>281</width>
+         <height>171</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../img1.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -7881,7 +7871,7 @@ font-family:Arial, Helvetica, sans-serif;
        <property name="geometry">
         <rect>
          <x>210</x>
-         <y>80</y>
+         <y>70</y>
          <width>691</width>
          <height>471</height>
         </rect>
@@ -7926,7 +7916,7 @@ border: none;
        <property name="geometry">
         <rect>
          <x>210</x>
-         <y>40</y>
+         <y>20</y>
          <width>321</width>
          <height>31</height>
         </rect>
@@ -7948,27 +7938,11 @@ text-align: left;
         <string>Afficher tous les abonnements </string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_36">
-       <property name="geometry">
-        <rect>
-         <x>-320</x>
-         <y>-160</y>
-         <width>621</width>
-         <height>281</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap>../rr.png</pixmap>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_37">
        <property name="geometry">
         <rect>
-         <x>70</x>
-         <y>60</y>
+         <x>50</x>
+         <y>70</y>
          <width>141</width>
          <height>20</height>
         </rect>
@@ -8011,7 +7985,7 @@ text-align: left;
       <widget class="QPushButton" name="statis_abonnement">
        <property name="geometry">
         <rect>
-         <x>610</x>
+         <x>590</x>
          <y>150</y>
          <width>241</width>
          <height>51</height>
@@ -8041,7 +8015,7 @@ border: none;
       <widget class="QPushButton" name="statis_chart">
        <property name="geometry">
         <rect>
-         <x>50</x>
+         <x>80</x>
          <y>150</y>
          <width>241</width>
          <height>51</height>
@@ -8106,21 +8080,77 @@ border: none;
         <pixmap>../mariem.png</pixmap>
        </property>
       </widget>
-      <widget class="QLabel" name="label_59">
+     </widget>
+     <widget class="QWidget" name="tab_15">
+      <attribute name="title">
+       <string>Open File</string>
+      </attribute>
+      <widget class="QWidget" name="">
        <property name="geometry">
         <rect>
-         <x>310</x>
-         <y>80</y>
-         <width>211</width>
-         <height>181</height>
+         <x>140</x>
+         <y>40</y>
+         <width>681</width>
+         <height>391</height>
         </rect>
        </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap>../FARAH/m.png</pixmap>
-       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QPlainTextEdit" name="plainTextEdit1"/>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QPushButton" name="write1">
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+color: #dcdcdc;
+background:#535353;
+border: none;
+font-size:20px;
+font-family:Arial, Helvetica, sans-serif;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+}
+QPushButton:hover {
+color:#fff;
+background:#FFD700;
+border: none;
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Write</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="read1">
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+color: #dcdcdc;
+background:#535353;
+border: none;
+font-size:20px;
+font-family:Arial, Helvetica, sans-serif;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+}
+QPushButton:hover {
+color:#fff;
+background:#FFD700;
+border: none;
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Read</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </widget>
      </widget>
     </widget>

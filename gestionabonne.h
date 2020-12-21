@@ -96,6 +96,11 @@ private slots:
 
          void showTime();
 
+
+         void on_write1_clicked();
+
+         void on_read1_clicked();
+
 private:
     Ui::gestionabonne *ui;
     Abonnee tmpabonnee;

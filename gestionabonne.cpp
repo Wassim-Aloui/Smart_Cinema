@@ -6,9 +6,10 @@
 #include"connection.h"
 #include "statistiquee.h"
 #include"stat2.h"
-
+#include<QFile>
 #include<QTimer>
 #include<QDateTime>
+#include<QTextStream>
 gestionabonne::gestionabonne(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::gestionabonne)
@@ -44,7 +45,7 @@ void gestionabonne::showTime()
 {
     QTime time=QTime::currentTime();
     QString time_txt=time.toString("hh : mm : ss");
-    if((time.second() % 2s) == 0)
+    if((time.second() % 2) == 0)
     {
         time_txt[3] = ' ';
         time_txt[8] = ' ';
@@ -354,5 +355,35 @@ void gestionabonne::on_affiche_supp_abonnement_clicked()
 {
     ui->table_rech_abonne_3->setModel(tmpabonnee.afficher());
 }
+void gestionabonne::on_write1_clicked()
+{
+    QFile file("C:/Users/mariem/Desktop/Atelier_Connexion/myfile.txt");
+   if(!file.open(QFile::WriteOnly| QFile::Text)){
+       QMessageBox::warning(this,"title","file not open");
 
+   }
+   //write in the file with out
+   QTextStream out(&file);
+   QString text = ui->plainTextEdit1->toPlainText();
 
+   out <<text ;
+   //fluch operation
+   file.flush();
+   //close file
+   file.close();
+}
+
+void gestionabonne::on_read1_clicked()
+{
+    QFile file("C:/Users/mariem/Desktop/Atelier_Connexion/myfile.txt");
+   if(!file.open(QFile::ReadOnly| QFile::Text)){
+       QMessageBox::warning(this,"title","file not open");
+   }
+   //stream pour lire le contenu of the file
+   QTextStream in(&file);
+   QString text = in.readAll();
+   ui->plainTextEdit1->setPlainText(text);
+
+   //close file
+   file.close();
+}

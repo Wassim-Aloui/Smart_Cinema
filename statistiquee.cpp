@@ -45,7 +45,7 @@ statistiquee::statistiquee(QWidget *parent) :
            mainLayout->addWidget(chartview, 1, 1);
            setLayout(mainLayout);
 
-           set1->setColor(Qt::black);
+           set1->setColor(Qt::red);
 
 
 
