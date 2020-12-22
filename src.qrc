@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icon/admin-960028.webp</file>
+    </qresource>
+</RCC>
