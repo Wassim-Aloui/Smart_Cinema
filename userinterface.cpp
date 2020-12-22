@@ -29,6 +29,7 @@ userInterface::userInterface(QWidget *parent) :
 
     ui->tab_afficher_produit->setModel(Etmp.afficher_produit()); 
     ui->tab_afficher_commande->setModel(Com.afficher_commande());
+     // ui->tab_afficher_commande->setModel(Com.afficher_commande());
     //allow user to use only numbers(commande inputs)
     ui->reference_commande_e->setValidator( new QIntValidator(0, 1000,this));
     ui->nombre_commande_e->setValidator( new QIntValidator(0, 1000,this) );
