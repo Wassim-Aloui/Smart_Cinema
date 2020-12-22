@@ -31,7 +31,6 @@ SOURCES += \
     abonnement.cpp \
     gestionabonne.cpp \
         main.cpp \
-        mainwindow.cpp \
     connection.cpp \
     stat2.cpp \
     statistiquee.cpp
@@ -40,14 +39,12 @@ HEADERS += \
     abonnee.h \
     abonnement.h \
     gestionabonne.h \
-        mainwindow.h \
     connection.h \
     stat2.h \
     statistiquee.h
 
 FORMS += \
         gestionabonne.ui \
-        mainwindow.ui \
         stat2.ui \
         statistiquee.ui
 
