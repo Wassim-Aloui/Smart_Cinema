@@ -4496,7 +4496,7 @@ QLineEdit {
 }</string>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_27">
       <attribute name="title">
@@ -4719,8 +4719,8 @@ font-family:Arial, Helvetica, sans-serif;
       <widget class="QPushButton" name="ajouter_abonne">
        <property name="geometry">
         <rect>
-         <x>630</x>
-         <y>280</y>
+         <x>350</x>
+         <y>450</y>
          <width>191</width>
          <height>51</height>
         </rect>
@@ -4743,7 +4743,7 @@ border: none;
 </string>
        </property>
        <property name="text">
-        <string>Ajouter Abonné</string>
+        <string>Ajouter un Abonné</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="ville_abonne_5">
@@ -4914,6 +4914,22 @@ font-family:Arial, Helvetica, sans-serif;
         <string>Ville</string>
        </property>
       </widget>
+      <widget class="QLabel" name="label_38">
+       <property name="geometry">
+        <rect>
+         <x>560</x>
+         <y>40</y>
+         <width>301</width>
+         <height>111</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="img.qrc">:/image2/img03.png</pixmap>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="tab_17">
       <attribute name="title">
@@ -4947,7 +4963,7 @@ font-family:Arial, Helvetica, sans-serif;
         <string/>
        </property>
       </widget>
-      <widget class="QLabel" name="nom_planning_4">
+      <widget class="QLabel" name="nom_abonne_2">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -5097,7 +5113,7 @@ border: none;
         <string>Modifier</string>
        </property>
       </widget>
-      <widget class="QLabel" name="nom_planning_5">
+      <widget class="QLabel" name="prenom_abonne_2">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -5129,7 +5145,7 @@ font-family:Arial, Helvetica, sans-serif;
         <string>Prenom</string>
        </property>
       </widget>
-      <widget class="QLabel" name="nom_planning_7">
+      <widget class="QLabel" name="ville_abonnee">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -5280,7 +5296,7 @@ background:#DCDCDC;
 }</string>
        </property>
       </widget>
-      <widget class="QLabel" name="nom_planning_6">
+      <widget class="QLabel" name="id_abonne_2">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -5379,8 +5395,8 @@ text-align: left;
       <widget class="QLabel" name="label_24">
        <property name="geometry">
         <rect>
-         <x>-20</x>
-         <y>70</y>
+         <x>0</x>
+         <y>10</y>
          <width>351</width>
          <height>21</height>
         </rect>
@@ -5412,10 +5428,10 @@ font-family:Arial, Helvetica, sans-serif;
       <widget class="QLabel" name="id_abonne_4">
        <property name="geometry">
         <rect>
-         <x>40</x>
-         <y>110</y>
+         <x>50</x>
+         <y>80</y>
          <width>201</width>
-         <height>71</height>
+         <height>61</height>
         </rect>
        </property>
        <property name="font">
@@ -5446,7 +5462,7 @@ font-family:Arial, Helvetica, sans-serif;
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>180</y>
+         <y>140</y>
          <width>221</width>
          <height>71</height>
         </rect>
@@ -5474,7 +5490,7 @@ font-family:Arial, Helvetica, sans-serif;
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>290</y>
+         <y>230</y>
          <width>141</width>
          <height>51</height>
         </rect>
@@ -5503,9 +5519,9 @@ border: none;
       <widget class="QTableView" name="table_rech_abonne_3">
        <property name="geometry">
         <rect>
-         <x>320</x>
+         <x>270</x>
          <y>70</y>
-         <width>571</width>
+         <width>621</width>
          <height>511</height>
         </rect>
        </property>
@@ -5518,7 +5534,7 @@ background:#DCDCDC;
       <widget class="QRadioButton" name="affiche_supp_abonnement">
        <property name="geometry">
         <rect>
-         <x>320</x>
+         <x>280</x>
          <y>30</y>
          <width>261</width>
          <height>31</height>
@@ -5539,22 +5555,6 @@ text-align: left;
        </property>
        <property name="text">
         <string>Afficher tous les abonnés</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_65">
-       <property name="geometry">
-        <rect>
-         <x>-240</x>
-         <y>370</y>
-         <width>501</width>
-         <height>101</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap>../supp.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -5582,7 +5582,7 @@ background:#DCDCDC;
         <rect>
          <x>600</x>
          <y>40</y>
-         <width>121</width>
+         <width>301</width>
          <height>51</height>
         </rect>
        </property>
@@ -5604,15 +5604,15 @@ border: none;
 </string>
        </property>
        <property name="text">
-        <string>Afficher </string>
+        <string>Afficher tous les abonnés</string>
        </property>
       </widget>
       <widget class="QRadioButton" name="radioButton_nom1">
        <property name="geometry">
         <rect>
-         <x>170</x>
+         <x>50</x>
          <y>50</y>
-         <width>191</width>
+         <width>91</width>
          <height>31</height>
         </rect>
        </property>
@@ -5636,9 +5636,9 @@ text-align: left;
       <widget class="QRadioButton" name="radioButton_ville">
        <property name="geometry">
         <rect>
-         <x>310</x>
+         <x>220</x>
          <y>50</y>
-         <width>191</width>
+         <width>91</width>
          <height>31</height>
         </rect>
        </property>
@@ -5662,9 +5662,9 @@ text-align: left;
       <widget class="QRadioButton" name="radioButton_tarif">
        <property name="geometry">
         <rect>
-         <x>450</x>
+         <x>400</x>
          <y>50</y>
-         <width>191</width>
+         <width>81</width>
          <height>31</height>
         </rect>
        </property>
@@ -5688,17 +5688,37 @@ text-align: left;
         <string>Tarif</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_63">
+      <widget class="QLabel" name="label_41">
        <property name="geometry">
         <rect>
-         <x>50</x>
-         <y>50</y>
-         <width>69</width>
-         <height>20</height>
+         <x>0</x>
+         <y>10</y>
+         <width>351</width>
+         <height>21</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>75</weight>
+         <italic>true</italic>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  color: #A9A9A9;
+  font-size: 15px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
+       </property>
        <property name="text">
-        <string>Trier par</string>
+        <string>Trier les abonnés selon votre choix :</string>
        </property>
       </widget>
      </widget>
@@ -5710,7 +5730,7 @@ text-align: left;
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>270</y>
+         <y>210</y>
          <width>211</width>
          <height>71</height>
         </rect>
@@ -5738,7 +5758,7 @@ font-family:Arial, Helvetica, sans-serif;
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>370</y>
+         <y>320</y>
          <width>211</width>
          <height>71</height>
         </rect>
@@ -5766,7 +5786,7 @@ font-family:Arial, Helvetica, sans-serif;
        <property name="geometry">
         <rect>
          <x>60</x>
-         <y>450</y>
+         <y>400</y>
          <width>141</width>
          <height>51</height>
         </rect>
@@ -5796,7 +5816,7 @@ border: none;
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>160</y>
+         <y>100</y>
          <width>211</width>
          <height>71</height>
         </rect>
@@ -5824,7 +5844,7 @@ font-family:Arial, Helvetica, sans-serif;
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>240</y>
+         <y>190</y>
          <width>69</width>
          <height>20</height>
         </rect>
@@ -5837,7 +5857,7 @@ font-family:Arial, Helvetica, sans-serif;
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>350</y>
+         <y>300</y>
          <width>69</width>
          <height>20</height>
         </rect>
@@ -5850,7 +5870,7 @@ font-family:Arial, Helvetica, sans-serif;
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>130</y>
+         <y>80</y>
          <width>69</width>
          <height>20</height>
         </rect>
@@ -5900,33 +5920,37 @@ text-align: left;
         <string>Afficher tous les abonnés</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_41">
+      <widget class="QLabel" name="label_40">
        <property name="geometry">
         <rect>
-         <x>-230</x>
-         <y>-100</y>
-         <width>541</width>
-         <height>271</height>
+         <x>10</x>
+         <y>20</y>
+         <width>221</width>
+         <height>21</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>75</weight>
+         <italic>true</italic>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  color: #A9A9A9;
+  font-size: 15px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
+       </property>
        <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap>../ll.png</pixmap>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_64">
-       <property name="geometry">
-        <rect>
-         <x>80</x>
-         <y>50</y>
-         <width>121</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Recherche</string>
+        <string>Chercher des abonnés</string>
        </property>
       </widget>
      </widget>
@@ -5937,8 +5961,8 @@ text-align: left;
       <widget class="QTableView" name="tableViewstat">
        <property name="geometry">
         <rect>
-         <x>520</x>
-         <y>190</y>
+         <x>40</x>
+         <y>210</y>
          <width>331</width>
          <height>201</height>
         </rect>
@@ -5947,8 +5971,8 @@ text-align: left;
       <widget class="QPushButton" name="stat_abonnee">
        <property name="geometry">
         <rect>
-         <x>570</x>
-         <y>100</y>
+         <x>80</x>
+         <y>120</y>
          <width>231</width>
          <height>51</height>
         </rect>
@@ -5977,8 +6001,8 @@ border: none;
       <widget class="QPushButton" name="statistique">
        <property name="geometry">
         <rect>
-         <x>140</x>
-         <y>100</y>
+         <x>600</x>
+         <y>120</y>
          <width>211</width>
          <height>51</height>
         </rect>
@@ -6024,6 +6048,22 @@ border: none;
        </property>
        <property name="textFormat">
         <enum>Qt::AutoText</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_36">
+       <property name="geometry">
+        <rect>
+         <x>420</x>
+         <y>220</y>
+         <width>371</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="img.qrc">:/image2/img02</pixmap>
        </property>
       </widget>
      </widget>
@@ -6869,16 +6909,16 @@ border: none;
        <property name="geometry">
         <rect>
          <x>590</x>
-         <y>30</y>
-         <width>281</width>
-         <height>171</height>
+         <y>40</y>
+         <width>241</width>
+         <height>161</height>
         </rect>
        </property>
        <property name="text">
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>../img1.png</pixmap>
+        <pixmap resource="pics1.qrc">:/pic1/img01.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -7007,7 +7047,7 @@ font-family:Arial, Helvetica, sans-serif;
         <string/>
        </property>
       </widget>
-      <widget class="QLabel" name="nom_planning_9">
+      <widget class="QLabel" name="prix_abonn">
        <property name="geometry">
         <rect>
          <x>70</x>
@@ -7039,7 +7079,7 @@ font-family:Arial, Helvetica, sans-serif;
         <string>Prix</string>
        </property>
       </widget>
-      <widget class="QLabel" name="nom_planning_10">
+      <widget class="QLabel" name="duree_abonn">
        <property name="geometry">
         <rect>
          <x>70</x>
@@ -7157,7 +7197,7 @@ font-family:Arial, Helvetica, sans-serif;
         <string/>
        </property>
       </widget>
-      <widget class="QLabel" name="nom_planning_12">
+      <widget class="QLabel" name="type_2">
        <property name="geometry">
         <rect>
          <x>70</x>
@@ -7217,7 +7257,7 @@ font-family:Arial, Helvetica, sans-serif;
         <string/>
        </property>
       </widget>
-      <widget class="QLabel" name="nom_planning_13">
+      <widget class="QLabel" name="id_2">
        <property name="geometry">
         <rect>
          <x>50</x>
@@ -7342,9 +7382,9 @@ text-align: left;
       <widget class="QLabel" name="label_29">
        <property name="geometry">
         <rect>
-         <x>-10</x>
+         <x>10</x>
          <y>10</y>
-         <width>391</width>
+         <width>421</width>
          <height>21</height>
         </rect>
        </property>
@@ -7369,7 +7409,7 @@ font-family:Arial, Helvetica, sans-serif;
 }</string>
        </property>
        <property name="text">
-        <string>Saisir le numéro de l'abonnement à supprimer </string>
+        <string>Supprimer un abonnement à partir de son numéro</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_43">
@@ -7391,8 +7431,8 @@ font-family:Arial, Helvetica, sans-serif;
       <widget class="QLineEdit" name="id_abonnement_3">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>150</y>
+         <x>50</x>
+         <y>210</y>
          <width>221</width>
          <height>71</height>
         </rect>
@@ -7419,8 +7459,8 @@ font-family:Arial, Helvetica, sans-serif;
       <widget class="QPushButton" name="supprimer_abonnement_3">
        <property name="geometry">
         <rect>
-         <x>70</x>
-         <y>240</y>
+         <x>90</x>
+         <y>290</y>
          <width>141</width>
          <height>51</height>
         </rect>
@@ -7506,6 +7546,22 @@ text-align: left;
        </property>
        <property name="text">
         <string>Afficher tous les abonnements </string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_34">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>231</width>
+         <height>131</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="pics1.qrc">:/pic1/img01.png</pixmap>
        </property>
       </widget>
      </widget>
@@ -7771,7 +7827,7 @@ font-family:Arial, Helvetica, sans-serif;
         <string/>
        </property>
       </widget>
-      <widget class="QLabel" name="nom_planning_14">
+      <widget class="QLabel" name="num_abonn">
        <property name="geometry">
         <rect>
          <x>-20</x>
@@ -7803,7 +7859,7 @@ font-family:Arial, Helvetica, sans-serif;
         <string>Le numéro d'abonnement</string>
        </property>
       </widget>
-      <widget class="QLabel" name="nom_planning_15">
+      <widget class="QLabel" name="typee">
        <property name="geometry">
         <rect>
          <x>40</x>
@@ -7835,7 +7891,7 @@ font-family:Arial, Helvetica, sans-serif;
         <string>Le type</string>
        </property>
       </widget>
-      <widget class="QLabel" name="nom_planning_16">
+      <widget class="QLabel" name="duree_9">
        <property name="geometry">
         <rect>
          <x>30</x>
@@ -7975,8 +8031,8 @@ text-align: left;
       <widget class="QTableView" name="tableViewstatis">
        <property name="geometry">
         <rect>
-         <x>540</x>
-         <y>230</y>
+         <x>30</x>
+         <y>210</y>
          <width>341</width>
          <height>221</height>
         </rect>
@@ -7985,8 +8041,8 @@ text-align: left;
       <widget class="QPushButton" name="statis_abonnement">
        <property name="geometry">
         <rect>
-         <x>590</x>
-         <y>150</y>
+         <x>60</x>
+         <y>130</y>
          <width>241</width>
          <height>51</height>
         </rect>
@@ -8015,8 +8071,8 @@ border: none;
       <widget class="QPushButton" name="statis_chart">
        <property name="geometry">
         <rect>
-         <x>80</x>
-         <y>150</y>
+         <x>600</x>
+         <y>130</y>
          <width>241</width>
          <height>51</height>
         </rect>
@@ -8064,20 +8120,20 @@ border: none;
         <enum>Qt::AutoText</enum>
        </property>
       </widget>
-      <widget class="QLabel" name="label_34">
+      <widget class="QLabel" name="label_26">
        <property name="geometry">
         <rect>
-         <x>-90</x>
-         <y>230</y>
-         <width>451</width>
-         <height>231</height>
+         <x>420</x>
+         <y>240</y>
+         <width>381</width>
+         <height>151</height>
         </rect>
        </property>
        <property name="text">
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>../mariem.png</pixmap>
+        <pixmap resource="img.qrc">:/image2/img02</pixmap>
        </property>
       </widget>
      </widget>
@@ -8085,7 +8141,7 @@ border: none;
       <attribute name="title">
        <string>Open File</string>
       </attribute>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>140</x>
@@ -8157,6 +8213,9 @@ border: none;
    </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="img.qrc"/>
+  <include location="pics1.qrc"/>
+ </resources>
  <connections/>
 </ui>
