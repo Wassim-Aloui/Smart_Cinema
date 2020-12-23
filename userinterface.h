@@ -14,6 +14,8 @@
 #include "arduino.h"
 #include <QTimer>
 #include <QDateTime>
+#include <QFile>
+#include <QTextStream>
 
 
 namespace Ui {
@@ -58,9 +60,13 @@ private slots:
     void on_statistique_prod_clicked();
     void on_open_clicked();
     void on_close_clicked();
-    void showTime();
+    void showTime_p();
 
 
+
+    void on_pushButton_write_clicked();
+
+    void on_pushButton_read_clicked();
 
 private:
     Ui::userInterface *ui;
