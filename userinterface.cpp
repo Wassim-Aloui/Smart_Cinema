@@ -22,13 +22,17 @@ userInterface::userInterface(QWidget *parent) :
     data=A.read_from_arduino();
 
     //Timer
-    QTimer *timer=new QTimer(this);
-    connect(timer,SIGNAL(timeout()),this,SLOT(showTime()));
-    timer->start();
-
+    QTimer *timer_p=new QTimer(this);
+    connect(timer_p,SIGNAL(timeout()),this,SLOT(showTime_p()));
+    timer_p->start();
+    //DAate systeme
+    QDateTime Date_p=QDateTime::currentDateTime();
+    QString Date_txt=Date_p.toString("dddd dd MMMM yyyy");
+    ui->Date->setText(Date_txt);
 
     ui->tab_afficher_produit->setModel(Etmp.afficher_produit()); 
     ui->tab_afficher_commande->setModel(Com.afficher_commande());
+     // ui->tab_afficher_commande->setModel(Com.afficher_commande());
     //allow user to use only numbers(commande inputs)
     ui->reference_commande_e->setValidator( new QIntValidator(0, 1000,this));
     ui->nombre_commande_e->setValidator( new QIntValidator(0, 1000,this) );
@@ -354,9 +358,33 @@ void userInterface::on_statistique_prod_clicked()
     s->show();
 }
 
-void userInterface::showTime()
+void userInterface::showTime_p()
 {
     QTime time=QTime::currentTime();
     QString time_txt=time.toString("hh:mm:ss");
     ui->Timer->setText(time_txt);
+}
+
+void userInterface::on_pushButton_write_clicked()
+{
+    QFile file_reclamation("C:/Users/Wassim/Desktop/Qt/Projeet/Reclamation.txt");
+    if(!file_reclamation.open(QFile::WriteOnly | QFile::Text))
+    {QMessageBox::warning(this,"title","file not open");}
+    QTextStream out(&file_reclamation);
+    QString txt=ui->plainTextEdit_reclamation->toPlainText();
+    out << txt;
+    file_reclamation.flush();
+    file_reclamation.close();
+
+}
+
+void userInterface::on_pushButton_read_clicked()
+{
+    QFile file_reclamation("C:/Users/Wassim/Desktop/Qt/Projeet/Reclamation.txt");
+    if(!file_reclamation.open(QFile::ReadOnly | QFile::Text))
+    {QMessageBox::warning(this,"title","file not open");}
+    QTextStream in(&file_reclamation);
+    QString txt=in.readAll();
+    ui->plainTextEdit_reclamation->setPlainText(txt);
+    file_reclamation.close();
 }
