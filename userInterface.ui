@@ -4312,8 +4312,8 @@ border: none;
        <widget class="QPlainTextEdit" name="plainTextEdit_reclamation">
         <property name="geometry">
          <rect>
-          <x>50</x>
-          <y>130</y>
+          <x>40</x>
+          <y>80</y>
           <width>781</width>
           <height>381</height>
          </rect>
@@ -4322,8 +4322,8 @@ border: none;
        <widget class="QLabel" name="gestion_c_6">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>10</y>
+          <x>0</x>
+          <y>0</y>
           <width>451</width>
           <height>71</height>
          </rect>
@@ -4355,8 +4355,8 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QLabel" name="gestion_c_7">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>60</y>
+          <x>10</x>
+          <y>30</y>
           <width>451</width>
           <height>71</height>
          </rect>
@@ -4385,36 +4385,36 @@ font-family:Arial, Helvetica, sans-serif;
          <string>Espace reclamation:</string>
         </property>
        </widget>
+       <widget class="QPushButton" name="pushButton_write">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>470</y>
+          <width>231</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Write</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_read">
+        <property name="geometry">
+         <rect>
+          <x>430</x>
+          <y>470</y>
+          <width>231</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Read</string>
+        </property>
+       </widget>
       </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="gestion_des_abonnes"/>
-   </widget>
-   <widget class="QPushButton" name="pushButton_read">
-    <property name="geometry">
-     <rect>
-      <x>760</x>
-      <y>560</y>
-      <width>231</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Read</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_write">
-    <property name="geometry">
-     <rect>
-      <x>470</x>
-      <y>560</y>
-      <width>231</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Write</string>
-    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

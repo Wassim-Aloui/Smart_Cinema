@@ -367,7 +367,7 @@ void userInterface::showTime_p()
 
 void userInterface::on_pushButton_write_clicked()
 {
-    QFile file_reclamation("C:/Users/Wassim/Desktop/Qt/Projeet/Reclamation.txt");
+    QFile file_reclamation("C:/Users/Wassim/Desktop/QT/Projet/Reclamation.txt");
     if(!file_reclamation.open(QFile::WriteOnly | QFile::Text))
     {QMessageBox::warning(this,"title","file not open");}
     QTextStream out(&file_reclamation);
@@ -380,7 +380,7 @@ void userInterface::on_pushButton_write_clicked()
 
 void userInterface::on_pushButton_read_clicked()
 {
-    QFile file_reclamation("C:/Users/Wassim/Desktop/Qt/Projeet/Reclamation.txt");
+    QFile file_reclamation("C:/Users/Wassim/Desktop/QT/Projet/Reclamation.txt");
     if(!file_reclamation.open(QFile::ReadOnly | QFile::Text))
     {QMessageBox::warning(this,"title","file not open");}
     QTextStream in(&file_reclamation);
