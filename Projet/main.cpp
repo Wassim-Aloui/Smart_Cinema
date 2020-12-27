@@ -2,7 +2,7 @@
 #include <QApplication>
 #include"connection.h"
 #include<QMessageBox>
-
+#include<QPixmap>
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

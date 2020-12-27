@@ -33,6 +33,8 @@ FORMS += \
     mainwindow.ui \
     statcng.ui \
     statistiques.ui
+    OTHER_FILES += \
+      icons8-film-reel-100.png
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
