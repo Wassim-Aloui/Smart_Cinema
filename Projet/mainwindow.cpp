@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include<QPixmap>
+#include<QIntValidator>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -8,6 +10,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     connect(ui->sendBtn, SIGNAL(clicked()),this, SLOT(sendMail()));
+    QRegularExpression rx("\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b",
+                              QRegularExpression::CaseInsensitiveOption);
+     ui->email_emp->setValidator(new QRegularExpressionValidator(rx, this));
+
 
     QIntValidator *int_val=new QIntValidator(1,9999999);
     ui->id_emp->setValidator(int_val);
@@ -651,3 +657,16 @@ void MainWindow::on_lbl_linkActivated(const QString &link)
 
 
 
+
+void MainWindow::on_email_emp_textChanged(const QString &arg1)
+{
+    if(!ui->email_emp->hasAcceptableInput())
+    {   // ui->email_emp->setStyleSheet("QLineEdit { color: red;}");
+        ui->email_emp->setStyleSheet("background: red");
+ ui->label_38->setText("format invalide "); }
+        else
+           // ui->email_emp->setStyleSheet("QLineEdit { color: black;}");
+         {ui->email_emp->setStyleSheet("background:#FFD700 ");
+    ui->label_38->setText(""); }
+
+}

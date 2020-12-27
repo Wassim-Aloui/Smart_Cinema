@@ -129,6 +129,8 @@ private slots:
 
     void on_subject_textChanged(const QString &arg1);
 
+    void on_email_emp_textChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
     employe tmpemploye;
