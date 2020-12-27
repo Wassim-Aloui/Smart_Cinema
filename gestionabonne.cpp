@@ -10,6 +10,12 @@
 #include<QTimer>
 #include<QDateTime>
 #include<QTextStream>
+
+#include <QPrinter>
+#include <QPainter>
+#include <QPrintDialog>
+#include <QPrinterInfo>
+
 gestionabonne::gestionabonne(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::gestionabonne)
@@ -355,6 +361,8 @@ void gestionabonne::on_affiche_supp_abonnement_clicked()
 {
     ui->table_rech_abonne_3->setModel(tmpabonnee.afficher());
 }
+
+//read and write in myfile
 void gestionabonne::on_write1_clicked()
 {
     QFile file("C:/Users/mariem/Desktop/Atelier_Connexion/myfile.txt");
@@ -386,4 +394,39 @@ void gestionabonne::on_read1_clicked()
 
    //close file
    file.close();
+}
+
+
+
+
+void gestionabonne::on_notee_clicked()
+{
+    //The QPrinter class is a paint device that paints on a printer
+        QPrinter *printer = new QPrinter(QPrinter::HighResolution);
+           printer->setOutputFormat(QPrinter::NativeFormat);
+           printer->setPageSize(QPrinter::A4);
+           printer->setOrientation(QPrinter::Portrait);
+           printer->setFullPage(true);
+
+    //The QPrintDialog class provides a dialog for specifying the printer's configuration
+       QPrintDialog *printDialog = new QPrintDialog(printer,this);
+
+       if(printDialog->exec())
+       {
+          QPainter painter;
+          if(painter.begin(printer))
+          {
+              double xscale = double(ui->table_abonne->width() / 190);
+              double yscale = double(ui->table_abonne->height() / 90);
+              painter.scale(xscale, yscale);
+              ui->table_abonne->render(&painter);
+              painter.end();
+          }
+          else
+          {
+              qWarning("failed to open file");
+             QMessageBox::warning(nullptr,QObject::tr("Echec"),QObject::tr("click cancel to exit!"),QMessageBox::Cancel);
+          }
+       }
+
 }

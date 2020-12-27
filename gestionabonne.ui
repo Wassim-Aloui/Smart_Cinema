@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1307</width>
+    <width>1277</width>
     <height>680</height>
    </rect>
   </property>
@@ -4496,7 +4496,7 @@ QLineEdit {
 }</string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="tab_27">
       <attribute name="title">
@@ -5568,7 +5568,7 @@ text-align: left;
          <x>10</x>
          <y>100</y>
          <width>891</width>
-         <height>481</height>
+         <height>361</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -5581,7 +5581,7 @@ background:#DCDCDC;
        <property name="geometry">
         <rect>
          <x>600</x>
-         <y>40</y>
+         <y>30</y>
          <width>301</width>
          <height>51</height>
         </rect>
@@ -5719,6 +5719,36 @@ font-family:Arial, Helvetica, sans-serif;
        </property>
        <property name="text">
         <string>Trier les abonnés selon votre choix :</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="notee">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>470</y>
+         <width>301</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+color: #dcdcdc;
+background:#535353;
+border: none;
+font-size:20px;
+font-family:Arial, Helvetica, sans-serif;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+}
+QPushButton:hover {
+color:#fff;
+background:#FFD700;
+border: none;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Open table</string>
        </property>
       </widget>
      </widget>
@@ -6484,7 +6514,7 @@ QLineEdit {
 }</string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>3</number>
      </property>
      <property name="iconSize">
       <size>
@@ -7572,10 +7602,10 @@ text-align: left;
       <widget class="QTableView" name="tab_abonnement">
        <property name="geometry">
         <rect>
-         <x>200</x>
-         <y>80</y>
-         <width>691</width>
-         <height>451</height>
+         <x>120</x>
+         <y>60</y>
+         <width>791</width>
+         <height>471</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -7588,9 +7618,9 @@ background:#DCDCDC;
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>0</y>
+         <y>40</y>
          <width>121</width>
-         <height>121</height>
+         <height>61</height>
         </rect>
        </property>
        <property name="lineWidth">
@@ -7621,7 +7651,7 @@ background:#DCDCDC;
       <widget class="QRadioButton" name="radioButton_4">
        <property name="geometry">
         <rect>
-         <x>60</x>
+         <x>20</x>
          <y>110</y>
          <width>191</width>
          <height>31</height>
@@ -7647,7 +7677,7 @@ text-align: left;
       <widget class="QRadioButton" name="prixButton">
        <property name="geometry">
         <rect>
-         <x>60</x>
+         <x>20</x>
          <y>250</y>
          <width>191</width>
          <height>31</height>
@@ -7673,7 +7703,7 @@ text-align: left;
       <widget class="QRadioButton" name="typeButton">
        <property name="geometry">
         <rect>
-         <x>60</x>
+         <x>20</x>
          <y>180</y>
          <width>191</width>
          <height>31</height>
@@ -7699,8 +7729,8 @@ text-align: left;
       <widget class="QRadioButton" name="afficher_abonnement_4">
        <property name="geometry">
         <rect>
-         <x>200</x>
-         <y>40</y>
+         <x>120</x>
+         <y>20</y>
          <width>321</width>
          <height>31</height>
         </rect>
@@ -7720,22 +7750,6 @@ text-align: left;
        </property>
        <property name="text">
         <string>Afficher tous les abonnements </string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_30">
-       <property name="geometry">
-        <rect>
-         <x>550</x>
-         <y>10</y>
-         <width>351</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap>../afficher.png</pixmap>
        </property>
       </widget>
      </widget>

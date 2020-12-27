@@ -101,6 +101,11 @@ private slots:
 
          void on_read1_clicked();
 
+
+
+
+         void on_notee_clicked();
+
 private:
     Ui::gestionabonne *ui;
     Abonnee tmpabonnee;
