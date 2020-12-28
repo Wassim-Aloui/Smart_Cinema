@@ -10,7 +10,7 @@ QT += core gui widgets
 QT       += core gui sql
 QT       += core gui charts
 QT    += core gui sql printsupport charts
-QT       += core gui sql printsupport
+QT       += core gui sql printsupport serialport
 QT += printsupport network
 gui+= printsupport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -32,6 +32,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    arduino_led.cpp \
+    commande.cpp \
     conge.cpp \
     employe.cpp \
     film.cpp \
@@ -39,29 +41,36 @@ SOURCES += \
         mainwindow.cpp \
     connection.cpp \
     planning.cpp \
+    produit.cpp \
     smtp.cpp \
     smtp_employe.cpp \
     stat_conge.cpp \
     stat_employe.cpp \
+    statistique.cpp \
     user_interface.cpp
 
 HEADERS += \
+    arduino_led.h \
+    commande.h \
     conge.h \
     employe.h \
     film.h \
         mainwindow.h \
     connection.h \
     planning.h \
+    produit.h \
     smtp.h \
     smtp_employe.h \
     stat_conge.h \
     stat_employe.h \
+    statistique.h \
     user_interface.h
 
 FORMS += \
         mainwindow.ui \
         stat_conge.ui \
         stat_employe.ui \
+        statistique.ui \
         user_interface.ui
 
 # Default rules for deployment.

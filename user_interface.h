@@ -14,6 +14,14 @@
 #include<QValidator>
 #include<QPrintDialog>
 #include<qtextbrowser.h>
+#include "commande.h"
+#include "produit.h"
+#include "arduino_led.h"
+#include "statistique.h"
+#include <QTimer>
+#include <QDateTime>
+#include <QFile>
+#include <QTextStream>
 
 namespace Ui {
 class user_interface;
@@ -101,7 +109,7 @@ private slots:
 
     void on_rcpt_textChanged(const QString &arg1);
 
-    void on_msg_2_textChanged();
+    //void on_msg_2_textChanged();
 
     void on_date_conge_e_8_textChanged(const QString &arg1);
 
@@ -135,7 +143,62 @@ private slots:
 
     void on_g_cong_clicked();
 
-    void on_test_id_emp_linkActivated(const QString &link);
+    //void on_test_id_emp_linkActivated(const QString &link);
+
+    void on_g_prd_clicked();
+
+    void on_g_cmd_clicked();
+
+    void on_ajouter_produit_clicked();
+
+    void on_modifier_produit_clicked();
+
+    void on_supprimer_produit_clicked();
+
+    void on_chercher_produit_clicked();
+
+    void on_radioButto_afficher_commande_3_clicked();
+
+    void on_radioButton_produit_clicked();
+
+    void on_radioButto_afficher_commande_2_clicked();
+
+    void on_afficher_id_produit_clicked();
+
+    void on_afficher_nom_produit_clicked();
+
+    void on_afficher_nombre_produit_clicked();
+
+    void on_statistique_prod_clicked();
+
+    void on_load_produit_id_clicked();
+    void showTime();
+    void on_open_clicked();
+    void on_close_clicked();
+    void on_ajouter_commande_clicked();
+    void on_modifier_commande_clicked();
+    void on_supprimer_commande_clicked();
+    void on_rechercher_commande_clicked();
+
+    void on_radioButton_commande_2_clicked();
+
+    void on_radioButton_commande_clicked();
+
+    void on_reference_commande_2_clicked();
+
+    void on_modifier_commande_3_clicked();
+
+    void on_modifier_commande_4_clicked();
+
+    void on_load_commande_ref_clicked();
+
+    void on_pdf_commande_clicked();
+
+    void on_pushButton_write_clicked();
+
+    void on_pushButton_read_clicked();
+
+    void on_radioButto_afficher_commande_clicked();
 
 private:
     Ui::user_interface *ui;
@@ -143,6 +206,10 @@ private:
     film tmpfilm;
     employe tmpemploye;
     conge tmpconge;
+    produit Etmp;
+    commande Com;
+    QByteArray data;
+    arduino_led A;
 };
 
 #endif // USER_INTERFACE_H
