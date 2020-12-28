@@ -3,7 +3,13 @@
 # Project created by QtCreator 2018-10-26T21:45:23
 #
 #-------------------------------------------------
-
+QT       += core gui sql network charts
+QT += gui
+QT += network
+QT += core gui widgets
+QT       += core gui sql
+QT       += core gui charts
+QT    += core gui sql printsupport charts
 QT       += core gui sql printsupport
 QT += printsupport network
 gui+= printsupport
@@ -26,24 +32,36 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    conge.cpp \
+    employe.cpp \
     film.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
     planning.cpp \
     smtp.cpp \
+    smtp_employe.cpp \
+    stat_conge.cpp \
+    stat_employe.cpp \
     user_interface.cpp
 
 HEADERS += \
+    conge.h \
+    employe.h \
     film.h \
         mainwindow.h \
     connection.h \
     planning.h \
     smtp.h \
+    smtp_employe.h \
+    stat_conge.h \
+    stat_employe.h \
     user_interface.h
 
 FORMS += \
         mainwindow.ui \
+        stat_conge.ui \
+        stat_employe.ui \
         user_interface.ui
 
 # Default rules for deployment.
