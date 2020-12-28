@@ -22,6 +22,10 @@
 #include <QDateTime>
 #include <QFile>
 #include <QTextStream>
+#include "abonnee.h"
+#include "abonnement.h"
+#include "statistiquee.h"
+#include "stat2.h"
 
 namespace Ui {
 class user_interface;
@@ -200,6 +204,70 @@ private slots:
 
     void on_radioButto_afficher_commande_clicked();
 
+    void on_g_abonnes_clicked();
+
+    void on_g_abonnements_clicked();
+
+    void on_ajouter_abonne_clicked();
+
+    void on_modifier_abonne_clicked();
+
+    void on_modifier_affiche_abonne_clicked();
+
+    void on_supprimer_abonnee_clicked();
+
+    void on_affiche_supp_abonne_clicked();
+
+    void on_radioButton_nom1_clicked();
+
+    void on_radioButton_ville_clicked();
+
+    void on_radioButton_tarif_clicked();
+
+    void on_afficher_abonne_clicked();
+
+    void on_notee_clicked();
+
+    void on_chercher_abonnee_clicked();
+
+    void on_radioButton_afficher_clicked();
+
+    void on_stat_abonnee_clicked();
+
+    void on_statistique_clicked();
+
+    void on_ajouter_abonnement_1_clicked();
+
+    void on_radioButton_5_clicked();
+
+    void on_modifier_abonnement_2_clicked();
+
+    void on_afficher_abonnement_modif_clicked();
+
+    void on_supprimer_abonnement_3_clicked();
+
+    void on_afficher_abonnement_3_clicked();
+
+    void on_afficher_abonnement_4_clicked();
+
+    void on_radioButton_4_clicked();
+
+    void on_typeButton_clicked();
+
+    void on_prixButton_clicked();
+
+    void on_chercher_abonnement_4_clicked();
+
+    void on_afficher_abonnement_clicked();
+
+    void on_statis_abonnement_clicked();
+
+    void on_statis_chart_clicked();
+
+    void on_write1_clicked();
+
+    void on_read1_clicked();
+
 private:
     Ui::user_interface *ui;
     planning tmpplanning;
@@ -210,6 +278,8 @@ private:
     commande Com;
     QByteArray data;
     arduino_led A;
+    Abonnee tmpabonnee;
+    Abonnement tmpabonnement;
 };
 
 #endif // USER_INTERFACE_H

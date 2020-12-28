@@ -32,6 +32,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    abonnee.cpp \
+    abonnement.cpp \
     arduino_led.cpp \
     commande.cpp \
     conge.cpp \
@@ -44,12 +46,16 @@ SOURCES += \
     produit.cpp \
     smtp.cpp \
     smtp_employe.cpp \
+    stat2.cpp \
     stat_conge.cpp \
     stat_employe.cpp \
     statistique.cpp \
+    statistiquee.cpp \
     user_interface.cpp
 
 HEADERS += \
+    abonnee.h \
+    abonnement.h \
     arduino_led.h \
     commande.h \
     conge.h \
@@ -61,19 +67,26 @@ HEADERS += \
     produit.h \
     smtp.h \
     smtp_employe.h \
+    stat2.h \
     stat_conge.h \
     stat_employe.h \
     statistique.h \
+    statistiquee.h \
     user_interface.h
 
 FORMS += \
         mainwindow.ui \
+        stat2.ui \
         stat_conge.ui \
         stat_employe.ui \
         statistique.ui \
+        statistiquee.ui \
         user_interface.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    imag.qrc

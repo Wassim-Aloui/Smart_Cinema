@@ -6,6 +6,8 @@
 #include<QPixmap>
 #include<QIntValidator>
 #include<QMessageBox>
+#include "abonnee.h"
+#include "abonnement.h"
 user_interface::user_interface(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::user_interface)
@@ -70,6 +72,19 @@ user_interface::user_interface(QWidget *parent) :
       ui->nombre_produit_e2->setValidator( new QIntValidator(0, 1000,this) );
       ui->id_produit_e3->setValidator( new QIntValidator(0, 1000,this) );
       ui->id_produit_e4->setValidator( new QIntValidator(0, 1000,this) );
+
+      ui->table_abonne->setModel(tmpabonnee.afficher());
+      ui->id_abonne_e_1->setValidator (new QIntValidator(0,99999999, this));
+      ui->id_modifier_abonne->setValidator(new QIntValidator(0,99999999,this));
+       ui->id_supp_abonne->setValidator(new QIntValidator(0,99999999,this));
+
+      ui->tab_abonnement->setModel(tmpabonnement.afficher());
+      ui->num_abonnement_1->setValidator (new QIntValidator(0,99999999, this));
+      ui->id_abonnement_2->setValidator(new QIntValidator(0,99999999,this));
+      ui->id_abonnement_3->setValidator(new QIntValidator(0,99999999,this));
+
+
+
 
     //Timer
       QTimer *timer_p=new QTimer(this);
@@ -1343,3 +1358,372 @@ void user_interface::on_pushButton_read_clicked()
        file_reclamation.close();
 }
 
+
+void user_interface::on_g_abonnes_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(8);
+}
+
+void user_interface::on_g_abonnements_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(9);
+}
+
+void user_interface::on_ajouter_abonne_clicked()
+{
+    int id = ui->id_abonne_e_1->text().toInt();
+    QString nom = ui->nom_abonne_e_2->text();
+    QString prenom = ui->prenom_abonne_e_3->text();
+    QString tarif = ui->tarif_abonnee_4->text();
+    QString ville = ui->ville_abonne_5->text();
+    Abonnee a(id,nom,prenom,tarif,ville);
+    bool test= a.ajouter();
+    if(test){
+
+        ui->table_abonne->setModel(tmpabonnee.afficher());
+
+
+        QMessageBox::information(nullptr, QObject::tr("Ajouter un abonnee"),
+                    QObject::tr("Abonnee ajoute.\n"),QMessageBox::Ok);
+    }
+    else   {
+        QMessageBox::critical(nullptr, QObject::tr("Ajouter un abonnee"),
+                                   QObject::tr("Abonnee non ajoute.\n"),QMessageBox::Ok);
+    }
+}
+
+void user_interface::on_modifier_abonne_clicked()
+{
+    QString nom= ui->nom_abonne_e_4->text();
+    QString prenom= ui->modifier_prenom->text();
+    int id= ui->id_modifier_abonne->text().toInt();
+    QString tarif= ui->modifier_tarif->text();
+    QString ville= ui->modifier_ville->text();
+      Abonnee a;
+       if(a.rech(id)){
+           bool test = a.modifier(id,nom,prenom,tarif,ville);
+           if(test){
+
+               ui->table_abonne->setModel(tmpabonnee.afficher());//refresh
+
+               QMessageBox::information(nullptr, QObject::tr("Modifier un abonnee"),
+                           QObject::tr("Abonnee modifié.\n"),QMessageBox::Ok);
+           }
+           else   {
+               QMessageBox::critical(nullptr, QObject::tr("Modifier un abonnee"),
+                                          QObject::tr("Abonnee non modifié.\n"),QMessageBox::Ok);
+           }
+           }
+
+}
+
+
+void user_interface::on_modifier_affiche_abonne_clicked()
+{
+    ui->table_abonne_3->setModel(tmpabonnee.afficher());
+}
+
+void user_interface::on_supprimer_abonnee_clicked()
+{
+    int id= ui->id_supp_abonne->text().toInt();
+   bool test = tmpabonnee.supprimer(id);
+if(test)
+{
+    ui->table_abonne->setModel(tmpabonnee.afficher());
+    QMessageBox::information(nullptr, QObject::tr("Supprimer un abonnee"),
+                QObject::tr("Abonnee supprimé.\n"),QMessageBox::Ok);
+}
+else   {
+    QMessageBox::critical(nullptr, QObject::tr("Supprimer un abonnee"),
+                               QObject::tr("Echec !\nAbonné non trouvé.\n"),QMessageBox::Ok);
+}
+}
+
+
+void user_interface::on_affiche_supp_abonne_clicked()
+{
+     ui->table_rech_abonne_3->setModel(tmpabonnee.afficher());
+}
+
+void user_interface::on_radioButton_nom1_clicked()
+{
+    bool test = tmpabonnee.tri();
+    if(test){
+       ui->table_abonne->setModel(tmpabonnee.tri());
+       QMessageBox::information(nullptr, QObject::tr("Tri des noms"),
+                   QObject::tr("Abonnes triés.\n"),QMessageBox::Ok);
+   }
+   else   {
+       QMessageBox::critical(nullptr, QObject::tr("Tri des noms"),
+                                  QObject::tr("Abonnes non triés.\n"),QMessageBox::Ok);
+   }
+}
+
+
+void user_interface::on_radioButton_ville_clicked()
+{
+
+    bool test = tmpabonnee.triville();
+    if(test){
+       ui->table_abonne->setModel(tmpabonnee.triville());
+       QMessageBox::information(nullptr, QObject::tr("Tri des villes"),
+                   QObject::tr("Abonnes triés.\n"),QMessageBox::Ok);
+   }
+   else   {
+       QMessageBox::critical(nullptr, QObject::tr("Tri des villes"),
+                                  QObject::tr("Abonnes non triés.\n"),QMessageBox::Ok);
+   }
+}
+
+void user_interface::on_radioButton_tarif_clicked()
+{
+    bool test = tmpabonnee.tritarif();
+        if(test){
+           ui->table_abonne->setModel(tmpabonnee.tritarif());
+           QMessageBox::information(nullptr, QObject::tr("Tri des tarifs"),
+                       QObject::tr("Abonnes triés.\n"),QMessageBox::Ok);
+       }
+       else   {
+           QMessageBox::critical(nullptr, QObject::tr("Tri des tarifs"),
+                                      QObject::tr("Abonnes non triés.\n"),QMessageBox::Ok);
+       }
+}
+
+void user_interface::on_afficher_abonne_clicked()
+{
+     ui->table_abonne->setModel(tmpabonnee.afficher());
+}
+
+void user_interface::on_notee_clicked()
+{
+    QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Open PDF", QString(), "*.pdf");
+            if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append("Exporter tableau abonnés.pdf"); }
+
+            QPrinter printer(QPrinter::PrinterResolution);
+            printer.setOutputFormat(QPrinter::PdfFormat);
+            printer.setPaperSize(QPrinter::A4);
+            printer.setOutputFileName(fileName);
+
+            QTextDocument doc;
+            QSqlQuery q;
+            q.prepare("SELECT * from ABONNEE");
+            q.exec();
+           // QString pdf="<br> <img src='C:/Users/mariem/Desktop/Atelier_Connexion/img01.png' height='100' width='144' /> <h1  style='color:blue'>   LES ABONNES de notre cinéma:  <br></h1>\n <br>  <table>  <tr>  <th> ID </th> <th> NOM </th> <th> PRENOM </th> <th> TARIF </th>  <th> VILLE </th>  </tr>" ;
+ QString pdf="<center></br> <img style='border: 3px solid #555 ;'src='C:/Users/mariem/Desktop/Atelier_Connexion/img01.png' height='327' width='282 />  <h1  style='color:blue'> <u>Les ABONNES de notre cinéma:  </u></h1></center><br></h1>\n <br>  <table>  <tr>  <th> ID </th> <th> NOM </th> <th> PRENOM </th> <th> TARIF </th>  <th> VILLE </th>  </tr>";
+
+
+            while ( q.next()) {
+
+                //pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"    </td>  <td>   " + q.value(1).toString()+" </td>  <td>  "+q.value(2).toString() +"   </td>  <td>    "+q.value(3).toString()+"</td>       <td>"+q.value(4).toString()+"    <td>  <td>"+q.value(5).toString()+"            </td>" ;
+pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"    </td>  <td>   " + q.value(1).toString()+" </td>  <td>  "+q.value(2).toString() +"   </td>  <td>    "+q.value(3).toString()+"</td>       <td>"+q.value(4).toString()+"    <td>  <td>"+q.value(5).toString()+"            </td>" ;
+
+            }
+            doc.setHtml(pdf);
+            doc.setPageSize(printer.pageRect().size());
+            doc.print(&printer);
+}
+
+
+void user_interface::on_chercher_abonnee_clicked()
+{
+    int id = ui->id_rech_abonne_5->text().toInt();
+    QString nom = ui->nom_rech_abonne_5->text();
+    QString prenom = ui->prenom_rech_abonne_5->text();
+
+    if(id != 0)
+   { ui->table_rech_abonne->setModel(tmpabonnee.searchid(id));}
+
+      if(nom != "")
+        {ui->table_rech_abonne->setModel(tmpabonnee.searchnom(nom));}
+
+     if (prenom != "")
+        {ui->table_rech_abonne->setModel(tmpabonnee.searchprenom(prenom));}
+}
+
+void user_interface::on_radioButton_afficher_clicked()
+{
+    ui->table_rech_abonne->setModel(tmpabonnee.afficher());
+}
+
+void user_interface::on_stat_abonnee_clicked()
+{
+     ui->tableViewstat->setModel(tmpabonnee.stat());
+}
+
+void user_interface::on_statistique_clicked()
+{
+    statistiquee *s=new statistiquee();
+        s->show();
+}
+
+
+void user_interface::on_ajouter_abonnement_1_clicked()
+{
+    int num = ui->num_abonnement_1->text().toInt();
+    int prix = ui->prix_abonnement_1->text().toInt();
+    QString duree = ui->duree_abonnement_1->text();
+       QString type = ui->type_abonnement_1->text();
+       int id = ui->ida_abonnement_1->text().toInt();
+    Abonnement b(num,prix,id,duree,type);
+    bool test= b.ajouter();
+    if(test){
+
+        ui->tab_abonnement->setModel(tmpabonnement.afficher());
+
+
+        QMessageBox::information(nullptr, QObject::tr("Ajouter un abonnement"),
+                    QObject::tr("Abonnement ajoute.\n"),QMessageBox::Ok);
+    }
+    else   {
+        QMessageBox::critical(nullptr, QObject::tr("Ajouter un abonnement"),
+                                   QObject::tr("Abonnement non ajoute.\n"),QMessageBox::Ok);
+    }
+}
+
+
+void user_interface::on_radioButton_5_clicked()
+{
+    ui->tableView9->setModel(tmpabonnement.ajout());
+}
+
+void user_interface::on_modifier_abonnement_2_clicked()
+{
+    int num= ui->id_abonnement_2->text().toInt();
+   int prix= ui->prix_abonnement_3->text().toInt();
+    QString duree= ui->duree_abonnement_2->text();
+    QString type= ui->type_abonnement_2->text();
+    int id= ui->ida_abonnement_2->text().toInt();
+      Abonnement b;
+       if(b.rech(num)){
+           bool test = b.modifiera(num,prix,duree,type,id);
+           if(test){
+
+               ui->tab_abonnement->setModel(tmpabonnement.afficher());//refresh
+
+               QMessageBox::information(nullptr, QObject::tr("Modifier un abonnement"),
+                           QObject::tr("Abonnement modifié.\n"),QMessageBox::Ok);
+           }
+           else   {
+               QMessageBox::critical(nullptr, QObject::tr("Modifier un abonnement"),
+                                          QObject::tr("Abonnement non modifié.\n"),QMessageBox::Ok);
+           }
+           }
+}
+
+void user_interface::on_afficher_abonnement_modif_clicked()
+{
+    ui->tableViewmodif->setModel(tmpabonnement.afficher());
+}
+
+void user_interface::on_supprimer_abonnement_3_clicked()
+{
+    int num= ui->id_abonnement_3->text().toInt();
+   bool test = tmpabonnement.supprimer(num);
+if(test)
+{
+    ui->tab_abonnement->setModel(tmpabonnement.afficher());
+    QMessageBox::information(nullptr, QObject::tr("Supprimer un abonnement"),
+                QObject::tr("Abonnement supprimé.\n"),QMessageBox::Ok);
+}
+else   {
+    QMessageBox::critical(nullptr, QObject::tr("Supprimer un abonnement"),
+                               QObject::tr("Abonnement non supprimé.\n"),QMessageBox::Ok);
+}
+}
+
+void user_interface::on_afficher_abonnement_3_clicked()
+{
+    ui->tableViewsupp->setModel(tmpabonnement.afficher());
+}
+
+
+void user_interface::on_afficher_abonnement_4_clicked()
+{
+    ui->tab_abonnement->setModel(tmpabonnement.afficher());
+}
+
+
+void user_interface::on_radioButton_4_clicked()
+{
+     ui->tab_abonnement->setModel(tmpabonnement.triduree());
+}
+
+
+void user_interface::on_typeButton_clicked()
+{
+     ui->tab_abonnement->setModel(tmpabonnement.tritype());
+}
+
+
+void user_interface::on_prixButton_clicked()
+{
+     ui->tab_abonnement->setModel(tmpabonnement.triprix());
+}
+
+void user_interface::on_chercher_abonnement_4_clicked()
+{
+    int num = ui->num_5->text().toInt();
+    QString type = ui->type_5->text();
+    QString duree = ui->duree_8->text();
+
+    if(num != 0)
+   { ui->tab_chercher_abonnement->setModel(tmpabonnement.searchnum(num));}
+
+      if(type != "")
+      {ui->tab_chercher_abonnement->setModel(tmpabonnement.searchtype(type));}
+
+     if (duree != "")
+        {ui->tab_chercher_abonnement->setModel(tmpabonnement.searchduree(duree));}
+}
+
+void user_interface::on_afficher_abonnement_clicked()
+{
+     ui->tab_chercher_abonnement->setModel(tmpabonnement.afficher());
+}
+
+void user_interface::on_statis_abonnement_clicked()
+{
+     ui->tableViewstatis->setModel(tmpabonnement.statis());
+}
+
+
+void user_interface::on_statis_chart_clicked()
+{
+    Stat2 *s=new Stat2();
+        s->show();
+}
+
+void user_interface::on_write1_clicked()
+{
+    //read and write in myfile
+       QFile file("C:/Users/mariem/Desktop/upload integration/Smart_Cinema_2A7/myfile.txt");
+       if(!file.open(QFile::WriteOnly| QFile::Text)){
+           QMessageBox::warning(this,"title","file not open");
+
+       }
+       //write in the file with out
+       QTextStream out(&file);
+       QString text = ui->plainTextEdit1->toPlainText();
+
+       out <<text ;
+       //fluch operation
+       file.flush();
+       //close file
+       file.close();
+    }
+
+
+void user_interface::on_read1_clicked()
+{
+    QFile file("C:/Users/mariem/Desktop/upload integration/Smart_Cinema_2A7/myfile.txt");
+   if(!file.open(QFile::ReadOnly| QFile::Text)){
+       QMessageBox::warning(this,"title","file not open");
+   }
+   //stream pour lire le contenu of the file
+   QTextStream in(&file);
+   QString text = in.readAll();
+   ui->plainTextEdit1->setPlainText(text);
+
+   //close file
+   file.close();
+}
