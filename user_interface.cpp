@@ -1019,10 +1019,12 @@ void user_interface::on_ajouter_employe_2_clicked()
 
        //ui->comboBox_id_emp_2->clear();
         //ui->comboBox_id_emp_2->addItems(tmpemploye.listemploye());
+        A.write_to_arduino("1");
     }
     else{
         QMessageBox::critical(nullptr, QObject::tr("Employe"),
                     QObject::tr("Echec!\n"), QMessageBox::Cancel);
+        A.write_to_arduino("0");
     }
 }
 
