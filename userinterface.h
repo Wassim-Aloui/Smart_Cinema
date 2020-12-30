@@ -16,6 +16,9 @@
 #include <QDateTime>
 #include <QFile>
 #include <QTextStream>
+#include "smtp_produit.h"
+
+
 
 
 namespace Ui {
@@ -31,6 +34,7 @@ public:
     ~userInterface();
 
 private slots:
+
     void on_g_prd_clicked();
     void on_g_cmd_clicked();
     void on_ajouter_produit_clicked();
@@ -61,12 +65,9 @@ private slots:
     void on_open_clicked();
     void on_close_clicked();
     void showTime_p();
-
-
-
     void on_pushButton_write_clicked();
-
     void on_pushButton_read_clicked();
+    void on_pushButton_envoyerMail_clicked();
 
 private:
     Ui::userInterface *ui;
