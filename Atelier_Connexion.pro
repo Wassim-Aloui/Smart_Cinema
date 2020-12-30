@@ -46,6 +46,7 @@ SOURCES += \
     produit.cpp \
     smtp.cpp \
     smtp_employe.cpp \
+    smtp_produit.cpp \
     stat2.cpp \
     stat_conge.cpp \
     stat_employe.cpp \
@@ -67,6 +68,7 @@ HEADERS += \
     produit.h \
     smtp.h \
     smtp_employe.h \
+    smtp_produit.h \
     stat2.h \
     stat_conge.h \
     stat_employe.h \

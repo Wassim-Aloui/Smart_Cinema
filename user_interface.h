@@ -26,6 +26,7 @@
 #include "abonnement.h"
 #include "statistiquee.h"
 #include "stat2.h"
+#include "smtp_produit.h"
 
 namespace Ui {
 class user_interface;
@@ -267,6 +268,8 @@ private slots:
     void on_write1_clicked();
 
     void on_read1_clicked();
+
+    void on_pushButton_envoyerMail_clicked();
 
 private:
     Ui::user_interface *ui;

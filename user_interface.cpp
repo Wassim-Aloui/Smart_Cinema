@@ -459,7 +459,7 @@ void user_interface::on_Mail_clicked()
 {
     Smtp* smtp = new Smtp("fatma.louhichi@esprit.tn", "191JFT1375", "smtp.gmail.com", 465);
 
-        smtp->sendMail("fatma.louhichi@esprit.tn", ui->envoyera->text() , ui->objet->text() ,ui->msg->toPlainText());
+          smtp->sendMail("fatma.louhichi@esprit.tn", ui->envoyera->text() , ui->objet->text() ,ui->msg->toPlainText());
 }
 
 
@@ -1728,4 +1728,11 @@ void user_interface::on_read1_clicked()
 
    //close file
    file.close();
+}
+
+void user_interface::on_pushButton_envoyerMail_clicked()
+{
+    Smtp_produit* smtp = new Smtp_produit("projet.esprit11@gmail.com", "esprit2020", "smtp.gmail.com", 465);
+
+        smtp->sendMail("projet.esprit11@gmail.com", ui->ecrire_mail->text() , ui->ecrire_objet->text() ,ui->ecrire_txt->toPlainText());
 }
