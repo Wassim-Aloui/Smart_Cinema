@@ -2,12 +2,20 @@
 #include "ui_user_interface.h"
 #include"planning.h"
 #include"film.h"
+#include "conge.h"
+#include "employe.h"
 #include "smtp.h"
+#include"smtp_employe.h"
 #include<QPixmap>
 #include<QIntValidator>
 #include<QMessageBox>
 #include "abonnee.h"
 #include "abonnement.h"
+#include<QStyle>
+#include<QFile>
+#include<QTimer>
+#include<QDateTime>
+#include<QTextStream>
 user_interface::user_interface(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::user_interface)
@@ -487,20 +495,6 @@ void user_interface::on_Mail_clicked()
 
 
 
-/*void MainWindow::on_trouver_conge_clicked()
-{
-    Conge c =tmpconge.recherche_ref(ui->ref_conge_mod->text().toInt());
-    QString ref= QString::number(c.getref());
-    QString duree= QString::number(c.getduree());
-    ui->ref_conge_e2->setText(ref);
-    ui->duree_conge_e_2->setText(duree);
-    ui->date_conge_e_2->setDate(c.getdate());
-    ui->type_conge_e_2->setText(c.gettype());
-}/*
-
-
-
-
 
 /*void MainWindow::on_date_conge_e_7_textChanged(const QString &arg1)
 {
@@ -603,14 +597,13 @@ void user_interface::on_Mail_clicked()
 } */
 
 
-
 void user_interface::sendMail()
 {
-    Smtp* smtp = new Smtp("lina.khammeri@esprit.tn","191JFT1097", "smtp.gmail.com", 465,30000);
+    smtp_employe * smtp = new smtp_employe("lina.khammeri@esprit.tn","191JFT1097", "smtp.gmail.com", 465,30000);
     connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
 //ui->rcpt->text()
 
-    smtp->sendMail("lina.khammeri@esprit.tn", ui->combomail->currentText() , ui->subject->text(),ui->msg->toPlainText());
+    smtp->sendMail("lina.khammeri@esprit.tn", ui->combomail->currentText() , ui->subject->text(),ui->msg_2->toPlainText());
 }
 
 void user_interface::mailSent(QString status)
@@ -1736,3 +1729,150 @@ void user_interface::on_pushButton_envoyerMail_clicked()
 
         smtp->sendMail("projet.esprit11@gmail.com", ui->ecrire_mail->text() , ui->ecrire_objet->text() ,ui->ecrire_txt->toPlainText());
 }
+
+void user_interface::on_g_emp_pressed()
+{
+    ui->g_abonnes->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_abonnements->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_cmd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_prd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_plng->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_salle->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
+    ui->g_film->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_cong->setStyleSheet("background-color :#FFD700;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9;");
+    ui->g_emp->setStyleSheet("background-color :#A9A9A9 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
+
+
+}
+
+void user_interface::on_g_cong_pressed()
+{
+    ui->g_abonnes->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_abonnements->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_cmd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
+    ui->g_prd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_salle->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
+    ui->g_plng->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_film->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_emp->setStyleSheet("background-color :#FFD700;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_cong->setStyleSheet("background-color :#A9A9A9 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
+
+}
+
+void user_interface::on_g_film_pressed()
+{
+    ui->g_abonnes->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_abonnements->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_prd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_cmd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
+    ui->g_salle->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_plng->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_cong->setStyleSheet("background-color :#FFD700;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_emp->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_film->setStyleSheet("background-color :#A9A9A9 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
+}
+
+void user_interface::on_g_plng_pressed()
+{
+    ui->g_abonnes->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_abonnements->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_prd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_cmd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
+    ui->g_salle->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
+    ui->g_film->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_cong->setStyleSheet("background-color :#FFD700;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_emp->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_plng->setStyleSheet("background-color :#A9A9A9 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
+}
+
+void user_interface::on_g_salle_pressed()
+{
+    ui->g_abonnes->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_abonnements->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_prd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_cmd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
+    ui->g_film->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_cong->setStyleSheet("background-color :#FFD700;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_emp->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_plng->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_salle->setStyleSheet("background-color :#A9A9A9 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
+}
+
+void user_interface::on_g_prd_pressed()
+{
+    ui->g_abonnes->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_abonnements->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_cmd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
+    ui->g_film->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_cong->setStyleSheet("background-color :#FFD700;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_emp->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_plng->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_salle->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_prd->setStyleSheet("background-color :#A9A9A9 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
+}
+
+void user_interface::on_g_cmd_pressed()
+{
+    ui->g_abonnes->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_abonnements->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_film->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_cong->setStyleSheet("background-color :#FFD700;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_emp->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_plng->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_salle->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_prd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_cmd->setStyleSheet("background-color :#A9A9A9 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
+}
+
+void user_interface::on_g_abonnes_pressed()
+{
+    ui->g_abonnements->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
+    ui->g_film->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_cong->setStyleSheet("background-color :#FFD700;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_emp->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_plng->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_salle->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_prd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_cmd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_abonnes->setStyleSheet("background-color :#A9A9A9 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
+}
+
+void user_interface::on_g_abonnements_pressed()
+{
+    ui->g_film->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_cong->setStyleSheet("background-color :#FFD700;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_emp->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_plng->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_salle->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_prd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_cmd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_abonnes->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_abonnements->setStyleSheet("background-color :#A9A9A9 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
+}
+
+/*void user_interface::on_sendBtn_clicked()
+{
+    smtp_employe * smtp = new smtp_employe("lina.khammeri@esprit.tn","191JFT1097", "smtp.gmail.com", 465,30000);
+    connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+//ui->rcpt->text()
+
+    smtp->sendMail("lina.khammeri@esprit.tn", ui->combomail->currentText() , ui->subject->text(),ui->msg->toPlainText());
+}*/

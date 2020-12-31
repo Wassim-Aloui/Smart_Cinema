@@ -569,7 +569,7 @@ font-family:Arial, Helvetica, sans-serif;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>9</number>
     </property>
     <widget class="QWidget" name="Acceuil"/>
     <widget class="QWidget" name="gestion_des_employes">
@@ -969,7 +969,7 @@ QLineEdit {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="tab_13">
        <attribute name="title">
@@ -980,7 +980,7 @@ QLineEdit {
          <rect>
           <x>70</x>
           <y>50</y>
-          <width>431</width>
+          <width>471</width>
           <height>16</height>
          </rect>
         </property>
@@ -999,8 +999,8 @@ QLineEdit {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -1496,9 +1496,9 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QLabel" name="label_24">
         <property name="geometry">
          <rect>
-          <x>50</x>
+          <x>-20</x>
           <y>80</y>
-          <width>351</width>
+          <width>401</width>
           <height>16</height>
          </rect>
         </property>
@@ -1517,8 +1517,8 @@ font-family:Arial, Helvetica, sans-serif;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -1853,10 +1853,25 @@ border: none;
         <property name="geometry">
          <rect>
           <x>380</x>
-          <y>70</y>
+          <y>60</y>
           <width>191</width>
-          <height>41</height>
+          <height>61</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QComboBox {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #757575;
+  color: #dcdcdc;
+  font-size: 20px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="email_emp_2">
@@ -1994,7 +2009,7 @@ border: none;
          <rect>
           <x>230</x>
           <y>150</y>
-          <width>351</width>
+          <width>411</width>
           <height>16</height>
          </rect>
         </property>
@@ -2013,8 +2028,8 @@ border: none;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -2090,9 +2105,24 @@ border: none;
          <rect>
           <x>410</x>
           <y>240</y>
-          <width>201</width>
-          <height>41</height>
+          <width>221</width>
+          <height>61</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QComboBox {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #757575;
+  color: #dcdcdc;
+  font-size: 20px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
         </property>
        </widget>
        <widget class="QLabel" name="lbl_3">
@@ -2341,7 +2371,7 @@ font-family:Arial, Helvetica, sans-serif;
         </property>
         <property name="styleSheet">
          <string notr="true">#tab_tri {
-background:#DCDCDC;
+background:#FFD700;
 }</string>
         </property>
        </widget>
@@ -2650,7 +2680,7 @@ font-family:Arial, Helvetica, sans-serif;
       </widget>
       <widget class="QWidget" name="tab_18">
        <attribute name="title">
-        <string>Envoi mail</string>
+        <string>Envoyer mail</string>
        </attribute>
        <widget class="QLineEdit" name="rcpt">
         <property name="geometry">
@@ -3000,9 +3030,9 @@ font-family:Arial, Helvetica, sans-serif;
         <property name="geometry">
          <rect>
           <x>40</x>
-          <y>50</y>
+          <y>70</y>
           <width>161</width>
-          <height>81</height>
+          <height>71</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -3048,13 +3078,25 @@ font-family:Arial, Helvetica, sans-serif;
         <property name="geometry">
          <rect>
           <x>220</x>
-          <y>50</y>
+          <y>70</y>
           <width>371</width>
           <height>61</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true">QComboBox {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #757575;
+  color: #dcdcdc;
+  font-size: 20px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
         </property>
        </widget>
        <widget class="QLabel" name="lbl_5">
@@ -3074,6 +3116,39 @@ font-family:Arial, Helvetica, sans-serif;
         </property>
         <property name="scaledContents">
          <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="Mail_titre_2">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>10</y>
+          <width>381</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <italic>false</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  color: #808080;
+  font-size: 20px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
+        </property>
+        <property name="text">
+         <string>Ecrire le mail a envoyer</string>
         </property>
        </widget>
       </widget>
@@ -3476,7 +3551,7 @@ QLineEdit {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="tab_12">
        <attribute name="title">
@@ -3487,7 +3562,7 @@ QLineEdit {
          <rect>
           <x>20</x>
           <y>50</y>
-          <width>431</width>
+          <width>451</width>
           <height>16</height>
          </rect>
         </property>
@@ -3506,8 +3581,8 @@ QLineEdit {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -3789,8 +3864,23 @@ font-family:Arial, Helvetica, sans-serif;
           <x>340</x>
           <y>360</y>
           <width>191</width>
-          <height>31</height>
+          <height>61</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QComboBox {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #757575;
+  color: #dcdcdc;
+  font-size: 20px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
         </property>
        </widget>
        <widget class="QLabel" name="type_conge_4">
@@ -3876,9 +3966,9 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QLabel" name="label_36">
         <property name="geometry">
          <rect>
-          <x>-10</x>
+          <x>-20</x>
           <y>100</y>
-          <width>351</width>
+          <width>441</width>
           <height>16</height>
          </rect>
         </property>
@@ -3897,8 +3987,8 @@ font-family:Arial, Helvetica, sans-serif;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -4033,7 +4123,7 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QLineEdit" name="duree_conge_e_2">
         <property name="geometry">
          <rect>
-          <x>340</x>
+          <x>390</x>
           <y>180</y>
           <width>201</width>
           <height>61</height>
@@ -4061,7 +4151,7 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QLineEdit" name="type_conge_e_2">
         <property name="geometry">
          <rect>
-          <x>350</x>
+          <x>400</x>
           <y>380</y>
           <width>191</width>
           <height>61</height>
@@ -4179,7 +4269,7 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QDateEdit" name="date_conge_e_2">
         <property name="geometry">
          <rect>
-          <x>340</x>
+          <x>390</x>
           <y>280</y>
           <width>201</width>
           <height>61</height>
@@ -4204,11 +4294,26 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QComboBox" name="comboc1">
         <property name="geometry">
          <rect>
-          <x>350</x>
-          <y>90</y>
+          <x>400</x>
+          <y>80</y>
           <width>191</width>
-          <height>41</height>
+          <height>61</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QComboBox {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #757575;
+  color: #dcdcdc;
+  font-size: 20px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
         </property>
        </widget>
        <widget class="QComboBox" name="comboBox_id_emp_2">
@@ -4224,10 +4329,10 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QLabel" name="type_conge_6">
         <property name="geometry">
          <rect>
-          <x>360</x>
+          <x>470</x>
           <y>400</y>
-          <width>191</width>
-          <height>16</height>
+          <width>81</width>
+          <height>20</height>
          </rect>
         </property>
         <property name="font">
@@ -4297,7 +4402,7 @@ font-family:Arial, Helvetica, sans-serif;
          <rect>
           <x>210</x>
           <y>150</y>
-          <width>351</width>
+          <width>451</width>
           <height>16</height>
          </rect>
         </property>
@@ -4316,8 +4421,8 @@ font-family:Arial, Helvetica, sans-serif;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -4391,11 +4496,26 @@ border: none;
        <widget class="QComboBox" name="comboBox_4">
         <property name="geometry">
          <rect>
-          <x>440</x>
-          <y>240</y>
-          <width>211</width>
-          <height>41</height>
+          <x>430</x>
+          <y>220</y>
+          <width>221</width>
+          <height>71</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QComboBox {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #757575;
+  color: #dcdcdc;
+  font-size: 20px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
         </property>
        </widget>
        <widget class="QLabel" name="lbl_9">
@@ -4630,8 +4750,8 @@ text-align: left;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -4893,9 +5013,9 @@ font-family:Arial, Helvetica, sans-serif;
         <property name="geometry">
          <rect>
           <x>310</x>
-          <y>40</y>
+          <y>60</y>
           <width>111</width>
-          <height>101</height>
+          <height>71</height>
          </rect>
         </property>
         <property name="text">
@@ -5321,7 +5441,7 @@ QLineEdit {
          <rect>
           <x>20</x>
           <y>50</y>
-          <width>431</width>
+          <width>461</width>
           <height>16</height>
          </rect>
         </property>
@@ -5340,8 +5460,8 @@ QLineEdit {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -5628,9 +5748,9 @@ border: none;
        <widget class="QLabel" name="label_18">
         <property name="geometry">
          <rect>
-          <x>30</x>
+          <x>-20</x>
           <y>40</y>
-          <width>351</width>
+          <width>421</width>
           <height>16</height>
          </rect>
         </property>
@@ -5649,13 +5769,13 @@ border: none;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
         <property name="text">
-         <string>Saisir l'identifiant du planning à modifier</string>
+         <string>Saisir l'id du planning à modifier</string>
         </property>
        </widget>
        <widget class="QLabel" name="nom_planning_2">
@@ -5946,7 +6066,7 @@ font-family:Arial, Helvetica, sans-serif;
          <rect>
           <x>50</x>
           <y>90</y>
-          <width>351</width>
+          <width>451</width>
           <height>16</height>
          </rect>
         </property>
@@ -5965,8 +6085,8 @@ font-family:Arial, Helvetica, sans-serif;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -6231,7 +6351,7 @@ border: none;
          <rect>
           <x>90</x>
           <y>20</y>
-          <width>391</width>
+          <width>491</width>
           <height>16</height>
          </rect>
         </property>
@@ -6250,8 +6370,8 @@ border: none;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -6880,7 +7000,7 @@ QLineEdit {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -6889,9 +7009,9 @@ QLineEdit {
        <widget class="QLabel" name="label_2">
         <property name="geometry">
          <rect>
-          <x>20</x>
+          <x>-10</x>
           <y>50</y>
-          <width>431</width>
+          <width>461</width>
           <height>16</height>
          </rect>
         </property>
@@ -6910,8 +7030,8 @@ QLineEdit {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -7318,9 +7438,9 @@ border: none;
        <widget class="QLabel" name="label_3">
         <property name="geometry">
          <rect>
-          <x>30</x>
+          <x>-20</x>
           <y>40</y>
-          <width>351</width>
+          <width>391</width>
           <height>16</height>
          </rect>
         </property>
@@ -7339,8 +7459,8 @@ border: none;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -7756,7 +7876,7 @@ font-family:Arial, Helvetica, sans-serif;
          <rect>
           <x>50</x>
           <y>90</y>
-          <width>351</width>
+          <width>411</width>
           <height>16</height>
          </rect>
         </property>
@@ -7775,8 +7895,8 @@ font-family:Arial, Helvetica, sans-serif;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -8282,12 +8402,12 @@ border: none;
       </widget>
       <widget class="QWidget" name="tab_6">
        <attribute name="title">
-        <string>Envoi mail</string>
+        <string>Envoyer mail</string>
        </attribute>
        <widget class="QPushButton" name="Mail">
         <property name="geometry">
          <rect>
-          <x>620</x>
+          <x>630</x>
           <y>420</y>
           <width>141</width>
           <height>51</height>
@@ -8318,7 +8438,7 @@ border: none;
         <property name="geometry">
          <rect>
           <x>120</x>
-          <y>110</y>
+          <y>120</y>
           <width>151</width>
           <height>16</height>
          </rect>
@@ -8350,7 +8470,7 @@ font-family:Arial, Helvetica, sans-serif;
         <property name="geometry">
          <rect>
           <x>300</x>
-          <y>80</y>
+          <y>100</y>
           <width>281</width>
           <height>61</height>
          </rect>
@@ -8410,7 +8530,7 @@ font-family:Arial, Helvetica, sans-serif;
         <property name="geometry">
          <rect>
           <x>300</x>
-          <y>150</y>
+          <y>180</y>
           <width>281</width>
           <height>61</height>
          </rect>
@@ -8463,7 +8583,7 @@ font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
         <property name="text">
-         <string>msg</string>
+         <string>Message</string>
         </property>
        </widget>
        <widget class="QPlainTextEdit" name="msg">
@@ -8471,12 +8591,12 @@ font-family:Arial, Helvetica, sans-serif;
          <rect>
           <x>300</x>
           <y>260</y>
-          <width>301</width>
-          <height>141</height>
+          <width>291</width>
+          <height>211</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">QLineEdit {
+         <string notr="true">QPlainTextEdit {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -8489,6 +8609,39 @@ font-family:Arial, Helvetica, sans-serif;
   font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="Mail_titre_3">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>20</y>
+          <width>381</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <italic>false</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  color: #808080;
+  font-size: 20px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
+        </property>
+        <property name="text">
+         <string>Ecrire le mail a envoyer</string>
         </property>
        </widget>
       </widget>
@@ -8909,7 +9062,7 @@ QLineEdit {
          <rect>
           <x>20</x>
           <y>130</y>
-          <width>431</width>
+          <width>501</width>
           <height>16</height>
          </rect>
         </property>
@@ -8928,8 +9081,8 @@ QLineEdit {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -9208,39 +9361,6 @@ font-family:Arial, Helvetica, sans-serif;
          <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="Gestion">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>20</y>
-          <width>371</width>
-          <height>81</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>-1</pointsize>
-          <weight>75</weight>
-          <italic>false</italic>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLabel {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  color: #808080;
-  font-size: 30px;
-font-family:Arial, Helvetica, sans-serif;
-}</string>
-        </property>
-        <property name="text">
-         <string>Gestion des produits</string>
-        </property>
-       </widget>
       </widget>
       <widget class="QWidget" name="tab_modifier">
        <attribute name="title">
@@ -9270,7 +9390,7 @@ font-family:Arial, Helvetica, sans-serif;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
+  color: #808080;
   font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
@@ -9517,47 +9637,29 @@ border: none;
          <string>Modifier</string>
         </property>
        </widget>
-       <widget class="QLabel" name="Gestion_2">
-        <property name="geometry">
-         <rect>
-          <x>40</x>
-          <y>10</y>
-          <width>371</width>
-          <height>81</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>-1</pointsize>
-          <weight>75</weight>
-          <italic>false</italic>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLabel {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  color: #808080;
-  font-size: 30px;
-font-family:Arial, Helvetica, sans-serif;
-}</string>
-        </property>
-        <property name="text">
-         <string>Gestion des produits</string>
-        </property>
-       </widget>
        <widget class="QComboBox" name="comboBox_Produit">
         <property name="geometry">
          <rect>
           <x>460</x>
-          <y>110</y>
+          <y>100</y>
           <width>161</width>
-          <height>51</height>
+          <height>61</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QComboBox {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #757575;
+  color: #dcdcdc;
+  font-size: 20px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
         </property>
        </widget>
        <widget class="QPushButton" name="load_produit_id">
@@ -9598,9 +9700,9 @@ border: none;
        <widget class="QLabel" name="label_45">
         <property name="geometry">
          <rect>
-          <x>0</x>
+          <x>-20</x>
           <y>170</y>
-          <width>341</width>
+          <width>391</width>
           <height>20</height>
          </rect>
         </property>
@@ -9619,13 +9721,13 @@ border: none;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
         <property name="text">
-         <string>Saisir l'identifiant du produit à supprimer </string>
+         <string>Saisir l'id du produit à supprimer </string>
         </property>
        </widget>
        <widget class="QLabel" name="id_produit3">
@@ -9759,39 +9861,6 @@ text-align: left;
         </property>
         <property name="text">
          <string>Afficher toustes les produits</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="Gestion_3">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>20</y>
-          <width>371</width>
-          <height>81</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>-1</pointsize>
-          <weight>75</weight>
-          <italic>false</italic>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLabel {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  color: #808080;
-  font-size: 30px;
-font-family:Arial, Helvetica, sans-serif;
-}</string>
-        </property>
-        <property name="text">
-         <string>Gestion des produits</string>
         </property>
        </widget>
       </widget>
@@ -9960,39 +10029,6 @@ border: none;
          <string>Nombre</string>
         </property>
        </widget>
-       <widget class="QLabel" name="Gestion_4">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>20</y>
-          <width>371</width>
-          <height>81</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>-1</pointsize>
-          <weight>75</weight>
-          <italic>false</italic>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLabel {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  color: #808080;
-  font-size: 30px;
-font-family:Arial, Helvetica, sans-serif;
-}</string>
-        </property>
-        <property name="text">
-         <string>Gestion des produits</string>
-        </property>
-       </widget>
        <widget class="QPushButton" name="statistique_prod">
         <property name="geometry">
          <rect>
@@ -10032,8 +10068,8 @@ border: none;
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>80</y>
-          <width>401</width>
+          <y>70</y>
+          <width>551</width>
           <height>20</height>
          </rect>
         </property>
@@ -10052,13 +10088,13 @@ border: none;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
         <property name="text">
-         <string>Saisir l'identifiant et le nom du produit  à chercher</string>
+         <string>Saisir l'id et le nom du produit  à chercher</string>
         </property>
        </widget>
        <widget class="QLabel" name="id_produit4">
@@ -10317,50 +10353,17 @@ font-family:Arial, Helvetica, sans-serif;
          <string>Type</string>
         </property>
        </widget>
-       <widget class="QLabel" name="Gestion_5">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>0</y>
-          <width>371</width>
-          <height>81</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>-1</pointsize>
-          <weight>75</weight>
-          <italic>false</italic>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLabel {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  color: #808080;
-  font-size: 30px;
-font-family:Arial, Helvetica, sans-serif;
-}</string>
-        </property>
-        <property name="text">
-         <string>Gestion des produits</string>
-        </property>
-       </widget>
       </widget>
       <widget class="QWidget" name="tab_5">
        <attribute name="title">
-        <string>Mail</string>
+        <string>envoyer mail</string>
        </attribute>
        <widget class="QLabel" name="label_mail">
         <property name="geometry">
          <rect>
-          <x>10</x>
+          <x>40</x>
           <y>120</y>
-          <width>191</width>
+          <width>161</width>
           <height>21</height>
          </rect>
         </property>
@@ -10384,16 +10387,16 @@ font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
         <property name="text">
-         <string>Donner le mail </string>
+         <string>Envoyer à</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_objet">
         <property name="geometry">
          <rect>
-          <x>0</x>
+          <x>50</x>
           <y>210</y>
-          <width>201</width>
-          <height>16</height>
+          <width>151</width>
+          <height>20</height>
          </rect>
         </property>
         <property name="font">
@@ -10416,16 +10419,16 @@ font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
         <property name="text">
-         <string>Objet du mail </string>
+         <string>Objet</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_txt">
         <property name="geometry">
          <rect>
-          <x>0</x>
+          <x>40</x>
           <y>370</y>
-          <width>201</width>
-          <height>16</height>
+          <width>161</width>
+          <height>20</height>
          </rect>
         </property>
         <property name="font">
@@ -10448,7 +10451,7 @@ font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
         <property name="text">
-         <string>Ecrire un mail </string>
+         <string>Message</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="ecrire_mail">
@@ -10456,7 +10459,7 @@ font-family:Arial, Helvetica, sans-serif;
          <rect>
           <x>240</x>
           <y>90</y>
-          <width>211</width>
+          <width>361</width>
           <height>71</height>
          </rect>
         </property>
@@ -10484,7 +10487,7 @@ font-family:Arial, Helvetica, sans-serif;
          <rect>
           <x>240</x>
           <y>180</y>
-          <width>211</width>
+          <width>361</width>
           <height>71</height>
          </rect>
         </property>
@@ -10507,13 +10510,71 @@ font-family:Arial, Helvetica, sans-serif;
          <string/>
         </property>
        </widget>
+       <widget class="QLabel" name="Mail_titre">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>30</y>
+          <width>381</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <italic>false</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  color: #808080;
+  font-size: 20px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
+        </property>
+        <property name="text">
+         <string>Ecrire le mail a envoyer</string>
+        </property>
+       </widget>
+       <widget class="QPlainTextEdit" name="ecrire_txt">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>270</y>
+          <width>361</width>
+          <height>241</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPlainTextEdit {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #FFD700;
+  color: #FFFFFF;
+  font-size: 20px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
+        </property>
+       </widget>
        <widget class="QPushButton" name="pushButton_envoyerMail">
         <property name="geometry">
          <rect>
-          <x>660</x>
-          <y>470</y>
-          <width>141</width>
-          <height>51</height>
+          <x>680</x>
+          <y>440</y>
+          <width>161</width>
+          <height>61</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -10535,49 +10596,6 @@ border: none;
         </property>
         <property name="text">
          <string>Envoyer</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="Mail_titre">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>10</y>
-          <width>371</width>
-          <height>81</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>-1</pointsize>
-          <weight>75</weight>
-          <italic>false</italic>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLabel {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  color: #808080;
-  font-size: 30px;
-font-family:Arial, Helvetica, sans-serif;
-}</string>
-        </property>
-        <property name="text">
-         <string>Ecrire le mail a envoyé</string>
-        </property>
-       </widget>
-       <widget class="QPlainTextEdit" name="ecrire_txt">
-        <property name="geometry">
-         <rect>
-          <x>200</x>
-          <y>270</y>
-          <width>421</width>
-          <height>221</height>
-         </rect>
         </property>
        </widget>
       </widget>
@@ -10980,7 +10998,7 @@ QLineEdit {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="tab_ajouter_2">
        <attribute name="title">
@@ -10991,7 +11009,7 @@ QLineEdit {
          <rect>
           <x>20</x>
           <y>100</y>
-          <width>431</width>
+          <width>451</width>
           <height>16</height>
          </rect>
         </property>
@@ -11010,8 +11028,8 @@ QLineEdit {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -11293,39 +11311,6 @@ font-family:Arial, Helvetica, sans-serif;
          <string>Etat</string>
         </property>
        </widget>
-       <widget class="QLabel" name="gestion_c">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>20</y>
-          <width>451</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>-1</pointsize>
-          <weight>75</weight>
-          <italic>false</italic>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLabel {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  color: #808080;
-  font-size: 30px;
-font-family:Arial, Helvetica, sans-serif;
-}</string>
-        </property>
-        <property name="text">
-         <string>Gestion des commandes</string>
-        </property>
-       </widget>
       </widget>
       <widget class="QWidget" name="tab_modifier_2">
        <attribute name="title">
@@ -11355,7 +11340,7 @@ font-family:Arial, Helvetica, sans-serif;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
+  color: #808080;
   font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
@@ -11602,59 +11587,26 @@ font-family:Arial, Helvetica, sans-serif;
          <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="gestion_c_2">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>80</y>
-          <width>451</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>-1</pointsize>
-          <weight>75</weight>
-          <italic>false</italic>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLabel {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  color: #808080;
-  font-size: 30px;
-font-family:Arial, Helvetica, sans-serif;
-}</string>
-        </property>
-        <property name="text">
-         <string>Gestion des commandes</string>
-        </property>
-       </widget>
        <widget class="QComboBox" name="comboBox_Commande">
         <property name="geometry">
          <rect>
           <x>490</x>
-          <y>130</y>
+          <y>120</y>
           <width>201</width>
-          <height>51</height>
+          <height>61</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">QLineEdit {
+         <string notr="true">QComboBox {
   width: 100%;
-  padding: 12px 20px;
+  padding: 10px 15px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #dcdcdc;
   border-radius: 4px;
   box-sizing: border-box;
-  background: #FFD700;
-  color: #FFFFFF;
+  background: #757575;
+  color: #dcdcdc;
   font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
@@ -11700,7 +11652,7 @@ border: none;
          <rect>
           <x>10</x>
           <y>130</y>
-          <width>421</width>
+          <width>481</width>
           <height>16</height>
          </rect>
         </property>
@@ -11719,8 +11671,8 @@ border: none;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -11864,39 +11816,6 @@ text-align: left;
         </property>
         <property name="text">
          <string>Tous les commandes</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="gestion_c_3">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>40</y>
-          <width>451</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>-1</pointsize>
-          <weight>75</weight>
-          <italic>false</italic>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLabel {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  color: #808080;
-  font-size: 30px;
-font-family:Arial, Helvetica, sans-serif;
-}</string>
-        </property>
-        <property name="text">
-         <string>Gestion des commandes</string>
         </property>
        </widget>
       </widget>
@@ -12065,39 +11984,6 @@ border: none;
          <string>Etat</string>
         </property>
        </widget>
-       <widget class="QLabel" name="gestion_c_4">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>40</y>
-          <width>451</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>-1</pointsize>
-          <weight>75</weight>
-          <italic>false</italic>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLabel {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  color: #808080;
-  font-size: 30px;
-font-family:Arial, Helvetica, sans-serif;
-}</string>
-        </property>
-        <property name="text">
-         <string>Gestion des commandes</string>
-        </property>
-       </widget>
       </widget>
       <widget class="QWidget" name="tab_recherche_2">
        <attribute name="title">
@@ -12106,8 +11992,8 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QLabel" name="label_52">
         <property name="geometry">
          <rect>
-          <x>0</x>
-          <y>120</y>
+          <x>-10</x>
+          <y>50</y>
           <width>441</width>
           <height>16</height>
          </rect>
@@ -12127,13 +12013,13 @@ font-family:Arial, Helvetica, sans-serif;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
         <property name="text">
-         <string>Saisir la reference et l'etat du commande  à chercher</string>
+         <string>Saisir la éeference et l'état du commande  à chercher</string>
         </property>
        </widget>
        <widget class="QLabel" name="reference_commande3_2">
@@ -12392,39 +12278,6 @@ font-family:Arial, Helvetica, sans-serif;
          <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="gestion_c_5">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>451</width>
-          <height>71</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>-1</pointsize>
-          <weight>75</weight>
-          <italic>false</italic>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLabel {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  color: #808080;
-  font-size: 30px;
-font-family:Arial, Helvetica, sans-serif;
-}</string>
-        </property>
-        <property name="text">
-         <string>Gestion des commandes</string>
-        </property>
-       </widget>
        <widget class="QPushButton" name="pdf_commande">
         <property name="geometry">
          <rect>
@@ -12470,13 +12323,13 @@ border: none;
          </rect>
         </property>
        </widget>
-       <widget class="QLabel" name="gestion_c_6">
+       <widget class="QLabel" name="gestion_c_7">
         <property name="geometry">
          <rect>
-          <x>0</x>
-          <y>0</y>
+          <x>20</x>
+          <y>10</y>
           <width>451</width>
-          <height>71</height>
+          <height>81</height>
          </rect>
         </property>
         <property name="font">
@@ -12495,45 +12348,12 @@ border: none;
   margin: 8px 0;
   display: inline-block;
   color: #808080;
-  font-size: 30px;
-font-family:Arial, Helvetica, sans-serif;
-}</string>
-        </property>
-        <property name="text">
-         <string>Gestion des commandes</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="gestion_c_7">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>30</y>
-          <width>451</width>
-          <height>71</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>-1</pointsize>
-          <weight>75</weight>
-          <italic>false</italic>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLabel {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  color: #000000;
   font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
         <property name="text">
-         <string>Espace reclamation:</string>
+         <string>Espace réclamation:</string>
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_write">
@@ -12544,6 +12364,22 @@ font-family:Arial, Helvetica, sans-serif;
           <width>231</width>
           <height>51</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+color: #dcdcdc;
+background:#535353;
+border: none;
+font-size:20px;
+font-family:Arial, Helvetica, sans-serif;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+}
+QPushButton:hover {
+color:#fff;
+background:#FFD700;
+border: none;
+}</string>
         </property>
         <property name="text">
          <string>Write</string>
@@ -12557,6 +12393,22 @@ font-family:Arial, Helvetica, sans-serif;
           <width>231</width>
           <height>51</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+color: #dcdcdc;
+background:#535353;
+border: none;
+font-size:20px;
+font-family:Arial, Helvetica, sans-serif;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+}
+QPushButton:hover {
+color:#fff;
+background:#FFD700;
+border: none;
+}</string>
         </property>
         <property name="text">
          <string>Read</string>
@@ -12979,7 +12831,7 @@ QLineEdit {
          <rect>
           <x>20</x>
           <y>50</y>
-          <width>431</width>
+          <width>461</width>
           <height>16</height>
          </rect>
         </property>
@@ -12998,8 +12850,8 @@ QLineEdit {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -13821,7 +13673,7 @@ font-family:Arial, Helvetica, sans-serif;
          <rect>
           <x>0</x>
           <y>30</y>
-          <width>431</width>
+          <width>451</width>
           <height>16</height>
          </rect>
         </property>
@@ -13840,8 +13692,8 @@ font-family:Arial, Helvetica, sans-serif;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -13852,7 +13704,7 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QRadioButton" name="modifier_affiche_abonne">
         <property name="geometry">
          <rect>
-          <x>380</x>
+          <x>520</x>
           <y>20</y>
           <width>261</width>
           <height>31</height>
@@ -13883,9 +13735,9 @@ text-align: left;
        <widget class="QLabel" name="label_56">
         <property name="geometry">
          <rect>
-          <x>0</x>
+          <x>-20</x>
           <y>10</y>
-          <width>351</width>
+          <width>471</width>
           <height>21</height>
          </rect>
         </property>
@@ -13904,13 +13756,13 @@ text-align: left;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
         <property name="text">
-         <string>Saisir l'identifiant de l'abonné à supprimer </string>
+         <string>Saisir l'id de l'abonné à supprimer </string>
         </property>
        </widget>
        <widget class="QLabel" name="id_abonne_4">
@@ -13938,7 +13790,7 @@ font-family:Arial, Helvetica, sans-serif;
   margin: 8px 0;
   display: inline-block;
   color: #808080;
-  font-size: 25px;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -14181,7 +14033,7 @@ text-align: left;
          <rect>
           <x>0</x>
           <y>10</y>
-          <width>351</width>
+          <width>391</width>
           <height>21</height>
          </rect>
         </property>
@@ -14200,8 +14052,8 @@ text-align: left;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -14415,7 +14267,7 @@ background:#DCDCDC;
        <widget class="QRadioButton" name="radioButton_afficher">
         <property name="geometry">
          <rect>
-          <x>300</x>
+          <x>440</x>
           <y>30</y>
           <width>261</width>
           <height>31</height>
@@ -14441,9 +14293,9 @@ text-align: left;
        <widget class="QLabel" name="label_63">
         <property name="geometry">
          <rect>
-          <x>10</x>
+          <x>-10</x>
           <y>20</y>
-          <width>221</width>
+          <width>291</width>
           <height>21</height>
          </rect>
         </property>
@@ -14462,8 +14314,8 @@ text-align: left;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -14489,9 +14341,9 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QPushButton" name="stat_abonnee">
         <property name="geometry">
          <rect>
-          <x>80</x>
-          <y>120</y>
-          <width>231</width>
+          <x>100</x>
+          <y>130</y>
+          <width>211</width>
           <height>51</height>
          </rect>
         </property>
@@ -14551,18 +14403,31 @@ border: none;
          <rect>
           <x>300</x>
           <y>30</y>
-          <width>381</width>
-          <height>20</height>
+          <width>451</width>
+          <height>16</height>
          </rect>
         </property>
         <property name="font">
          <font>
+          <family>Arial</family>
+          <pointsize>-1</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  color: #808080;
+  font-size: 20px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
+        </property>
         <property name="text">
-         <string>STATISTIQUE selon les tarifs des abonnés</string>
+         <string>statistiques selon les tarifs des abonnés</string>
         </property>
         <property name="textFormat">
          <enum>Qt::AutoText</enum>
@@ -15002,7 +14867,7 @@ QLineEdit {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>6</number>
       </property>
       <property name="iconSize">
        <size>
@@ -15019,7 +14884,7 @@ QLineEdit {
          <rect>
           <x>10</x>
           <y>40</y>
-          <width>431</width>
+          <width>481</width>
           <height>16</height>
          </rect>
         </property>
@@ -15038,8 +14903,8 @@ QLineEdit {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -15465,7 +15330,7 @@ border: none;
          <rect>
           <x>0</x>
           <y>50</y>
-          <width>251</width>
+          <width>241</width>
           <height>20</height>
          </rect>
         </property>
@@ -15484,7 +15349,7 @@ border: none;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
+  color: #808080;
   font-size: 15px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
@@ -15828,7 +15693,7 @@ font-family:Arial, Helvetica, sans-serif;
          <rect>
           <x>-20</x>
           <y>20</y>
-          <width>431</width>
+          <width>461</width>
           <height>16</height>
          </rect>
         </property>
@@ -15847,8 +15712,8 @@ font-family:Arial, Helvetica, sans-serif;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -15869,7 +15734,7 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QRadioButton" name="afficher_abonnement_modif">
         <property name="geometry">
          <rect>
-          <x>270</x>
+          <x>430</x>
           <y>60</y>
           <width>321</width>
           <height>31</height>
@@ -15916,9 +15781,9 @@ text-align: left;
        <widget class="QLabel" name="label_71">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>421</width>
+          <x>0</x>
+          <y>30</y>
+          <width>531</width>
           <height>21</height>
          </rect>
         </property>
@@ -15937,8 +15802,8 @@ text-align: left;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  color: #A9A9A9;
-  font-size: 15px;
+  color: #808080;
+  font-size: 20px;
 font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
@@ -16059,7 +15924,7 @@ text-align: left;
        <widget class="QRadioButton" name="afficher_abonnement_3">
         <property name="geometry">
          <rect>
-          <x>300</x>
+          <x>420</x>
           <y>50</y>
           <width>321</width>
           <height>31</height>
@@ -16121,11 +15986,22 @@ background:#DCDCDC;
        <widget class="QLabel" name="label_74">
         <property name="geometry">
          <rect>
-          <x>0</x>
-          <y>40</y>
-          <width>121</width>
-          <height>61</height>
+          <x>-20</x>
+          <y>30</y>
+          <width>161</width>
+          <height>71</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  color: #808080;
+  font-size: 20px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
         </property>
         <property name="lineWidth">
          <number>20</number>
@@ -16233,8 +16109,8 @@ text-align: left;
        <widget class="QRadioButton" name="afficher_abonnement_4">
         <property name="geometry">
          <rect>
-          <x>120</x>
-          <y>20</y>
+          <x>300</x>
+          <y>10</y>
           <width>321</width>
           <height>31</height>
          </rect>
@@ -16489,7 +16365,7 @@ border: none;
        <widget class="QRadioButton" name="afficher_abonnement">
         <property name="geometry">
          <rect>
-          <x>210</x>
+          <x>350</x>
           <y>20</y>
           <width>321</width>
           <height>31</height>
@@ -16515,30 +16391,25 @@ text-align: left;
        <widget class="QLabel" name="label_75">
         <property name="geometry">
          <rect>
-          <x>50</x>
+          <x>20</x>
           <y>70</y>
-          <width>141</width>
+          <width>151</width>
           <height>20</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  color: #808080;
+  font-size: 20px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
+        </property>
         <property name="text">
          <string>Rechercher</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_76">
-        <property name="geometry">
-         <rect>
-          <x>-240</x>
-          <y>-10</y>
-          <width>371</width>
-          <height>81</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap>../../ll.png</pixmap>
         </property>
        </widget>
       </widget>
@@ -16621,18 +16492,31 @@ border: none;
          <rect>
           <x>250</x>
           <y>50</y>
-          <width>411</width>
+          <width>521</width>
           <height>20</height>
          </rect>
         </property>
         <property name="font">
          <font>
+          <family>Arial</family>
+          <pointsize>-1</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  color: #808080;
+  font-size: 20px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
+        </property>
         <property name="text">
-         <string>STATISTIQUE selon les types des abonnements</string>
+         <string>statistiques selon les types des abonnements</string>
         </property>
         <property name="textFormat">
          <enum>Qt::AutoText</enum>
@@ -16731,12 +16615,23 @@ border: none;
          <rect>
           <x>10</x>
           <y>10</y>
-          <width>511</width>
+          <width>681</width>
           <height>20</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  color: #808080;
+  font-size: 20px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
+        </property>
         <property name="text">
-         <string>Ecrire dans un fichier les informations necessaire dans votre Desktop:</string>
+         <string>Ecrire dans un fichier les informations nécessaires dans votre Desktop:</string>
         </property>
        </widget>
       </widget>
@@ -16750,7 +16645,7 @@ border: none;
      <x>0</x>
      <y>0</y>
      <width>1224</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

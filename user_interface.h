@@ -271,6 +271,26 @@ private slots:
 
     void on_pushButton_envoyerMail_clicked();
 
+    void on_g_emp_pressed();
+
+    void on_g_cong_pressed();
+
+    void on_g_film_pressed();
+
+    void on_g_plng_pressed();
+
+    void on_g_salle_pressed();
+
+    void on_g_prd_pressed();
+
+    void on_g_cmd_pressed();
+
+    void on_g_abonnes_pressed();
+
+    void on_g_abonnements_pressed();
+
+    void on_sendBtn_clicked();
+
 private:
     Ui::user_interface *ui;
     planning tmpplanning;
