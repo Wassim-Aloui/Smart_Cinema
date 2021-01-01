@@ -289,7 +289,7 @@ private slots:
 
     void on_g_abonnements_pressed();
 
-    void on_sendBtn_clicked();
+    void on_OFF_Led_clicked();
 
 private:
     Ui::user_interface *ui;

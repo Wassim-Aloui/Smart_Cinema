@@ -1191,27 +1191,36 @@ void user_interface::showTime()
     QString time_txt=time.toString("hh:mm:ss");
     ui->Timer->setText(time_txt);
 }
-//Ajouter commande
+
+//ajouter commande(button ajouter)
 void user_interface::on_ajouter_commande_clicked()
 {
     int reference=ui->reference_commande_e->text().toInt();
-       QString etat_commande=ui->etat_commande_e->text();
-       QString description=ui->Desc_commande_e->text();
-       int nombre_commande=ui->nombre_commande_e->text().toInt();
-       commande co(reference,description,etat_commande,nombre_commande);
+    QString etat_commande=ui->etat_commande_e->text();
+    QString description=ui->Desc_commande_e->text();
+    int nombre_commande=ui->nombre_commande_e->text().toInt();
+    commande co(reference,description,etat_commande,nombre_commande);
 
-       bool test =co.ajouter_commande();
-       if(test)
-          { ui->tab_afficher_commande->setModel(Com.afficher_commande());
-           QMessageBox::information(nullptr, QObject::tr("Commande a ajouter"),
-                        QObject::tr("Commande a  ajouter.\n"
-                                    "Click Cancel to exit."), QMessageBox::Ok);}
-       else{
-           QMessageBox::critical(nullptr, QObject::tr("Commande non ajouter"),
-                        QObject::tr("Commande non ajouter.\n"
-                                    "Click Cancel to exit."), QMessageBox::Cancel);
-       }
+    bool test =co.ajouter_commande();
+    if(test)
+       { ui->tab_afficher_commande->setModel(Com.afficher_commande());
+          A.write_to_arduino("2");
+        QMessageBox::information(nullptr, QObject::tr("Commande a ajouter"),
+                     QObject::tr("Commande a  ajouter.\n"
+                                 "Click Cancel to exit."), QMessageBox::Ok);}
+    else{
+        A.write_to_arduino("1");
+        QMessageBox::critical(nullptr, QObject::tr("Commande non ajouter"),
+                     QObject::tr("Commande non ajouter.\n"
+                                 "Click Cancel to exit."), QMessageBox::Cancel);
+    }
 
+}
+
+void user_interface::on_OFF_Led_clicked()
+{
+    A.write_to_arduino("0");
+    A.write_to_arduino("3");
 }
 //modfier commande
 void user_interface::on_modifier_commande_clicked()
