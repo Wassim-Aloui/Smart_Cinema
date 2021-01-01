@@ -19,7 +19,7 @@ userInterface::userInterface(QWidget *parent) :
     case(-1): qDebug() << "arduino is not available" ;
     }
     QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
-    data=A.read_from_arduino();
+    //data=A.read_from_arduino();
 
     //Timer
     QTimer *timer_p=new QTimer(this);
@@ -53,18 +53,6 @@ userInterface::userInterface(QWidget *parent) :
 userInterface::~userInterface()
 {
     delete ui;
-}
-
-void userInterface::on_open_clicked()
-{
-    A.write_to_arduino("1");
-    data=A.read_from_arduino();
-}
-
-void userInterface::on_close_clicked()
-{
-    A.write_to_arduino("0");
-    data=A.read_from_arduino();
 }
 
 
@@ -136,16 +124,25 @@ void userInterface::on_ajouter_commande_clicked()
     bool test =co.ajouter_commande();
     if(test)
        { ui->tab_afficher_commande->setModel(Com.afficher_commande());
+          A.write_to_arduino("2");
         QMessageBox::information(nullptr, QObject::tr("Commande a ajouter"),
                      QObject::tr("Commande a  ajouter.\n"
                                  "Click Cancel to exit."), QMessageBox::Ok);}
     else{
+        A.write_to_arduino("1");
         QMessageBox::critical(nullptr, QObject::tr("Commande non ajouter"),
                      QObject::tr("Commande non ajouter.\n"
                                  "Click Cancel to exit."), QMessageBox::Cancel);
     }
 
 }
+
+void userInterface::on_OFF_Led_clicked()
+{
+    A.write_to_arduino("0");
+    A.write_to_arduino("3");
+}
+
 
 //suuprimer commande(button supprimer)
 void userInterface::on_supprimer_commande_clicked()
@@ -397,3 +394,4 @@ void userInterface::on_pushButton_envoyerMail_clicked()
 
         smtp->sendMail("projet.esprit11@gmail.com", ui->ecrire_mail->text() , ui->ecrire_objet->text() ,ui->ecrire_txt->toPlainText());
 }
+

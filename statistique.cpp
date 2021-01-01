@@ -9,7 +9,7 @@ statistique::statistique(QWidget *parent) :
     //The QPieSeries class presents data in pie charts
     QPieSeries *series=new QPieSeries();
     //The QLineSeries class presents data in line charts.
-      series->append("[50..100]",Etmp.calcul_produit(0,50));
+      series->append("[0..100]",Etmp.calcul_produit(0,50));
       series->append("[50..100]",Etmp.calcul_produit(50,100));
       series->append("[100..150]",Etmp.calcul_produit(100,150));
 

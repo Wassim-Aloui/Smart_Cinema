@@ -62,12 +62,13 @@ private slots:
     void on_load_commande_ref_clicked();
     void on_load_produit_id_clicked();
     void on_statistique_prod_clicked();
-    void on_open_clicked();
-    void on_close_clicked();
     void showTime_p();
     void on_pushButton_write_clicked();
     void on_pushButton_read_clicked();
     void on_pushButton_envoyerMail_clicked();
+
+
+    void on_OFF_Led_clicked();
 
 private:
     Ui::userInterface *ui;

@@ -566,7 +566,7 @@ font-family:Arial, Helvetica, sans-serif;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="Acceuil"/>
     <widget class="QWidget" name="gestion_des_employes"/>
@@ -3059,7 +3059,7 @@ QLineEdit {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_ajouter_2">
        <attribute name="title">
@@ -3225,8 +3225,8 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QPushButton" name="ajouter_commande">
         <property name="geometry">
          <rect>
-          <x>620</x>
-          <y>460</y>
+          <x>480</x>
+          <y>400</y>
           <width>141</width>
           <height>51</height>
          </rect>
@@ -3403,6 +3403,69 @@ font-family:Arial, Helvetica, sans-serif;
         </property>
         <property name="text">
          <string>Gestion des commandes</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="OFF_Led">
+        <property name="geometry">
+         <rect>
+          <x>770</x>
+          <y>480</y>
+          <width>71</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+color: #dcdcdc;
+background:#535353;
+border: none;
+font-size:20px;
+font-family:Arial, Helvetica, sans-serif;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+}
+QPushButton:hover {
+color:#fff;
+background:#FFD700;
+border: none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>OFF</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_32">
+        <property name="geometry">
+         <rect>
+          <x>370</x>
+          <y>500</y>
+          <width>371</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  color: #A9A9A9;
+  font-size: 15px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
+        </property>
+        <property name="text">
+         <string>cliquer sur le bouton OFFpour arreter la diode</string>
         </property>
        </widget>
       </widget>
