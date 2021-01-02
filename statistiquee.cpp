@@ -29,14 +29,6 @@ statistiquee::statistiquee(QWidget *parent) :
            chart->createDefaultAxes();
            chart->setAxisX(axis,series);
 
-                   /*QValueAxis *axisY = new QValueAxis();
-                   axisY->setTitleText("NOMBRE D'ABONNES");
-                   axisY->setLabelFormat("%.2f");
-                   chart->addAxis(axisY,Qt::AlignLeft);
-                   series->attachAxis(axisY);
-                   series->attachAxis(axisY);
-                   series->attachAxis(axisY);*/
-
 
            QChartView *chartview=new QChartView(chart);
            chartview->setRenderHint(QPainter::HighQualityAntialiasing);

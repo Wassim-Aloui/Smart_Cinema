@@ -16,6 +16,7 @@
 #include<QTimer>
 #include<QDateTime>
 #include<QTextStream>
+
 user_interface::user_interface(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::user_interface)
@@ -472,129 +473,7 @@ void user_interface::on_Mail_clicked()
 
 
 
-/*void MainWindow::on_modifier_employe_2_clicked()
-{
-    employe e(ui->id_emp_2->text().toInt(),ui->nom_emp_2->text(),ui->prenom_emp_2->text(),ui->date_naissance_emp_2->date(),ui->salaire_emp_2->text().toDouble(),ui->email_emp_2->text());
-    bool test=e.modifier(ui->id_employe_mod->text().toInt());
-    if(test){
-        QMessageBox::information(nullptr, QObject::tr("Employe"),
-                    QObject::tr("employé modifié avec succés.\n"), QMessageBox::Cancel);
-        ui->tab_employe->setModel(tmpemploye.afficher());
-        ui->id_emp_2->setText("");
-        ui->nom_emp_2->setText("");
-        ui->prenom_emp_2->setText("");
-        ui->date_naissance_emp_2->setDate(QDate(2000,01,01));
-        ui->salaire_emp_2->setText("");
-        ui->id_employe_mod->setText("");
-    }
-    else{
-        QMessageBox::critical(nullptr, QObject::tr("Employe"),
-                    QObject::tr("Echec!\n"), QMessageBox::Cancel);
-    }
-}*/
 
-
-
-
-/*void MainWindow::on_date_conge_e_7_textChanged(const QString &arg1)
-{
-    //ui->tab_employe_2->setModel(tmpemploye.rechercher(ui->date_conge_e_7->text())); ///lcase mta3 rechercher( ui->date_conge_e_7->text()))
-        bool nom=ui->checkBoxRechNom->isChecked();
-        bool prenom=ui->checkBoxRechPrenom->isChecked();
-        bool id=ui->checkBoxRechId->isChecked();
-        const QString rech=ui->date_conge_e_7->text();
-
-        if((nom && prenom && id) || (!nom && !prenom && !id)){
-            ui->tab_employe_2->setModel(tmpemploye.recherche_emp(rech));
-            qDebug() <<"3!!";
-        }
-
-        else{
-            if(nom){
-                if(prenom){
-                    ui->tab_employe_2->setModel(tmpemploye.chercher_emp_nom_prenom(rech));
-                    qDebug()<<"nom w prenom";
-                }
-                else if(id){
-                    ui->tab_employe_2->setModel(tmpemploye.chercher_emp_nom_id(rech));
-                    qDebug()<<"nom w id";
-                }
-                else{
-                    ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_nom(rech));
-                }
-            }
-            else if(prenom){
-                if(id){
-                    ui->tab_employe_2->setModel(tmpemploye.chercher_emp_id_prenom(rech));
-                    qDebug()<<"prenom w id";
-                }
-                else{
-                    ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_prenom(rech));
-                }
-            }
-            else{
-                ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_id(rech));
-            }
-        }
-
-    }*/
-
-
-
-
-/*void MainWindow::on_rech_emp2_clicked()
-{
-  // ui->tab_employe_2->setModel(tmpemploye.rechercher(ui->date_conge_e_7->text(),ui->date_conge_e_9->text(),ui->date_conge_e_8->text().toInt())); ///lcase mta3 rechercher( ui->date_conge_e_7->text()))
-   //ui->tab_employe_2->setModel(tmpemploye.rechercher(ui->date_conge_e_9->text()));
-   QString m =ui->date_conge_e_7->text();
-       QString l = ui->date_conge_e_8->text(); //id
-         QString k = ui->date_conge_e_9->text();
-        if (k != ""){
-           ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_prenom(k)) ;}
-            if (l != ""){
-           ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_id(l)) ;}
-            if (m!= ""){
-           ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_nom(m)) ;
-         if((m!="")&&(k!="")&&(l!="")){
-                 ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_nom(m)) ;
-                 ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_prenom(k)) ;
-                 ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_id(l)) ;
-           }
-           else if (m != ""){
-              if (l != ""){
-      ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_nom(m)) ;
-      ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_id(l)) ;
-              }
-              else if(k!=""){
-      ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_nom(m)) ;
-      ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_prenom(k)) ;
-              }
-              else{
-                  ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_nom(m)) ;
-              }
-
-              }
-              else if (l != ""){
-               if(k!=""){
-                   ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_nom(l)) ;
-                   ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_id(k)) ;
-               }
-               else{
-                   ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_id(l)) ;
-               }
-
-              }
-              else if (m!= ""){
-               ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_nom(l)) ;
-               ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_id(m)) ;
-
-              }
-              else{
-                  ui->tab_employe->setModel(tmpemploye.afficher());
-              }
-
-
-} */
 
 
 void user_interface::sendMail()
@@ -611,51 +490,6 @@ void user_interface::mailSent(QString status)
     if(status == "Message sent")
         QMessageBox::warning( 0, tr( "Qt Simple SMTP client" ), tr( "Message sent!\n\n" ) );
 }
-
-
-/*void MainWindow::on_Touslesconges_3_clicked()
-{
-    ui->tab_affichage_conge->setModel(tmpconge.trier2());
-
-}*/
-
-
-
-
-/*void MainWindow::on_rech_emp2_clicked()
-{
-    QString nom_e =ui->date_conge_e_7->text();
-        int id_e = ui->date_conge_e_8->text().toInt(); //id
-          QString prenom_e = ui->date_conge_e_9->text();
-          if ( nom_e!= ""){
-         ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_nom(nom_e)) ;}
-         if (id_e != 0){
-            ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_id(id_e)) ;}
-
-             if (prenom_e!= ""){
-            ui->tab_employe_2->setModel(tmpemploye.chercher_employe_par_prenom(prenom_e)) ;
-
-
-}}*/
-
-
-
-
-
-
-
-/*void MainWindow::on_rech_emp2_2_clicked()
-{
-    QString ref_c =ui->date_conge_e_4->text();
-    QString duree_c = ui->heure_conge_e_4->text();
-    QString type_c = ui->heure_conge_e_5->text();
-
-    ui->tab_affichage_conge_2->setModel(tmpconge.chercher_cng_avancee(ref_c,duree_c,type_c));
-}*/
-
-
-
-
 
 
 
@@ -684,8 +518,6 @@ void user_interface::on_rech_emp2_clicked()
     QString email_e = ui->date_conge_e_9->text();
 
     ui->tab_employe_2->setModel(tmpemploye.chercher_emp_avancee(nom_e,prenom_e,email_e));
-
-// ui->tab_affichage_conge->setModel(tmpconge.trier2());
 }
 
 void user_interface::on_rech_emp2_2_clicked()
@@ -1309,33 +1141,30 @@ void user_interface::on_load_commande_ref_clicked()
 //commande pdf
 void user_interface::on_pdf_commande_clicked()
 {
-    //The QPrinter class is a paint device that paints on a printer
-        QPrinter *printer = new QPrinter(QPrinter::HighResolution);
-           printer->setOutputFormat(QPrinter::NativeFormat);
-           printer->setPageSize(QPrinter::A4);
-           printer->setOrientation(QPrinter::Portrait);
-           printer->setFullPage(true);
 
-    //The QPrintDialog class provides a dialog for specifying the printer's configuration
-       QPrintDialog *printDialog = new QPrintDialog(printer,this);
-       printDialog->setWindowTitle("Impression PDF");
-       if(printDialog->exec())
-       {
-          QPainter painter;
-          if(painter.begin(printer))
-          {
-              double xscale = double(ui->recherche_tabViewx->width() / 65);
-              double yscale = double(ui->recherche_tabViewx->height() / 65);
-              painter.scale(xscale, yscale);
-              ui->recherche_tabViewx->render(&painter);
-              painter.end();
-          }
-          else
-          {
-              qWarning("failed to open file");
-             QMessageBox::warning(nullptr,QObject::tr("PDF echoue"),QObject::tr("click cancel to exit!"),QMessageBox::Cancel);
-          }
-       }
+    QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Open PDF", QString(), "*.pdf");
+                    if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append("Commande.pdf"); }
+
+                    QPrinter printer(QPrinter::PrinterResolution);
+                    printer.setOutputFormat(QPrinter::PdfFormat);
+                    printer.setPaperSize(QPrinter::A4);
+                    printer.setOutputFileName(fileName);
+
+                    QTextDocument doc;
+                    QSqlQuery q;
+                    q.prepare("SELECT * from COMMANDE");
+                    q.exec();
+            QString pdf="<br> <img src='C:/Users/Wassim/Desktop/v2/QTv2/Pathé_Logo' height='42' width='144'/> <body style='background-color:LightYellow'> <h1  style='color:DarkKhaki'>  Liste des commandes :  <br></h1>\n <br>  <table>  <tr><th>REFERENCE</th>   <th> DESCRIPTION </th>     <th> ETAT</th>   <th> QUANTITE</th>  </tr>" ;
+
+
+                    while ( q.next()) {
+
+                   pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"    </td>  <td>   " + q.value(1).toString()+" </td>     <td>    "  +q.value(2).toString() +"   </td>  <td>     "   +q.value(3).toString()+"</td>      </td>" ;
+
+                    }
+                    doc.setHtml(pdf);
+                    doc.setPageSize(printer.pageRect().size());
+                    doc.print(&printer);
 }
 //reclamation write
 void user_interface::on_pushButton_write_clicked()
@@ -1877,11 +1706,4 @@ void user_interface::on_g_abonnements_pressed()
 
 }
 
-/*void user_interface::on_sendBtn_clicked()
-{
-    smtp_employe * smtp = new smtp_employe("lina.khammeri@esprit.tn","191JFT1097", "smtp.gmail.com", 465,30000);
-    connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
-//ui->rcpt->text()
 
-    smtp->sendMail("lina.khammeri@esprit.tn", ui->combomail->currentText() , ui->subject->text(),ui->msg->toPlainText());
-}*/
