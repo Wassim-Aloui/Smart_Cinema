@@ -16,6 +16,8 @@
 #include <QDateTime>
 #include <QFile>
 #include <QTextStream>
+#include <QFileDialog>
+#include <QFileInfo>
 #include "smtp_produit.h"
 
 

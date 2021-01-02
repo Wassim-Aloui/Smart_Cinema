@@ -303,33 +303,30 @@ void userInterface::on_radioButto_afficher_commande_3_clicked()
 }
 
 void userInterface::on_pdf_commande_clicked()
-{ //The QPrinter class is a paint device that paints on a printer
-    QPrinter *printer = new QPrinter(QPrinter::HighResolution);
-       printer->setOutputFormat(QPrinter::NativeFormat);
-       printer->setPageSize(QPrinter::A4);
-       printer->setOrientation(QPrinter::Portrait);
-       printer->setFullPage(true);
+{
+    QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Open PDF", QString(), "*.pdf");
+                if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append("Commande.pdf"); }
 
-//The QPrintDialog class provides a dialog for specifying the printer's configuration
-   QPrintDialog *printDialog = new QPrintDialog(printer,this);
-   printDialog->setWindowTitle("Impression PDF");
-   if(printDialog->exec())
-   {
-      QPainter painter;
-      if(painter.begin(printer))
-      {
-          double xscale = double(ui->recherche_tabViewx->width() / 65);
-          double yscale = double(ui->recherche_tabViewx->height() / 65);
-          painter.scale(xscale, yscale);
-          ui->recherche_tabViewx->render(&painter);
-          painter.end();
-      }
-      else
-      {
-          qWarning("failed to open file");
-         QMessageBox::warning(nullptr,QObject::tr("PDF echoue"),QObject::tr("click cancel to exit!"),QMessageBox::Cancel);
-      }
-   }
+                QPrinter printer(QPrinter::PrinterResolution);
+                printer.setOutputFormat(QPrinter::PdfFormat);
+                printer.setPaperSize(QPrinter::A4);
+                printer.setOutputFileName(fileName);
+
+                QTextDocument doc;
+                QSqlQuery q;
+                q.prepare("SELECT * from COMMANDE");
+                q.exec();
+        QString pdf="<br> <img src='C:/Users/Wassim/Desktop/v2/QTv2/Logo.png' height='42' width='144'/> <body style='background-color:LightYellow'> <h1  style='color:DarkKhaki'>  Liste des commandes :  <br></h1>\n <br>  <table>  <tr><th>REFERENCE</th>   <th> DESCRIPTION </th>     <th> ETAT</th>   <th> QUANTITE</th>  </tr>" ;
+
+
+                while ( q.next()) {
+
+               pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"    </td>  <td>   " + q.value(1).toString()+" </td>     <td>    "  +q.value(2).toString() +"   </td>  <td>     "   +q.value(3).toString()+"</td>      </td>" ;
+
+                }
+                doc.setHtml(pdf);
+                doc.setPageSize(printer.pageRect().size());
+                doc.print(&printer);
 }
 
 //Load reference commandein the comobbox
