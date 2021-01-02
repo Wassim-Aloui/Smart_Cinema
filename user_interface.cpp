@@ -312,10 +312,10 @@ void user_interface::on_modifier_film_clicked()
 
 void user_interface::on_chercher_film_clicked()
 {
-    QString id_film = ui->id_film_e_4->text();
+    QString date_sortie = ui->date_film_e_4->text();
     QString nom_film = ui->nom_film_e_4->text();
     QString genre = ui->genre_film_e_4->text();
-    ui->tab_affichage_film->setModel(tmpfilm.chercher_film_avancee(id_film,nom_film,genre));
+    ui->tab_affichage_film->setModel(tmpfilm.chercher_film_avancee(date_sortie,nom_film,genre));
 }
 
 
@@ -359,7 +359,7 @@ void user_interface::on_chercher_planning_clicked()
     QString m =ui->date_planning_e_4->text();
         QString k = ui->heure_planning_e_4->text();
         QString l = ui->nom_planning_e_4->text();
-       ui->tableView_planning->setModel(tmpplanning.chercher_planning_avancee(l,k,m)) ;
+       ui->tab_affichage_planning->setModel(tmpplanning.chercher_planning_avancee(l,k,m)) ;
 
 }
 

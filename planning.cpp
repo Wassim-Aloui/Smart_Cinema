@@ -108,12 +108,12 @@ bool planning::modifier(int idc){
 }
 
 
-QSqlQueryModel *planning::chercher_planning_avancee(QString nom_planning,QString heure,QString date)
+QSqlQueryModel *planning::chercher_planning_avancee(QString nom_planning,QString heure,QString date_planning)
  {
 
     {
         QSqlQueryModel *model = new QSqlQueryModel;
-        model->setQuery("SELECT * FROM planning WHERE upper(NOMplanning) Like upper('%"+nom_planning+"%') and upper(Heure) Like upper('%"+heure+"%') and upper(date_planning) like upper('%"+date+"%') ");
+        model->setQuery("SELECT * FROM planning WHERE upper(NOM_planning) Like upper('%"+nom_planning+"%') and upper(Heure) Like upper('%"+heure+"%') and upper(date_planning) like upper('%"+date_planning+"%') ");
         model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID_planning"));
         model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM_planning"));
         model->setHeaderData(2, Qt::Horizontal, QObject::tr("DATE_PLANNING"));

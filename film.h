@@ -31,7 +31,7 @@ public:
     bool supprimer (int);
     bool modifier(int);
     bool rech(int x);
-    QSqlQueryModel * chercher_film_avancee(QString id_film,QString nom_film,QString genre);
+    QSqlQueryModel * chercher_film_avancee(QString date_sortie,QString nom_film,QString genre);
     QSqlQueryModel * trier(QString);
 
     QStringList listfilm();

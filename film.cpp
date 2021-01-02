@@ -80,7 +80,7 @@ return    query.exec();
 }
 bool film::modifier(int idc){
     QSqlQuery query;
-    query.prepare("update film set id_film=:id_film,nom_film=:nom_film,date_sortie=:date_sortie,duree=:duree,note=:note,genre=:genre where id=:idc");
+    query.prepare("update film set id_film=:id_film,nom_film=:nom_film,date_sortie=:date_sortie,duree=:duree,note=:note,genre=:genre where id_film=:idc");
     query.bindValue(":id_film",id_film);
     query.bindValue(":nom_film",nom_film);
     query.bindValue(":date_sortie",date_sortie);
@@ -118,12 +118,12 @@ QSqlQueryModel *film::trier(QString x)
 
         return model;
 }
-QSqlQueryModel *film::chercher_film_avancee(QString id_film,QString nom_film,QString genre)
+QSqlQueryModel *film::chercher_film_avancee(QString date_sortie,QString nom_film,QString genre)
  {
 
     {
         QSqlQueryModel *model = new QSqlQueryModel;
-        model->setQuery("SELECT * FROM film WHERE upper(ID_film) Like upper('%"+id_film+"%') and upper(nom_film) Like upper('%"+nom_film+"%') and upper(genre) like upper('%"+genre+"%') ");
+        model->setQuery("SELECT * FROM film WHERE upper(date_sortie) Like upper('%"+date_sortie+"%') and upper(nom_film) Like upper('%"+nom_film+"%') and upper(genre) like upper('%"+genre+"%') ");
         model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID_film"));
         model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM_film"));
         model->setHeaderData(2, Qt::Horizontal, QObject::tr("date_sortie"));

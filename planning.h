@@ -33,7 +33,7 @@ public:
     bool modifier(int);
     bool rech(int x);
 
-    QSqlQueryModel * chercher_planning_avancee(QString nom_planning,QString heure,QString date);
+    QSqlQueryModel * chercher_planning_avancee(QString nom_planning,QString heure,QString date_planning);
     QSqlQueryModel * trier(QString);
 
     QStringList listplanning();
