@@ -291,6 +291,12 @@ private slots:
 
     void on_OFF_Led_clicked();
 
+    void on_imprimer_clicked();
+
+    void on_imprimer_film_clicked();
+
+    void on_imprimer_planning_clicked();
+
 private:
     Ui::user_interface *ui;
     planning tmpplanning;

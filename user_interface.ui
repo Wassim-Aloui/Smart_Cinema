@@ -969,7 +969,7 @@ QLineEdit {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_13">
        <attribute name="title">
@@ -6229,8 +6229,8 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QTableView" name="tab_affichage_planning">
         <property name="geometry">
          <rect>
-          <x>310</x>
-          <y>100</y>
+          <x>320</x>
+          <y>110</y>
           <width>591</width>
           <height>361</height>
          </rect>
@@ -6314,8 +6314,8 @@ border: none;
        <widget class="QPushButton" name="Exporter_planning">
         <property name="geometry">
          <rect>
-          <x>720</x>
-          <y>40</y>
+          <x>710</x>
+          <y>20</y>
           <width>141</width>
           <height>51</height>
          </rect>
@@ -6338,7 +6338,7 @@ border: none;
 </string>
         </property>
         <property name="text">
-         <string>Exporter</string>
+         <string>PDF</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_21">
@@ -6583,6 +6583,36 @@ border: none;
         </property>
         <property name="text">
          <string>Chercher</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="imprimer_planning">
+        <property name="geometry">
+         <rect>
+          <x>540</x>
+          <y>20</y>
+          <width>141</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+color: #dcdcdc;
+background:#535353;
+border: none;
+font-size:20px;
+font-family:Arial, Helvetica, sans-serif;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+}
+QPushButton:hover {
+color:#fff;
+background:#FFD700;
+border: none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>imprimer</string>
         </property>
        </widget>
       </widget>
@@ -8137,7 +8167,7 @@ border: none;
 </string>
         </property>
         <property name="text">
-         <string>Exporter</string>
+         <string>PDF</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_22">
@@ -8382,6 +8412,36 @@ border: none;
         </property>
         <property name="text">
          <string>Chercher</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="imprimer_film">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>20</y>
+          <width>141</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+color: #dcdcdc;
+background:#535353;
+border: none;
+font-size:20px;
+font-family:Arial, Helvetica, sans-serif;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+}
+QPushButton:hover {
+color:#fff;
+background:#FFD700;
+border: none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>imprimer</string>
         </property>
        </widget>
       </widget>

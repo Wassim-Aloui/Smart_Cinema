@@ -58,6 +58,16 @@ user_interface::user_interface(QWidget *parent) :
 
     ui->tab_affichage_planning->setModel(tmpplanning.afficher());
     ui->id_planning_e_1->setValidator(new QIntValidator(0,99999999,this));
+    ui->nom_film_e->setValidator(new QRegExpValidator(QRegExp("[A-Za-z]+")));
+    ui->genre_e->setValidator(new QRegExpValidator(QRegExp("[A-Za-z]+")));
+    ui->duree_e->setValidator(new QRegExpValidator(QRegExp("[A-Za-z0-9]{8}")));
+    ui->nom_film_e_2->setValidator(new QRegExpValidator(QRegExp("[A-Za-z]+")));
+    ui->genre_e_2->setValidator(new QRegExpValidator(QRegExp("[A-Za-z]+")));
+    ui->duree_e_2->setValidator(new QRegExpValidator(QRegExp("[A-Za-z0-9]{8}")));
+    ui->nom_planning_e_1->setValidator(new QRegExpValidator(QRegExp("[A-Za-z]+")));
+    ui->heure_e_1->setValidator(new QRegExpValidator(QRegExp("[A-Za-z0-9]{8}")));
+    ui->nom_planning_e_2->setValidator(new QRegExpValidator(QRegExp("[A-Za-z]+")));
+    ui->heure_e_2->setValidator(new QRegExpValidator(QRegExp("[A-Za-z0-9]{8}")));
     ui->tab_affichage_film->setModel(tmpfilm.afficher());
     ui->id_film_e->setValidator(new QIntValidator(0,99999999,this));
     ui->id_film_e_2->setValidator(new QIntValidator(0,99999999,this));
@@ -95,7 +105,7 @@ user_interface::user_interface(QWidget *parent) :
 
 
 
-    //Timer
+     //Timer
       QTimer *timer_p=new QTimer(this);
       connect(timer_p,SIGNAL(timeout()),this,SLOT(showTime()));
       timer_p->start();
@@ -470,11 +480,6 @@ void user_interface::on_Mail_clicked()
 
           smtp->sendMail("fatma.louhichi@esprit.tn", ui->envoyera->text() , ui->objet->text() ,ui->msg->toPlainText());
 }
-
-
-
-
-
 
 void user_interface::sendMail()
 {
@@ -1706,4 +1711,18 @@ void user_interface::on_g_abonnements_pressed()
 
 }
 
+void user_interface::on_imprimer_film_clicked()
+{
+    QPrinter printer;
+            QPrintDialog *printDialog = new QPrintDialog(&printer, this);
+            printDialog->setWindowTitle("Imprimer Document");
+            printDialog->exec();
+}
 
+void user_interface::on_imprimer_planning_clicked()
+{
+    QPrinter printer;
+            QPrintDialog *printDialog = new QPrintDialog(&printer, this);
+            printDialog->setWindowTitle("Imprimer Document");
+            printDialog->exec();
+}
