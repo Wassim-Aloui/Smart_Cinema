@@ -333,6 +333,13 @@ void user_interface::on_Trier_planning_clicked()
 {
     QString l=ui->comboBox_Planning->currentText();
     ui->tab_affichage_planning->setModel(tmpplanning.trier(l));
+    QPropertyAnimation *animationtrier;
+    animationtrier = new QPropertyAnimation(ui->Trier_planning,"geometry");
+    animationtrier->setDuration(1000);
+    animationtrier->setStartValue(QRect(70,180,141,51));
+    animationtrier->setEndValue(QRect(60,180,200,51));
+    animationtrier->setEasingCurve(QEasingCurve::InOutQuint);
+    animationtrier->start(QPropertyAnimation::DeleteWhenStopped);
 }
 
 
@@ -370,13 +377,21 @@ void user_interface::on_chercher_planning_clicked()
         QString k = ui->heure_planning_e_4->text();
         QString l = ui->nom_planning_e_4->text();
        ui->tab_affichage_planning->setModel(tmpplanning.chercher_planning_avancee(l,k,m)) ;
-
+       QPropertyAnimation *animation;
+       animation = new QPropertyAnimation(ui->chercher_planning,"geometry");
+       animation->setDuration(1000);
+       animation->setStartValue(QRect(80,480,141,51));
+       animation->setEndValue(QRect(150,480,500,51));
+       animation->setEasingCurve(QEasingCurve::InOutQuint);
+       animation->start(QPropertyAnimation::DeleteWhenStopped);
 }
 
 void user_interface::on_Trier_film_clicked()
 {
     QString l=ui->comboBox_film->currentText();
     ui->tab_affichage_film->setModel(tmpfilm.trier(l));
+
+
 }
 
 void user_interface::on_comboBox_supprimer_planning_currentTextChanged(const QString &arg1)

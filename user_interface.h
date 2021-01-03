@@ -7,6 +7,7 @@
 #include <QMainWindow>
 #include"employe.h"
 #include<QMessageBox>
+#include "QPropertyAnimation"
 #include"conge.h"
 #include"smtp_employe.h"
 #include"stat_conge.h"

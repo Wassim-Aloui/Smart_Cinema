@@ -4,6 +4,8 @@ film::film()
 {
     id_film=note=0;
     nom_film=date_sortie=duree=genre="";
+
+
 }
 film::film(int id_film ,QString nom_film,QString date_sortie,QString duree,int note,QString genre)
 {
