@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1224</width>
-    <height>701</height>
+    <width>1274</width>
+    <height>874</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -569,7 +569,7 @@ font-family:Arial, Helvetica, sans-serif;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="Acceuil"/>
     <widget class="QWidget" name="gestion_des_employes">
@@ -6314,8 +6314,8 @@ border: none;
        <widget class="QPushButton" name="Exporter_planning">
         <property name="geometry">
          <rect>
-          <x>710</x>
-          <y>20</y>
+          <x>660</x>
+          <y>480</y>
           <width>141</width>
           <height>51</height>
          </rect>
@@ -6588,7 +6588,7 @@ border: none;
        <widget class="QPushButton" name="imprimer_planning">
         <property name="geometry">
          <rect>
-          <x>540</x>
+          <x>690</x>
           <y>20</y>
           <width>141</width>
           <height>51</height>
@@ -6625,7 +6625,7 @@ border: none;
         <x>0</x>
         <y>0</y>
         <width>961</width>
-        <height>661</height>
+        <height>871</height>
        </rect>
       </property>
       <property name="palette">
@@ -8059,7 +8059,7 @@ font-family:Arial, Helvetica, sans-serif;
         <property name="geometry">
          <rect>
           <x>280</x>
-          <y>110</y>
+          <y>70</y>
           <width>571</width>
           <height>391</height>
          </rect>
@@ -8144,7 +8144,7 @@ border: none;
         <property name="geometry">
          <rect>
           <x>690</x>
-          <y>20</y>
+          <y>470</y>
           <width>141</width>
           <height>51</height>
          </rect>
@@ -8417,8 +8417,8 @@ border: none;
        <widget class="QPushButton" name="imprimer_film">
         <property name="geometry">
          <rect>
-          <x>520</x>
-          <y>20</y>
+          <x>620</x>
+          <y>10</y>
           <width>141</width>
           <height>51</height>
          </rect>
@@ -8442,6 +8442,36 @@ border: none;
         </property>
         <property name="text">
          <string>imprimer</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="statistiques_film">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>10</y>
+          <width>141</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+color: #dcdcdc;
+background:#535353;
+border: none;
+font-size:20px;
+font-family:Arial, Helvetica, sans-serif;
+border: 1px solid #DCDCDC;
+border-radius: 8px;
+}
+QPushButton:hover {
+color:#fff;
+background:#FFD700;
+border: none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Statistiques</string>
         </property>
        </widget>
       </widget>
@@ -12928,7 +12958,7 @@ QLineEdit {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="tab_27">
        <attribute name="title">
@@ -16752,7 +16782,7 @@ font-family:Arial, Helvetica, sans-serif;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1224</width>
+     <width>1274</width>
      <height>22</height>
     </rect>
    </property>

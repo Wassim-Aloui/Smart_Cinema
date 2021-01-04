@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 QT       += core gui sql network charts
-QT += gui
+QT += gui multimedia
 QT += network
 QT += core gui widgets
 QT       += core gui sql
@@ -50,6 +50,7 @@ SOURCES += \
     stat2.cpp \
     stat_conge.cpp \
     stat_employe.cpp \
+    statfilm.cpp \
     statistique.cpp \
     statistiquee.cpp \
     user_interface.cpp
@@ -72,6 +73,7 @@ HEADERS += \
     stat2.h \
     stat_conge.h \
     stat_employe.h \
+    statfilm.h \
     statistique.h \
     statistiquee.h \
     user_interface.h
@@ -81,6 +83,7 @@ FORMS += \
         stat2.ui \
         stat_conge.ui \
         stat_employe.ui \
+        statfilm.ui \
         statistique.ui \
         statistiquee.ui \
         user_interface.ui

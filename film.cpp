@@ -155,5 +155,35 @@ film film::recherche_Id_film(int id_film){
 
     return f;
 }
+int film::calculerromantiue(int)
+{
+    QSqlQuery query ;
+    QSqlQuery q("select * from FILM where GENRE='romantique'") ;
+    int total=0;
+    while (q.next()){
+        total++;
+    }
+    return total;
+}
+int film::calculeraction(int )
+{
+    QSqlQuery query ;
+    QSqlQuery q("select * from FILM where GENRE='action'") ;
+    int total=0;
+    while (q.next()){
+        total++;
+    }
+    return total;
+}
+int film::calculerhorreur(int)
+{
+    QSqlQuery query ;
+    QSqlQuery q("select * from FILM where GENRE='horreur'") ;
+    int total=0;
+    while (q.next()){
+        total++;
+    }
+    return total;
+}
 
 

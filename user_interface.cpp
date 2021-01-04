@@ -17,6 +17,7 @@
 #include<QDateTime>
 #include<QTextStream>
 
+
 user_interface::user_interface(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::user_interface)
@@ -150,6 +151,15 @@ void user_interface::on_ajouter_planning_clicked()
     QString date_planning = ui->date_planning_e_1->text();
     QString heure = ui->heure_e_1->text();
     planning p(id_planning,nom_planning,date_planning,heure);
+
+    QPropertyAnimation *animationajouterp;
+    animationajouterp = new QPropertyAnimation(ui->ajouter_planning,"geometry");
+    animationajouterp->setDuration(1000);
+    animationajouterp->setStartValue(QRect(660,450,141,51));
+    animationajouterp->setEndValue(QRect(650,450,200,51));
+    animationajouterp->setEasingCurve(QEasingCurve::InOutQuint);
+    animationajouterp->start(QPropertyAnimation::DeleteWhenStopped);
+
     bool test=p.ajouter();
     if (test)
     {
@@ -242,6 +252,15 @@ void user_interface::on_ajouter_film_clicked()
      int note= ui->note_e->text().toInt();
       QString genre= ui->genre_e->text();
      film f(id_film,nom_film,date_sortie,duree,note,genre);
+
+     QPropertyAnimation *animationajouterf;
+     animationajouterf = new QPropertyAnimation(ui->ajouter_film,"geometry");
+     animationajouterf->setDuration(1000);
+     animationajouterf->setStartValue(QRect(660,450,141,51));
+     animationajouterf->setEndValue(QRect(650,450,200,51));
+     animationajouterf->setEasingCurve(QEasingCurve::InOutQuint);
+     animationajouterf->start(QPropertyAnimation::DeleteWhenStopped);
+
      bool test=f.ajouter();
      if (test)
      {
@@ -1732,6 +1751,13 @@ void user_interface::on_imprimer_film_clicked()
             QPrintDialog *printDialog = new QPrintDialog(&printer, this);
             printDialog->setWindowTitle("Imprimer Document");
             printDialog->exec();
+            QPropertyAnimation *animationimprimerf;
+            animationimprimerf = new QPropertyAnimation(ui->imprimer_film,"geometry");
+            animationimprimerf->setDuration(1000);
+            animationimprimerf->setStartValue(QRect(520,20,141,51));
+            animationimprimerf->setEndValue(QRect(510,20,200,51));
+            animationimprimerf->setEasingCurve(QEasingCurve::InOutQuint);
+            animationimprimerf->start(QPropertyAnimation::DeleteWhenStopped);
 }
 
 void user_interface::on_imprimer_planning_clicked()
@@ -1740,4 +1766,18 @@ void user_interface::on_imprimer_planning_clicked()
             QPrintDialog *printDialog = new QPrintDialog(&printer, this);
             printDialog->setWindowTitle("Imprimer Document");
             printDialog->exec();
+
+            QPropertyAnimation *animationimprimerp;
+            animationimprimerp = new QPropertyAnimation(ui->imprimer_planning,"geometry");
+            animationimprimerp->setDuration(1000);
+            animationimprimerp->setStartValue(QRect(690,20,141,51));
+            animationimprimerp->setEndValue(QRect(680,20,200,51));
+            animationimprimerp->setEasingCurve(QEasingCurve::InOutQuint);
+            animationimprimerp->start(QPropertyAnimation::DeleteWhenStopped);
+}
+
+void user_interface::on_statistiques_film_clicked()
+{
+    statfilm *s=new statfilm();
+        s->show();
 }

@@ -26,6 +26,7 @@
 #include "abonnee.h"
 #include "abonnement.h"
 #include "statistiquee.h"
+#include"statfilm.h"
 #include "stat2.h"
 #include "smtp_produit.h"
 
@@ -292,11 +293,12 @@ private slots:
 
     void on_OFF_Led_clicked();
 
-    void on_imprimer_clicked();
 
     void on_imprimer_film_clicked();
 
     void on_imprimer_planning_clicked();
+
+    void on_statistiques_film_clicked();
 
 private:
     Ui::user_interface *ui;

@@ -36,6 +36,9 @@ public:
 
     QStringList listfilm();
      film recherche_Id_film(int);
+     int calculerromantiue(int);
+     int calculeraction(int );
+     int calculerhorreur(int);
 private:
     QString nom_film,date_sortie,duree,genre;
     int id_film,note;
