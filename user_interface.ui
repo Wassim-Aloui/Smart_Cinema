@@ -569,7 +569,7 @@ font-family:Arial, Helvetica, sans-serif;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>9</number>
     </property>
     <widget class="QWidget" name="Acceuil"/>
     <widget class="QWidget" name="gestion_des_employes">
@@ -7015,7 +7015,7 @@ QLineEdit {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -11073,7 +11073,7 @@ QLineEdit {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_ajouter_2">
        <attribute name="title">
@@ -12958,7 +12958,7 @@ QLineEdit {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_27">
        <attribute name="title">
@@ -13842,27 +13842,33 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QRadioButton" name="modifier_affiche_abonne">
         <property name="geometry">
          <rect>
-          <x>520</x>
+          <x>540</x>
           <y>20</y>
-          <width>261</width>
+          <width>221</width>
           <height>31</height>
          </rect>
         </property>
         <property name="styleSheet">
          <string notr="true">QRadioButton {
-color: #535353;
+color: #dcdcdc;
+background:#535353;
+border: none;
 font-size:20px;
 font-family:Arial, Helvetica, sans-serif;
 text-align: left;
+border: 1px solid #FFD700;
+border-radius: 8px;
 }
 QRadioButton:hover {
-color:#FFD700;
+color:#fff;
+background:#FFD700;
+border: none;
 text-align: left;
 }
 </string>
         </property>
         <property name="text">
-         <string>Afficher tous les abonnés</string>
+         <string>Tous les abonnés</string>
         </property>
        </widget>
       </widget>
@@ -14012,27 +14018,33 @@ background:#DCDCDC;
        <widget class="QRadioButton" name="affiche_supp_abonne">
         <property name="geometry">
          <rect>
-          <x>280</x>
-          <y>30</y>
-          <width>261</width>
+          <x>470</x>
+          <y>20</y>
+          <width>221</width>
           <height>31</height>
          </rect>
         </property>
         <property name="styleSheet">
          <string notr="true">QRadioButton {
-color: #535353;
+color: #dcdcdc;
+background:#535353;
+border: none;
 font-size:20px;
 font-family:Arial, Helvetica, sans-serif;
 text-align: left;
+border: 1px solid #FFD700;
+border-radius: 8px;
 }
 QRadioButton:hover {
-color:#FFD700;
+color:#fff;
+background:#FFD700;
+border: none;
 text-align: left;
 }
 </string>
         </property>
         <property name="text">
-         <string>Afficher tous les abonnés</string>
+         <string>Tous les abonnés</string>
         </property>
        </widget>
       </widget>
@@ -14402,32 +14414,6 @@ background:#DCDCDC;
 }</string>
         </property>
        </widget>
-       <widget class="QRadioButton" name="radioButton_afficher">
-        <property name="geometry">
-         <rect>
-          <x>440</x>
-          <y>30</y>
-          <width>261</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QRadioButton {
-color: #535353;
-font-size:20px;
-font-family:Arial, Helvetica, sans-serif;
-text-align: left;
-}
-QRadioButton:hover {
-color:#FFD700;
-text-align: left;
-}
-</string>
-        </property>
-        <property name="text">
-         <string>Afficher tous les abonnés</string>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_63">
         <property name="geometry">
          <rect>
@@ -14459,6 +14445,38 @@ font-family:Arial, Helvetica, sans-serif;
         </property>
         <property name="text">
          <string>Chercher des abonnés</string>
+        </property>
+       </widget>
+       <widget class="QRadioButton" name="radioButton_afficher">
+        <property name="geometry">
+         <rect>
+          <x>450</x>
+          <y>20</y>
+          <width>221</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QRadioButton {
+color: #dcdcdc;
+background:#535353;
+border: none;
+font-size:20px;
+font-family:Arial, Helvetica, sans-serif;
+text-align: left;
+border: 1px solid #FFD700;
+border-radius: 8px;
+}
+QRadioButton:hover {
+color:#fff;
+background:#FFD700;
+border: none;
+text-align: left;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Tous les abonnés</string>
         </property>
        </widget>
       </widget>
@@ -15005,7 +15023,7 @@ QLineEdit {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>6</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -15869,32 +15887,6 @@ font-family:Arial, Helvetica, sans-serif;
          </rect>
         </property>
        </widget>
-       <widget class="QRadioButton" name="afficher_abonnement_modif">
-        <property name="geometry">
-         <rect>
-          <x>430</x>
-          <y>60</y>
-          <width>321</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QRadioButton {
-color: #535353;
-font-size:20px;
-font-family:Arial, Helvetica, sans-serif;
-text-align: left;
-}
-QRadioButton:hover {
-color:#FFD700;
-text-align: left;
-}
-</string>
-        </property>
-        <property name="text">
-         <string>Afficher tous les abonnements </string>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_70">
         <property name="geometry">
          <rect>
@@ -15911,6 +15903,38 @@ text-align: left;
          <pixmap>../../afficher.png</pixmap>
         </property>
        </widget>
+       <widget class="QRadioButton" name="afficher_abonnement_modif">
+        <property name="geometry">
+         <rect>
+          <x>450</x>
+          <y>50</y>
+          <width>241</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QRadioButton {
+color: #dcdcdc;
+background:#535353;
+border: none;
+font-size:20px;
+font-family:Arial, Helvetica, sans-serif;
+text-align: left;
+border: 1px solid #FFD700;
+border-radius: 8px;
+}
+QRadioButton:hover {
+color:#fff;
+background:#FFD700;
+border: none;
+text-align: left;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Tous les abonnements</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="tab_31">
        <attribute name="title">
@@ -15920,7 +15944,7 @@ text-align: left;
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>30</y>
+          <y>10</y>
           <width>531</width>
           <height>21</height>
          </rect>
@@ -15949,27 +15973,11 @@ font-family:Arial, Helvetica, sans-serif;
          <string>Supprimer un abonnement à partir de son numéro</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_72">
-        <property name="geometry">
-         <rect>
-          <x>-230</x>
-          <y>50</y>
-          <width>501</width>
-          <height>101</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap>../../supp.png</pixmap>
-        </property>
-       </widget>
        <widget class="QLineEdit" name="id_abonnement_3">
         <property name="geometry">
          <rect>
           <x>50</x>
-          <y>210</y>
+          <y>200</y>
           <width>221</width>
           <height>71</height>
          </rect>
@@ -15997,7 +16005,7 @@ font-family:Arial, Helvetica, sans-serif;
         <property name="geometry">
          <rect>
           <x>90</x>
-          <y>290</y>
+          <y>280</y>
           <width>141</width>
           <height>51</height>
          </rect>
@@ -16026,9 +16034,9 @@ border: none;
        <widget class="QTableView" name="tableViewsupp">
         <property name="geometry">
          <rect>
-          <x>290</x>
+          <x>320</x>
           <y>90</y>
-          <width>601</width>
+          <width>571</width>
           <height>511</height>
          </rect>
         </property>
@@ -16062,43 +16070,66 @@ text-align: left;
        <widget class="QRadioButton" name="afficher_abonnement_3">
         <property name="geometry">
          <rect>
-          <x>420</x>
-          <y>50</y>
-          <width>321</width>
+          <x>510</x>
+          <y>40</y>
+          <width>241</width>
           <height>31</height>
          </rect>
         </property>
         <property name="styleSheet">
          <string notr="true">QRadioButton {
-color: #535353;
+color: #dcdcdc;
+background:#535353;
+border: none;
 font-size:20px;
 font-family:Arial, Helvetica, sans-serif;
 text-align: left;
+border: 1px solid #FFD700;
+border-radius: 8px;
 }
 QRadioButton:hover {
-color:#FFD700;
+color:#fff;
+background:#FFD700;
+border: none;
 text-align: left;
 }
 </string>
         </property>
         <property name="text">
-         <string>Afficher tous les abonnements </string>
+         <string>Tous les abonnements</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_73">
+       <widget class="QLabel" name="label_72">
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>70</y>
-          <width>231</width>
-          <height>131</height>
+          <y>160</y>
+          <width>301</width>
+          <height>21</height>
          </rect>
         </property>
-        <property name="text">
-         <string/>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <italic>true</italic>
+          <bold>true</bold>
+         </font>
         </property>
-        <property name="pixmap">
-         <pixmap>:/pic1/img01.png</pixmap>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  color: #808080;
+  font-size: 20px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
+        </property>
+        <property name="text">
+         <string>Le numéro d'abonnement :</string>
         </property>
        </widget>
       </widget>
@@ -16247,27 +16278,33 @@ text-align: left;
        <widget class="QRadioButton" name="afficher_abonnement_4">
         <property name="geometry">
          <rect>
-          <x>300</x>
+          <x>400</x>
           <y>10</y>
-          <width>321</width>
+          <width>241</width>
           <height>31</height>
          </rect>
         </property>
         <property name="styleSheet">
          <string notr="true">QRadioButton {
-color: #535353;
+color: #dcdcdc;
+background:#535353;
+border: none;
 font-size:20px;
 font-family:Arial, Helvetica, sans-serif;
 text-align: left;
+border: 1px solid #FFD700;
+border-radius: 8px;
 }
 QRadioButton:hover {
-color:#FFD700;
+color:#fff;
+background:#FFD700;
+border: none;
 text-align: left;
 }
 </string>
         </property>
         <property name="text">
-         <string>Afficher tous les abonnements </string>
+         <string>Tous les abonnements</string>
         </property>
        </widget>
       </widget>
@@ -16500,32 +16537,6 @@ border: none;
          <string>Chercher</string>
         </property>
        </widget>
-       <widget class="QRadioButton" name="afficher_abonnement">
-        <property name="geometry">
-         <rect>
-          <x>350</x>
-          <y>20</y>
-          <width>321</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QRadioButton {
-color: #535353;
-font-size:20px;
-font-family:Arial, Helvetica, sans-serif;
-text-align: left;
-}
-QRadioButton:hover {
-color:#FFD700;
-text-align: left;
-}
-</string>
-        </property>
-        <property name="text">
-         <string>Afficher tous les abonnements </string>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_75">
         <property name="geometry">
          <rect>
@@ -16548,6 +16559,38 @@ font-family:Arial, Helvetica, sans-serif;
         </property>
         <property name="text">
          <string>Rechercher</string>
+        </property>
+       </widget>
+       <widget class="QRadioButton" name="afficher_abonnement">
+        <property name="geometry">
+         <rect>
+          <x>410</x>
+          <y>20</y>
+          <width>241</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QRadioButton {
+color: #dcdcdc;
+background:#535353;
+border: none;
+font-size:20px;
+font-family:Arial, Helvetica, sans-serif;
+text-align: left;
+border: 1px solid #FFD700;
+border-radius: 8px;
+}
+QRadioButton:hover {
+color:#fff;
+background:#FFD700;
+border: none;
+text-align: left;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Tous les abonnements</string>
         </property>
        </widget>
       </widget>
@@ -16654,7 +16697,7 @@ font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
         <property name="text">
-         <string>statistiques selon les types des abonnements</string>
+         <string>Statistiques selon les types des abonnements</string>
         </property>
         <property name="textFormat">
          <enum>Qt::AutoText</enum>
@@ -16783,7 +16826,7 @@ font-family:Arial, Helvetica, sans-serif;
      <x>0</x>
      <y>0</y>
      <width>1274</width>
-     <height>22</height>
+     <height>30</height>
     </rect>
    </property>
   </widget>
