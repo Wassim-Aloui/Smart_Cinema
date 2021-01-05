@@ -380,7 +380,7 @@ void MainWindow::on_combo2_currentTextChanged(const QString &arg1)
 
 void MainWindow::sendMail()
 {
-    Smtp* smtp = new Smtp("lina.khammeri@esprit.tn","191JFT1097", "smtp.gmail.com", 465,30000);
+    Smtp* smtp = new Smtp("lina.khammeri@esprit.tn","64Gdt_)*/re5", "smtp.gmail.com", 465,30000);
     connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
 //ui->rcpt->text()
 
@@ -621,7 +621,7 @@ void MainWindow::on_rech_emp2_clicked()
 
         ui->tab_employe_2->setModel(tmpemploye.chercher_emp_avancee(nom_e,prenom_e,email_e));
 
-     ui->tab_affichage_conge->setModel(tmpconge.trier2());
+    // ui->tab_affichage_conge->setModel(tmpconge.trier2());
 }
 
 
