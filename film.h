@@ -9,6 +9,7 @@
 #include <QCoreApplication>
 #include <QTextStream>
 #include<QTableView>
+
 class film
 {
 public:
@@ -42,6 +43,7 @@ public:
 private:
     QString nom_film,date_sortie,duree,genre;
     int id_film,note;
+
 };
 
 #endif // FILM_H

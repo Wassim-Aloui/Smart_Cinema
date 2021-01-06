@@ -29,6 +29,9 @@
 #include"statfilm.h"
 #include "stat2.h"
 #include "smtp_produit.h"
+#include <QMediaPlayer>
+#include <QSound>
+#include <QThread>
 
 namespace Ui {
 class user_interface;
@@ -311,6 +314,7 @@ private:
     QByteArray data;
     arduino_led A;
     Abonnee tmpabonnee;
+    QMediaPlayer* player;
     Abonnement tmpabonnement;
 };
 

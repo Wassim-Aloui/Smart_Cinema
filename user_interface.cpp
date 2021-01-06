@@ -154,6 +154,11 @@ void user_interface::on_ajouter_planning_clicked()
     QString heure = ui->heure_e_1->text();
     planning p(id_planning,nom_planning,date_planning,heure);
 
+    player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
+
     QPropertyAnimation *animationajouterp;
     animationajouterp = new QPropertyAnimation(ui->ajouter_planning,"geometry");
     animationajouterp->setDuration(1000);
@@ -191,6 +196,10 @@ model->setHeaderData(3, Qt::Horizontal, QObject::tr("HEURE"));
 void user_interface::on_supprimer_planning_clicked()
 
     {
+    player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
         //int id = ui->id_planning_e_3->text().toInt();
         bool test=tmpplanning.supprimer(ui->comboBox_supprimer_planning->currentText().toInt());
 
@@ -215,7 +224,10 @@ void user_interface::on_supprimer_planning_clicked()
 void user_interface::on_modifier_planning_clicked()
 
     {
-
+    player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     planning p(ui->id_planning_e_2->text().toInt(),ui->nom_planning_e_2->text(),ui->date_planning_e_2->text(),ui->heure_e_2->text());
     bool test=p.modifier(ui->comboBox_modifier_planning->currentText().toInt());
     if(test){
@@ -254,6 +266,11 @@ void user_interface::on_ajouter_film_clicked()
      int note= ui->note_e->text().toInt();
       QString genre= ui->genre_e->text();
      film f(id_film,nom_film,date_sortie,duree,note,genre);
+     player = new QMediaPlayer;
+     player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                  player->play();
+                  qDebug()<<player->errorString();
+                 // QThread::sleep(1);
 
      QPropertyAnimation *animationajouterf;
      animationajouterf = new QPropertyAnimation(ui->ajouter_film,"geometry");
@@ -293,7 +310,10 @@ model->setHeaderData(5, Qt::Horizontal, QObject::tr("GENRE"));
 
 
 void user_interface::on_supprimer_film_clicked()
-{
+{    player = new QMediaPlayer;
+     player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                  player->play();
+                  qDebug()<<player->errorString();
     //int id = ui->id_planning_e_3->text().toInt();
     bool test=tmpfilm.supprimer(ui->comboBox_supprimer_film->currentText().toInt());
 
@@ -316,7 +336,10 @@ void user_interface::on_supprimer_film_clicked()
 }
 
 void user_interface::on_modifier_film_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     film f(ui->comboBox_modifier_film->currentText().toInt(),ui->nom_film_e_2->text(),ui->date_sortie_e_2->text(),ui->duree_e_2->text(),(ui->note_e_2->text().toInt()),ui->genre_e_2->text());
     bool test=f.modifier(ui->comboBox_modifier_film->currentText().toInt());
     if(test){
@@ -342,7 +365,10 @@ void user_interface::on_modifier_film_clicked()
 }
 
 void user_interface::on_chercher_film_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     QString date_sortie = ui->date_film_e_4->text();
     QString nom_film = ui->nom_film_e_4->text();
     QString genre = ui->genre_film_e_4->text();
@@ -351,7 +377,10 @@ void user_interface::on_chercher_film_clicked()
 
 
 void user_interface::on_Trier_planning_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     QString l=ui->comboBox_Planning->currentText();
     ui->tab_affichage_planning->setModel(tmpplanning.trier(l));
     QPropertyAnimation *animationtrier;
@@ -366,7 +395,10 @@ void user_interface::on_Trier_planning_clicked()
 
 
 void user_interface::on_Exporter_planning_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export PDF", QString(), "*.pdf");
         if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append("planning.pdf"); }
 
@@ -393,7 +425,10 @@ void user_interface::on_Exporter_planning_clicked()
 }
 
 void user_interface::on_chercher_planning_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     QString m =ui->date_planning_e_4->text();
         QString k = ui->heure_planning_e_4->text();
         QString l = ui->nom_planning_e_4->text();
@@ -446,7 +481,10 @@ void user_interface::on_tab_Widget_planning_currentChanged(int index)
 
 
 void user_interface::on_Exporter_film_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export PDF", QString(), "*.pdf");
         if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append("liste des films.pdf"); }
 
@@ -511,14 +549,20 @@ void user_interface::on_comboBox_modifier_film_currentTextChanged(const QString 
 }
 
 void user_interface::on_Mail_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     Smtp* smtp = new Smtp("fatma.louhichi@esprit.tn", "191JFT1375", "smtp.gmail.com", 465);
 
           smtp->sendMail("fatma.louhichi@esprit.tn", ui->envoyera->text() , ui->objet->text() ,ui->msg->toPlainText());
 }
 
 void user_interface::sendMail()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     smtp_employe * smtp = new smtp_employe("lina.khammeri@esprit.tn","64Gdt_)*/re5", "smtp.gmail.com", 465,30000);
     connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
 //ui->rcpt->text()
@@ -553,7 +597,10 @@ void user_interface::on_email_emp_textChanged(const QString &arg1)
 }
 
 void user_interface::on_rech_emp2_clicked()
-{
+{  player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     QString nom_e =ui->date_conge_e_7->text();
     QString prenom_e = ui->date_conge_e_8->text();
     QString email_e = ui->date_conge_e_9->text();
@@ -562,7 +609,10 @@ void user_interface::on_rech_emp2_clicked()
 }
 
 void user_interface::on_rech_emp2_2_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     int refc =ui->date_conge_e_4->text().toUInt();
     int dureec = ui->heure_conge_e_4->text().toInt(); //id
           QString typec = ui->heure_conge_e_5->text();
@@ -599,18 +649,27 @@ void user_interface::on_date_conge_e_4_textChanged(const QString &arg1)
 }
 
 void user_interface::on_Tricongetype_clicked()
-{
+{    player = new QMediaPlayer;
+     player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                  player->play();
+                  qDebug()<<player->errorString();
      ui->tab_affichage_conge->setModel(tmpconge.trier2());
 }
 
 void user_interface::on_Touslesconges_2_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     ui->tab_affichage_conge->setModel(tmpconge.trier1());
 
 }
 
 void user_interface::on_Touslesconges_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     ui->tab_affichage_conge->setModel(tmpconge.trier());
 
 }
@@ -627,7 +686,10 @@ void user_interface::on_id_conge_e_1_textChanged(const QString &arg1)
 }
 
 void user_interface::on_mdf_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     employe e(ui->id_emp_2->text().toInt(),ui->nom_emp_2->text(),ui->prenom_emp_2->text(),ui->date_naissance_emp_2->date(),ui->salaire_emp_2->text().toDouble(),ui->email_emp_2->text());
     bool test=e.modifier(ui->comboBox->currentText().toInt());
     if(test){
@@ -663,7 +725,10 @@ void user_interface::on_combomail_currentTextChanged(const QString &arg1)
 }
 
 void user_interface::on_modifier_conge_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     conge c(ui->comboc1->currentText().toInt(),ui->duree_conge_e_2->text().toInt(),ui->date_conge_e_2->date(),ui->type_conge_e_2->text(),ui->comboc1->currentText().toInt());
     bool test=c.modifier(ui->comboc1->currentText().toInt());
     if(test){
@@ -733,14 +798,20 @@ void user_interface::on_id_emp_textChanged(const QString &arg1)
 }
 
 void user_interface::on_stats_clicked()
-{
+{    player = new QMediaPlayer;
+     player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                  player->play();
+                  qDebug()<<player->errorString();
     stat_employe *s=new stat_employe();
     s->show();
 }
 
 void user_interface::on_stats_2_clicked()
 {
-
+    player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     stat_conge *s=new stat_conge();
     s->show();
 }
@@ -763,12 +834,18 @@ void user_interface::on_tri_emp_2_clicked()
 }
 
 void user_interface::on_tri_emp_clicked()
-{
+{    player = new QMediaPlayer;
+     player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                  player->play();
+                  qDebug()<<player->errorString();
      ui->tab_employe->setModel(tmpemploye.trier());
 }
 
 void user_interface::on_supprimer_employe_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     bool test=tmpemploye.supprimer(ui->combo2->currentText().toInt());
     if(test){
         QMessageBox::information(nullptr, QObject::tr("Employe"),
@@ -792,7 +869,10 @@ void user_interface::on_supprimer_employe_clicked()
 }
 
 void user_interface::on_supprimer_conge_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     bool test=tmpconge.supprimer(ui->comboBox_4->currentText().toInt());
     if(test){
         QMessageBox::information(nullptr, QObject::tr("Conge"),
@@ -810,7 +890,10 @@ void user_interface::on_supprimer_conge_clicked()
 }
 
 void user_interface::on_ajouter_conge_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     conge c(ui->id_conge_e_1->text().toInt(),ui->duree_conge_e_1->text().toInt(),ui->date_conge_e_1->date(),ui->type_e_1->text(),ui->comboBox_id_emp->currentText().toInt());
     bool test=c.ajouter1();
     if(test) {
@@ -863,7 +946,10 @@ void user_interface::on_tri_emp_3_clicked()
 }
 
 void user_interface::on_ajouter_employe_2_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     employe e(ui->id_emp->text().toInt(),ui->nom_emp->text(),ui->prenom_emp->text(),ui->date_naissance_emp->date(),ui->salaire_emp->text().toDouble(),ui->email_emp->text());
     bool test=e.ajouter();
     if(test){
@@ -938,7 +1024,10 @@ void user_interface::on_g_cmd_clicked()
 
 //ajouter un produit(button ajouter)
 void user_interface::on_ajouter_produit_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     int id_produit=ui->id_produit_e->text().toInt();
      QString nom_produit=ui->nom_produit_e->text();
      QString type_produit=ui->type_produit_e->text();
@@ -962,7 +1051,10 @@ void user_interface::on_ajouter_produit_clicked()
 
 //Modifier un produit(button modifier)
 void user_interface::on_modifier_produit_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     int id_produit= ui->id_produit_e_2->text().toInt();
         QString nom_produit=ui->nom_produit_e2->text();
         QString type_produit= ui->type_produit2_e->text();
@@ -980,7 +1072,10 @@ void user_interface::on_modifier_produit_clicked()
 
 //Supprimer un produit(button supprimer)
 void user_interface::on_supprimer_produit_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     int id_produit=ui->id_produit_e3->text().toInt();
         bool test=Etmp.supprimer_produit(id_produit);
         if(test)
@@ -999,7 +1094,10 @@ void user_interface::on_supprimer_produit_clicked()
 
 //chercher un produit(button chercher)
 void user_interface::on_chercher_produit_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
 
     int id_produit =ui->id_produit_e4->text().toInt();
     QString nom_produit = ui->nom_produit_e4->text();
@@ -1030,29 +1128,44 @@ void user_interface::on_radioButto_afficher_commande_2_clicked()
 }
 //tri produit par id
 void user_interface::on_afficher_id_produit_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     ui->tab_afficher_produit->setModel(Etmp.tri_produit_id());
 }
 //tri produit par nom
 void user_interface::on_afficher_nom_produit_clicked()
-{
+{ player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
   ui->tab_afficher_produit->setModel(Etmp.tri_produit_nom());
 }
 //tri produit par nombre
 void user_interface::on_afficher_nombre_produit_clicked()
-{
+{  player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     ui->tab_afficher_produit->setModel(Etmp.tri_produit_nombre());
 }
 
 void user_interface::on_statistique_prod_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     statistique *s=new statistique();
         s->show();
 }
 
 //Load id produit in the combobox
 void user_interface::on_load_produit_id_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     QSqlQueryModel *model = new QSqlQueryModel;
        model->setQuery("SELECT ID FROM PRODUIT");
        ui->comboBox_Produit->setModel(model);
@@ -1067,7 +1180,10 @@ void user_interface::showTime()
 
 //ajouter commande(button ajouter)
 void user_interface::on_ajouter_commande_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     int reference=ui->reference_commande_e->text().toInt();
     QString etat_commande=ui->etat_commande_e->text();
     QString description=ui->Desc_commande_e->text();
@@ -1097,7 +1213,11 @@ void user_interface::on_OFF_Led_clicked()
 }
 //modfier commande
 void user_interface::on_modifier_commande_clicked()
-{int reference= ui->reference_commande_e2->text().toInt();
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
+    int reference= ui->reference_commande_e2->text().toInt();
     QString description=ui->desc_commande_e->text();
     QString etat_commande= ui->etat_commande_e2->text();
     int nombre_commande= ui->nombre_commande_e2->text().toInt();
@@ -1113,7 +1233,10 @@ void user_interface::on_modifier_commande_clicked()
 }
 //suuprimer commande
 void user_interface::on_supprimer_commande_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     int reference=ui->reference_commande_e3->text().toInt();
         bool test=Com.supprimer_commande(reference);
         if(test)
@@ -1130,7 +1253,10 @@ void user_interface::on_supprimer_commande_clicked()
 }
 //recherche commande
 void user_interface::on_rechercher_commande_clicked()
-{
+{    player = new QMediaPlayer;
+     player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                  player->play();
+                  qDebug()<<player->errorString();
     int reference =ui->reference_commande_e3_2->text().toUInt();
         int nombre_commande = ui->quantite_commande_e3->text().toUInt();
         QString etat_commande = ui->etat_commande_e3->text();
@@ -1159,17 +1285,26 @@ void user_interface::on_radioButton_commande_clicked()
 }
 //tri commande par reference
 void user_interface::on_reference_commande_2_clicked()
-{
+{  player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
    ui->tab_afficher_commande->setModel(Com.tri_commande_reference());
 }
 //tri commande par quantité
 void user_interface::on_modifier_commande_3_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     ui->tab_afficher_commande->setModel(Com.tri_commande_quantite());
 }
 //tri commande par etat
 void user_interface::on_modifier_commande_4_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     ui->tab_afficher_commande->setModel(Com.tri_commande_etat());
 }
 //load commande reference combobox
@@ -1182,7 +1317,10 @@ void user_interface::on_load_commande_ref_clicked()
 //commande pdf
 void user_interface::on_pdf_commande_clicked()
 {
-
+    player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Open PDF", QString(), "*.pdf");
                     if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append("Commande.pdf"); }
 
@@ -1209,7 +1347,10 @@ void user_interface::on_pdf_commande_clicked()
 }
 //reclamation write
 void user_interface::on_pushButton_write_clicked()
-{
+{    player = new QMediaPlayer;
+     player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                  player->play();
+                  qDebug()<<player->errorString();
     QFile file_reclamation("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7-main/Reclamation.txt");
       if(!file_reclamation.open(QFile::WriteOnly | QFile::Text))
       {QMessageBox::warning(this,"title","file not open");}
@@ -1222,7 +1363,10 @@ void user_interface::on_pushButton_write_clicked()
 }
 //reclamation read
 void user_interface::on_pushButton_read_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     QFile file_reclamation("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7-main/Reclamation.txt");
        if(!file_reclamation.open(QFile::ReadOnly | QFile::Text))
        {QMessageBox::warning(this,"title","file not open");}
@@ -1244,7 +1388,10 @@ void user_interface::on_g_abonnements_clicked()
 }
 
 void user_interface::on_ajouter_abonne_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     int id = ui->id_abonne_e_1->text().toInt();
     QString nom = ui->nom_abonne_e_2->text();
     QString prenom = ui->prenom_abonne_e_3->text();
@@ -1267,7 +1414,10 @@ void user_interface::on_ajouter_abonne_clicked()
 }
 
 void user_interface::on_modifier_abonne_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     QString nom= ui->nom_abonne_e_4->text();
     QString prenom= ui->modifier_prenom->text();
     int id= ui->id_modifier_abonne->text().toInt();
@@ -1294,11 +1444,18 @@ void user_interface::on_modifier_abonne_clicked()
 
 void user_interface::on_modifier_affiche_abonne_clicked()
 {
+    player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     ui->table_abonne_3->setModel(tmpabonnee.afficher());
 }
 
 void user_interface::on_supprimer_abonnee_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     int id= ui->id_supp_abonne->text().toInt();
    bool test = tmpabonnee.supprimer(id);
 if(test)
@@ -1320,7 +1477,10 @@ void user_interface::on_affiche_supp_abonne_clicked()
 }
 
 void user_interface::on_radioButton_nom1_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     bool test = tmpabonnee.tri();
     if(test){
        ui->table_abonne->setModel(tmpabonnee.tri());
@@ -1336,7 +1496,10 @@ void user_interface::on_radioButton_nom1_clicked()
 
 void user_interface::on_radioButton_ville_clicked()
 {
-
+    player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     bool test = tmpabonnee.triville();
     if(test){
        ui->table_abonne->setModel(tmpabonnee.triville());
@@ -1350,7 +1513,10 @@ void user_interface::on_radioButton_ville_clicked()
 }
 
 void user_interface::on_radioButton_tarif_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     bool test = tmpabonnee.tritarif();
         if(test){
            ui->table_abonne->setModel(tmpabonnee.tritarif());
@@ -1369,7 +1535,10 @@ void user_interface::on_afficher_abonne_clicked()
 }
 
 void user_interface::on_notee_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Open PDF", QString(), "*.pdf");
             if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append("Exporter tableau abonnés.pdf"); }
 
@@ -1399,7 +1568,10 @@ pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"    </td>  <td>   " + q.valu
 
 
 void user_interface::on_chercher_abonnee_clicked()
-{
+{    player = new QMediaPlayer;
+     player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                  player->play();
+                  qDebug()<<player->errorString();
     int id = ui->id_rech_abonne_5->text().toInt();
     QString nom = ui->nom_rech_abonne_5->text();
     QString prenom = ui->prenom_rech_abonne_5->text();
@@ -1425,14 +1597,20 @@ void user_interface::on_stat_abonnee_clicked()
 }
 
 void user_interface::on_statistique_clicked()
-{
+{  player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     statistiquee *s=new statistiquee();
         s->show();
 }
 
 
 void user_interface::on_ajouter_abonnement_1_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     int num = ui->num_abonnement_1->text().toInt();
     int prix = ui->prix_abonnement_1->text().toInt();
     QString duree = ui->duree_abonnement_1->text();
@@ -1461,7 +1639,10 @@ void user_interface::on_radioButton_5_clicked()
 }
 
 void user_interface::on_modifier_abonnement_2_clicked()
-{
+{    player = new QMediaPlayer;
+     player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                  player->play();
+                  qDebug()<<player->errorString();
     int num= ui->id_abonnement_2->text().toInt();
    int prix= ui->prix_abonnement_3->text().toInt();
     QString duree= ui->duree_abonnement_2->text();
@@ -1490,7 +1671,10 @@ void user_interface::on_afficher_abonnement_modif_clicked()
 }
 
 void user_interface::on_supprimer_abonnement_3_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     int num= ui->id_abonnement_3->text().toInt();
    bool test = tmpabonnement.supprimer(num);
 if(test)
@@ -1535,7 +1719,10 @@ void user_interface::on_prixButton_clicked()
 }
 
 void user_interface::on_chercher_abonnement_4_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     int num = ui->num_5->text().toInt();
     QString type = ui->type_5->text();
     QString duree = ui->duree_8->text();
@@ -1562,13 +1749,19 @@ void user_interface::on_statis_abonnement_clicked()
 
 
 void user_interface::on_statis_chart_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     Stat2 *s=new Stat2();
         s->show();
 }
 
 void user_interface::on_write1_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     //read and write in myfile
        QFile file("C:/Users/mariem/Desktop/upload integration/Smart_Cinema_2A7/myfile.txt");
        if(!file.open(QFile::WriteOnly| QFile::Text)){
@@ -1588,7 +1781,10 @@ void user_interface::on_write1_clicked()
 
 
 void user_interface::on_read1_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     QFile file("C:/Users/mariem/Desktop/upload integration/Smart_Cinema_2A7/myfile.txt");
    if(!file.open(QFile::ReadOnly| QFile::Text)){
        QMessageBox::warning(this,"title","file not open");
@@ -1603,7 +1799,10 @@ void user_interface::on_read1_clicked()
 }
 
 void user_interface::on_pushButton_envoyerMail_clicked()
-{
+{  player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     Smtp_produit* smtp = new Smtp_produit("projet.esprit11@gmail.com", "esprit2020", "smtp.gmail.com", 465);
 
         smtp->sendMail("projet.esprit11@gmail.com", ui->ecrire_mail->text() , ui->ecrire_objet->text() ,ui->ecrire_txt->toPlainText());
@@ -1748,7 +1947,10 @@ void user_interface::on_g_abonnements_pressed()
 }
 
 void user_interface::on_imprimer_film_clicked()
-{
+{ player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     QPrinter printer;
             QPrintDialog *printDialog = new QPrintDialog(&printer, this);
             printDialog->setWindowTitle("Imprimer Document");
@@ -1763,7 +1965,10 @@ void user_interface::on_imprimer_film_clicked()
 }
 
 void user_interface::on_imprimer_planning_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     QPrinter printer;
             QPrintDialog *printDialog = new QPrintDialog(&printer, this);
             printDialog->setWindowTitle("Imprimer Document");
@@ -1779,7 +1984,10 @@ void user_interface::on_imprimer_planning_clicked()
 }
 
 void user_interface::on_statistiques_film_clicked()
-{
+{   player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
+                 player->play();
+                 qDebug()<<player->errorString();
     statfilm *s=new statfilm();
         s->show();
 }

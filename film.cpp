@@ -1,5 +1,5 @@
 #include "film.h"
-
+#include <QThread>
 film::film()
 {
     id_film=note=0;
@@ -18,6 +18,7 @@ film::film(int id_film ,QString nom_film,QString date_sortie,QString duree,int n
 }
 void film::setId_film(int id_film){
     this->id_film=id_film;
+
 }
 void film::setNom_film(QString nom_film){
     this->nom_film=nom_film;
