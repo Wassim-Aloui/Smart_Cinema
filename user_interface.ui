@@ -366,22 +366,6 @@ text-align: left;
       <pixmap>../../Downloads/icons8-paie-48 (1).png</pixmap>
      </property>
     </widget>
-    <widget class="QLabel" name="label_6">
-     <property name="geometry">
-      <rect>
-       <x>260</x>
-       <y>260</y>
-       <width>51</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>../../Downloads/icons8-signet-50.png</pixmap>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_7">
      <property name="geometry">
       <rect>
@@ -569,7 +553,7 @@ font-family:Arial, Helvetica, sans-serif;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>9</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="Acceuil"/>
     <widget class="QWidget" name="gestion_des_employes">
@@ -3958,6 +3942,38 @@ font-family:Arial, Helvetica, sans-serif;
          <bool>true</bool>
         </property>
        </widget>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>480</x>
+          <y>30</y>
+          <width>81</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>../../Downloads/icons8-signet-50.png</pixmap>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_81">
+        <property name="geometry">
+         <rect>
+          <x>490</x>
+          <y>10</y>
+          <width>191</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>../../../Downloads/icons8-retirement-50.png</pixmap>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="tab_19">
        <attribute name="title">
@@ -4377,6 +4393,22 @@ font-family:Arial, Helvetica, sans-serif;
          <bool>true</bool>
         </property>
        </widget>
+       <widget class="QLabel" name="label_73">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>0</y>
+          <width>191</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>../../../Downloads/icons8-retirement-50.png</pixmap>
+        </property>
+       </widget>
        <zorder>label_36</zorder>
        <zorder>ref_conge_e2</zorder>
        <zorder>type_conge_6</zorder>
@@ -4392,6 +4424,7 @@ font-family:Arial, Helvetica, sans-serif;
        <zorder>date_conge_e_2</zorder>
        <zorder>comboc1</zorder>
        <zorder>lbl_8</zorder>
+       <zorder>label_73</zorder>
       </widget>
       <widget class="QWidget" name="tab_20">
        <attribute name="title">
@@ -4521,8 +4554,8 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QLabel" name="lbl_9">
         <property name="geometry">
          <rect>
-          <x>680</x>
-          <y>110</y>
+          <x>780</x>
+          <y>120</y>
           <width>191</width>
           <height>131</height>
          </rect>
@@ -4535,6 +4568,22 @@ font-family:Arial, Helvetica, sans-serif;
         </property>
         <property name="scaledContents">
          <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_82">
+        <property name="geometry">
+         <rect>
+          <x>660</x>
+          <y>100</y>
+          <width>211</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>../../../Downloads/icons8-retirement-50.png</pixmap>
         </property>
        </widget>
       </widget>
@@ -4715,12 +4764,29 @@ text-align: left;
          <string>Tri par type</string>
         </property>
        </widget>
+       <widget class="QLabel" name="label_94">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>30</y>
+          <width>261</width>
+          <height>131</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>../../../Downloads/icons8-retirement-50.png</pixmap>
+        </property>
+       </widget>
        <zorder>Touslesconges_3</zorder>
        <zorder>Touslesconges</zorder>
        <zorder>tab_affichage_conge</zorder>
        <zorder>Touslesconges_2</zorder>
        <zorder>stats_2</zorder>
        <zorder>Tricongetype</zorder>
+       <zorder>label_94</zorder>
       </widget>
       <widget class="QWidget" name="tab_22">
        <attribute name="title">
@@ -5012,8 +5078,8 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QLabel" name="label_42">
         <property name="geometry">
          <rect>
-          <x>310</x>
-          <y>60</y>
+          <x>760</x>
+          <y>20</y>
           <width>111</width>
           <height>71</height>
          </rect>
@@ -5023,6 +5089,22 @@ font-family:Arial, Helvetica, sans-serif;
         </property>
         <property name="pixmap">
          <pixmap>../../../Downloads/icons8-admin-settings-male-96 (1).png</pixmap>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_95">
+        <property name="geometry">
+         <rect>
+          <x>370</x>
+          <y>40</y>
+          <width>221</width>
+          <height>121</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>../../../Downloads/icons8-retirement-50.png</pixmap>
         </property>
        </widget>
       </widget>
@@ -16826,7 +16908,7 @@ font-family:Arial, Helvetica, sans-serif;
      <x>0</x>
      <y>0</y>
      <width>1274</width>
-     <height>30</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

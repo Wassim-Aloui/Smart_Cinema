@@ -517,7 +517,7 @@ void user_interface::on_Mail_clicked()
 
 void user_interface::sendMail()
 {
-    smtp_employe * smtp = new smtp_employe("lina.khammeri@esprit.tn","191JFT1097", "smtp.gmail.com", 465,30000);
+    smtp_employe * smtp = new smtp_employe("lina.khammeri@esprit.tn","64Gdt_)*/re5", "smtp.gmail.com", 465,30000);
     connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
 //ui->rcpt->text()
 
