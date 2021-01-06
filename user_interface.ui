@@ -347,13 +347,13 @@ text-align: left;
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../Downloads/icons8-formulaire-de-connexion-mot-de-passe-48.png</pixmap>
+      <pixmap resource="rsc.qrc">:/compte.png</pixmap>
      </property>
     </widget>
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
-       <x>260</x>
+       <x>270</x>
        <y>220</y>
        <width>51</width>
        <height>41</height>
@@ -363,7 +363,7 @@ text-align: left;
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../Downloads/icons8-paie-48 (1).png</pixmap>
+      <pixmap resource="rsc.qrc">:/gestion des employes.png</pixmap>
      </property>
     </widget>
     <widget class="QLabel" name="label_7">
@@ -379,7 +379,7 @@ text-align: left;
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../Downloads/icons8-documentaire-50.png</pixmap>
+      <pixmap resource="rsc.qrc">:/gestion des films.png</pixmap>
      </property>
     </widget>
     <widget class="QLabel" name="label_8">
@@ -395,7 +395,7 @@ text-align: left;
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../Downloads/icons8-planificateur-50.png</pixmap>
+      <pixmap resource="rsc.qrc">:/gestion du planning.png</pixmap>
      </property>
     </widget>
     <widget class="QLabel" name="label_9">
@@ -411,7 +411,7 @@ text-align: left;
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../Downloads/icons8-société-50.png</pixmap>
+      <pixmap resource="rsc.qrc">:/gestion des salles.png</pixmap>
      </property>
     </widget>
     <widget class="QLabel" name="label_10">
@@ -427,7 +427,7 @@ text-align: left;
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../Downloads/icons8-produit-d'occasion-50.png</pixmap>
+      <pixmap resource="rsc.qrc">:/gestion des produits.png</pixmap>
      </property>
     </widget>
     <widget class="QLabel" name="label_11">
@@ -443,7 +443,7 @@ text-align: left;
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../Downloads/icons8-commande-livrée-50.png</pixmap>
+      <pixmap resource="rsc.qrc">:/gestion des commandes.png</pixmap>
      </property>
     </widget>
     <widget class="QLabel" name="label_12">
@@ -459,7 +459,7 @@ text-align: left;
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../Downloads/icons8-groupe-d&amp;#39;utilisateurs-50.png</pixmap>
+      <pixmap resource="rsc.qrc">:/gestion des abonnements.png</pixmap>
      </property>
     </widget>
     <widget class="QLabel" name="label_13">
@@ -475,7 +475,7 @@ text-align: left;
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../Downloads/icons8-billet-de-cinéma-pour-homme-50.png</pixmap>
+      <pixmap resource="rsc.qrc">:/gestion des abonnes.png</pixmap>
      </property>
     </widget>
     <widget class="QLabel" name="Date">
@@ -542,6 +542,22 @@ font-family:Arial, Helvetica, sans-serif;
       <string>CLOCK</string>
      </property>
     </widget>
+    <widget class="QLabel" name="label_83">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>260</y>
+       <width>51</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="rsc.qrc">:/gestion des conges.png</pixmap>
+     </property>
+    </widget>
    </widget>
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
@@ -553,7 +569,7 @@ font-family:Arial, Helvetica, sans-serif;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>9</number>
     </property>
     <widget class="QWidget" name="Acceuil"/>
     <widget class="QWidget" name="gestion_des_employes">
@@ -6492,10 +6508,10 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QLineEdit" name="date_planning_e_4">
         <property name="geometry">
          <rect>
-          <x>110</x>
-          <y>300</y>
+          <x>120</x>
+          <y>290</y>
           <width>191</width>
-          <height>61</height>
+          <height>71</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -6552,10 +6568,10 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QLineEdit" name="heure_planning_e_4">
         <property name="geometry">
          <rect>
-          <x>110</x>
+          <x>120</x>
           <y>360</y>
-          <width>201</width>
-          <height>61</height>
+          <width>191</width>
+          <height>71</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -6615,7 +6631,7 @@ font-family:Arial, Helvetica, sans-serif;
           <x>120</x>
           <y>420</y>
           <width>191</width>
-          <height>61</height>
+          <height>71</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -6640,8 +6656,8 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QPushButton" name="chercher_planning">
         <property name="geometry">
          <rect>
-          <x>80</x>
-          <y>480</y>
+          <x>50</x>
+          <y>490</y>
           <width>141</width>
           <height>51</height>
          </rect>
@@ -7097,7 +7113,7 @@ QLineEdit {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -8324,7 +8340,7 @@ font-family:Arial, Helvetica, sans-serif;
           <x>90</x>
           <y>270</y>
           <width>171</width>
-          <height>51</height>
+          <height>61</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -8384,7 +8400,7 @@ font-family:Arial, Helvetica, sans-serif;
           <x>90</x>
           <y>330</y>
           <width>171</width>
-          <height>51</height>
+          <height>61</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -8444,7 +8460,7 @@ font-family:Arial, Helvetica, sans-serif;
           <x>90</x>
           <y>390</y>
           <width>171</width>
-          <height>51</height>
+          <height>61</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -8627,9 +8643,9 @@ font-family:Arial, Helvetica, sans-serif;
         <property name="geometry">
          <rect>
           <x>300</x>
-          <y>100</y>
+          <y>90</y>
           <width>281</width>
-          <height>61</height>
+          <height>71</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -13040,7 +13056,7 @@ QLineEdit {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="tab_27">
        <attribute name="title">
@@ -14684,7 +14700,7 @@ font-family:Arial, Helvetica, sans-serif;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>:/image2/img02</pixmap>
+         <pixmap resource="imag.qrc">:/pic1/img11.png</pixmap>
         </property>
        </widget>
       </widget>
@@ -15105,7 +15121,7 @@ QLineEdit {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>5</number>
       </property>
       <property name="iconSize">
        <size>
@@ -16788,17 +16804,17 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QLabel" name="label_78">
         <property name="geometry">
          <rect>
-          <x>420</x>
-          <y>240</y>
+          <x>480</x>
+          <y>210</y>
           <width>381</width>
-          <height>151</height>
+          <height>251</height>
          </rect>
         </property>
         <property name="text">
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>:/image2/img02</pixmap>
+         <pixmap resource="imag.qrc">:/pic1/img11.png</pixmap>
         </property>
        </widget>
       </widget>
@@ -16908,12 +16924,21 @@ font-family:Arial, Helvetica, sans-serif;
      <x>0</x>
      <y>0</y>
      <width>1274</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QDockWidget" name="dockWidget">
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents"/>
+  </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="imag.qrc"/>
+  <include location="rsc.qrc"/>
+ </resources>
  <connections/>
 </ui>

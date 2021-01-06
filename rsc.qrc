@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>compte.png</file>
+        <file>gestion des abonnements.png</file>
+        <file>gestion des abonnes.png</file>
+        <file>gestion des commandes.png</file>
+        <file>gestion des conges.png</file>
+        <file>gestion des employes.png</file>
+        <file>gestion des films.png</file>
+        <file>gestion des produits.png</file>
+        <file>gestion des salles.png</file>
+        <file>gestion du planning.png</file>
+        <file>Pathé_Logo.png</file>
+    </qresource>
+</RCC>

@@ -103,6 +103,8 @@ user_interface::user_interface(QWidget *parent) :
       ui->id_abonnement_2->setValidator(new QIntValidator(0,99999999,this));
       ui->id_abonnement_3->setValidator(new QIntValidator(0,99999999,this));
 
+      ui->label_16->setPixmap(QPixmap("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7-main/img11.png"));
+
 
 
 
@@ -300,7 +302,7 @@ void user_interface::on_supprimer_film_clicked()
 
 
         QMessageBox::information(nullptr, QObject::tr("Supprimer un film"),
-                    QObject::tr("planning supprimé.\n"
+                    QObject::tr("film supprimé.\n"
                                 "Click Cancel to exit."), QMessageBox::Cancel);
         ui->comboBox_supprimer_film->clear();
         ui->comboBox_supprimer_film->addItems(tmpfilm.listfilm());
@@ -377,12 +379,12 @@ void user_interface::on_Exporter_planning_clicked()
         QSqlQuery q;
         q.prepare("SELECT * FROM PLANNING ");
         q.exec();
-        QString pdf="<br> <img src='C:/Users/admin/Desktop/Atelier_Connexion/Pathé_Logo.png' height='42' width='144'/> <h1  style='color:red'>       LISTE DU PLANNING  <br></h1>\n <br> <table>  <tr>  <th> ID </th> <th> NOM </th> <th> DATE </th> <th> HEURE  </th>   </tr>" ;
+        QString pdf="<br> <img src='C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7-main/Pathé_Logo.png' height='42' width='144'/> <h1  style='color:red'>       LISTE DU PLANNING  <br></h1>\n <br> <table>  <tr>  <th> ID </th> <th> NOM </th> <th> DATE </th> <th> HEURE  </th>   </tr>" ;
 
 
         while ( q.next()) {
 
-            pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"    </td>  <td>   " + q.value(1).toString() +"</td>  <td>" +q.value(2).toString() +"  "" " "</td>      <td>     "+q.value(3).toString()+"--------"+"</td>       <td>"+q.value(4).toString()+"       </td>" ;
+            pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"    </td>  <td>   " + q.value(1).toString() +"</td>  <td>" +q.value(2).toString() +"  "" " "</td>      <td>     "+q.value(3).toString()+"-"+"</td>       <td>"+q.value(4).toString()+"       </td>" ;
 
         }
         doc.setHtml(pdf);
@@ -457,12 +459,12 @@ void user_interface::on_Exporter_film_clicked()
         QSqlQuery q;
         q.prepare("SELECT * FROM FILM ");
         q.exec();
-        QString pdf="<br> <img src='C:/Users/admin/Desktop/Atelier_Connexion/Pathé_Logo.png' height='42' width='144'/> <h1  style='color:red'>       LISTE DES FILMS  <br></h1>\n <br> <table>  <tr>  <th> ID </th> <th> NOM </th> <th> DATE </th> <th> DUREE</th>  <th> NOTE </th> <th> GENRE  </th>   </tr>" ;
+        QString pdf="<br> <img src='C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7-main/Pathé_Logo.png' height='42' width='144'/> <h1  style='color:red'>       LISTE DES FILMS  <br></h1>\n <br> <table>  <tr>  <th> ID </th> <th> NOM </th> <th> DATE </th> <th> DUREE</th>  <th> NOTE </th> <th> GENRE  </th>   </tr>" ;
 
 
         while ( q.next()) {
 
-            pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"    </td>  <td>   " + q.value(1).toString() +"</td>  <td>" +q.value(2).toString() +"  "" " "</td>      <td>     "+q.value(3).toString()+"--"+"</td>       <td>"+q.value(4).toString()+"         <td>"+q.value(5).toString()+"     </td>" ;
+            pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"    </td>  <td>   " + q.value(1).toString() +"</td>  <td>" +q.value(2).toString() +"  "" " "</td>      <td>     "+q.value(3).toString()+"</td>       <td>"+q.value(4).toString()+"         <td>"+q.value(5).toString()+"     </td>" ;
 
         }
         doc.setHtml(pdf);
@@ -1193,7 +1195,7 @@ void user_interface::on_pdf_commande_clicked()
                     QSqlQuery q;
                     q.prepare("SELECT * from COMMANDE");
                     q.exec();
-            QString pdf="<br> <img src='C:/Users/Wassim/Desktop/v2/QTv2/Pathé_Logo' height='42' width='144'/> <body style='background-color:LightYellow'> <h1  style='color:DarkKhaki'>  Liste des commandes :  <br></h1>\n <br>  <table>  <tr><th>REFERENCE</th>   <th> DESCRIPTION </th>     <th> ETAT</th>   <th> QUANTITE</th>  </tr>" ;
+            QString pdf="<br> <img src='C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7-main/Pathé_Logo' height='42' width='144'/> <body style='background-color:LightYellow'> <h1  style='color:DarkKhaki'>  Liste des commandes :  <br></h1>\n <br>  <table>  <tr><th>REFERENCE</th>   <th> DESCRIPTION </th>     <th> ETAT</th>   <th> QUANTITE</th>  </tr>" ;
 
 
                     while ( q.next()) {
@@ -1208,7 +1210,7 @@ void user_interface::on_pdf_commande_clicked()
 //reclamation write
 void user_interface::on_pushButton_write_clicked()
 {
-    QFile file_reclamation("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Reclamation.txt");
+    QFile file_reclamation("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7-main/Reclamation.txt");
       if(!file_reclamation.open(QFile::WriteOnly | QFile::Text))
       {QMessageBox::warning(this,"title","file not open");}
       QTextStream out(&file_reclamation);
@@ -1221,7 +1223,7 @@ void user_interface::on_pushButton_write_clicked()
 //reclamation read
 void user_interface::on_pushButton_read_clicked()
 {
-    QFile file_reclamation("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Reclamation.txt");
+    QFile file_reclamation("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7-main/Reclamation.txt");
        if(!file_reclamation.open(QFile::ReadOnly | QFile::Text))
        {QMessageBox::warning(this,"title","file not open");}
        QTextStream in(&file_reclamation);
