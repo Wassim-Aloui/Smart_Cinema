@@ -141,7 +141,7 @@ QSqlQueryModel *film::chercher_film_avancee(QString date_sortie,QString nom_film
 film film::recherche_Id_film(int id_film){
     QSqlQuery query;
     query.prepare("select *from film where id_film=:id_film");
-    query.bindValue(":id__film",id_film);
+    query.bindValue(":id_film",id_film);
     query.exec();
     film f;
     while(query.next()){

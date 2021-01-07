@@ -569,7 +569,7 @@ font-family:Arial, Helvetica, sans-serif;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>9</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="Acceuil"/>
     <widget class="QWidget" name="gestion_des_employes">
@@ -5528,7 +5528,7 @@ QLineEdit {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_7">
        <attribute name="title">
@@ -16924,7 +16924,7 @@ font-family:Arial, Helvetica, sans-serif;
      <x>0</x>
      <y>0</y>
      <width>1274</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
@@ -16937,8 +16937,8 @@ font-family:Arial, Helvetica, sans-serif;
   </widget>
  </widget>
  <resources>
-  <include location="imag.qrc"/>
   <include location="rsc.qrc"/>
+  <include location="imag.qrc"/>
  </resources>
  <connections/>
 </ui>

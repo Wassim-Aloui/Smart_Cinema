@@ -96,7 +96,7 @@ planning planning::recherche_Id_planning(int id_planning){
 
 bool planning::modifier(int idc){
     QSqlQuery query;
-    query.prepare("update planning set id_planning=:id_planning,nom_planning=:nom_planning,date_planning=:date_planning,heure=:heure where id=:idc");
+    query.prepare("update planning set nom_planning=:nom_planning,date_planning=:date_planning,heure=:heure where id_planning=:idc");
     query.bindValue(":id_planning",id_planning);
     query.bindValue(":nom_planning",nom_planning);
     query.bindValue(":date_planning",date_planning);
