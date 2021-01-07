@@ -1,0 +1,43 @@
+//declaration des variables
+#define PIN_LED1 9
+#define PIN_LED2 13
+
+#define pas 2
+char data;
+int x;
+
+//setup
+void setup(){
+pinMode(PIN_LED1,OUTPUT);
+digitalWrite(PIN_LED2,LOW);
+pinMode(PIN_LED2,OUTPUT);
+pinMode(PIN_LED1,OUTPUT);
+analogWrite(PIN_LED1,0);
+Serial.begin(9600);//initialiser la liaison serie à 9600 bauds.
+x=0;
+}
+//loop
+void loop(){
+if (Serial.available()){
+data=Serial.read();
+if(data=='1')
+{digitalWrite(PIN_LED2,HIGH);
+Serial.write('1');
+}
+else if(data=='0')
+{
+digitalWrite(PIN_LED2,LOW);
+Serial.write('0');
+}
+else if(data=='2')
+{
+digitalWrite(PIN_LED1,HIGH);
+Serial.write('1');
+}
+else if(data=='3')
+{
+digitalWrite(PIN_LED1,LOW);
+Serial.write('0');
+}
+}
+}

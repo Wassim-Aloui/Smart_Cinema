@@ -1,0 +1,44 @@
+#include <LiquidCrystal_I2C.h> //libraire taa l afficheur
+
+LiquidCrystal_I2C lcd(0x27,2,16);// definition taa afficheur 2 ligne 16 colonne 
+#define PIN_LED1 11 // def pin led 1 
+#define PIN_LED2 13 // def pin led 2
+char data; // variable de type char
+int x; //variable de type int
+
+void setup(){
+  lcd.init(); //init afficheur
+  lcd.backlight();//clear afficheur
+  lcd.setCursor(0,0);// tot l curseur fl ligne 1 colonne 1
+  lcd.print("WELCOME"); //afficher welcome
+  pinMode(PIN_LED1,OUTPUT);// bch tot led1 output
+  digitalWrite(PIN_LED1,HIGH); //initialement led1 che3la
+  digitalWrite(PIN_LED2,LOW);// init led 2 tafya
+   pinMode(PIN_LED2,OUTPUT);// bch tot led 2 output
+   Serial.begin(9600);// frequenc
+   x=0;
+}
+
+void loop(){ 
+  if(Serial.available()) {
+    data=Serial.read();//data tji ml qt
+    if(data=='1')//idha ken data egale1
+    {
+      digitalWrite(PIN_LED1,LOW);
+      digitalWrite(PIN_LED2,HIGH);
+      lcd.clear();
+      lcd.setCursor(0,0);
+      lcd.print("ADDED");
+      Serial.write('1');
+    }
+       else if(data=='0')
+    { 
+      digitalWrite(PIN_LED1,HIGH);
+       digitalWrite(PIN_LED2,LOW);
+        lcd.clear();
+       lcd.setCursor(0,0);
+      lcd.print("ERROR");
+      Serial.write('0');
+    }
+  }
+}

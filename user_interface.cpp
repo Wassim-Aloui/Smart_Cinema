@@ -1194,11 +1194,13 @@ void user_interface::on_ajouter_commande_clicked()
     if(test)
        { ui->tab_afficher_commande->setModel(Com.afficher_commande());
           A.write_to_arduino("2");
+          A.read_from_arduino();
         QMessageBox::information(nullptr, QObject::tr("Commande a ajouter"),
                      QObject::tr("Commande a  ajouter.\n"
                                  "Click Cancel to exit."), QMessageBox::Ok);}
     else{
         A.write_to_arduino("1");
+        A.read_from_arduino();
         QMessageBox::critical(nullptr, QObject::tr("Commande non ajouter"),
                      QObject::tr("Commande non ajouter.\n"
                                  "Click Cancel to exit."), QMessageBox::Cancel);
