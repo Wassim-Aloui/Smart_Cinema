@@ -411,7 +411,7 @@ void user_interface::on_Exporter_planning_clicked()
         QSqlQuery q;
         q.prepare("SELECT * FROM PLANNING ");
         q.exec();
-        QString pdf="<br> <img src='C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7-main/Pathé_Logo.png' height='42' width='144'/> <h1  style='color:red'>       LISTE DU PLANNING  <br></h1>\n <br> <table>  <tr>  <th> ID </th> <th> NOM </th> <th> DATE </th> <th> HEURE  </th>   </tr>" ;
+        QString pdf="<br> <img src='C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Pathé_Logo.png' height='42' width='144'/> <h1  style='color:red'>       LISTE DU PLANNING  <br></h1>\n <br> <table>  <tr>  <th> ID </th> <th> NOM </th> <th> DATE </th> <th> HEURE  </th>   </tr>" ;
 
 
         while ( q.next()) {
@@ -1353,7 +1353,7 @@ void user_interface::on_pushButton_write_clicked()
      player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
                   player->play();
                   qDebug()<<player->errorString();
-    QFile file_reclamation("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7-main/Reclamation.txt");
+    QFile file_reclamation("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Reclamation.txt");
       if(!file_reclamation.open(QFile::WriteOnly | QFile::Text))
       {QMessageBox::warning(this,"title","file not open");}
       QTextStream out(&file_reclamation);
@@ -1369,7 +1369,7 @@ void user_interface::on_pushButton_read_clicked()
     player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
                  player->play();
                  qDebug()<<player->errorString();
-    QFile file_reclamation("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7-main/Reclamation.txt");
+    QFile file_reclamation("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Reclamation.txt");
        if(!file_reclamation.open(QFile::ReadOnly | QFile::Text))
        {QMessageBox::warning(this,"title","file not open");}
        QTextStream in(&file_reclamation);
