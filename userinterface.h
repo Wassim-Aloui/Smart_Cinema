@@ -68,9 +68,8 @@ private slots:
     void on_pushButton_write_clicked();
     void on_pushButton_read_clicked();
     void on_pushButton_envoyerMail_clicked();
-
-
     void on_OFF_Led_clicked();
+    void update_msg();
 
 private:
     Ui::userInterface *ui;

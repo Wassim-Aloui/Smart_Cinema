@@ -3059,7 +3059,7 @@ QLineEdit {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_ajouter_2">
        <attribute name="title">
@@ -3225,7 +3225,7 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QPushButton" name="ajouter_commande">
         <property name="geometry">
          <rect>
-          <x>480</x>
+          <x>440</x>
           <y>400</y>
           <width>141</width>
           <height>51</height>
@@ -3408,7 +3408,7 @@ font-family:Arial, Helvetica, sans-serif;
        <widget class="QPushButton" name="OFF_Led">
         <property name="geometry">
          <rect>
-          <x>770</x>
+          <x>660</x>
           <y>480</y>
           <width>71</width>
           <height>51</height>
@@ -3438,9 +3438,9 @@ border: none;
        <widget class="QLabel" name="label_32">
         <property name="geometry">
          <rect>
-          <x>370</x>
+          <x>300</x>
           <y>500</y>
-          <width>371</width>
+          <width>391</width>
           <height>16</height>
          </rect>
         </property>
@@ -3465,7 +3465,40 @@ font-family:Arial, Helvetica, sans-serif;
 }</string>
         </property>
         <property name="text">
-         <string>cliquer sur le bouton OFFpour arreter la diode</string>
+         <string>cliquer sur le bouton OFF pour arreter la diode</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="update_msg">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>390</y>
+          <width>291</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <italic>false</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  color: #000000;
+  font-size: 22px;
+font-family:Arial, Helvetica, sans-serif;
+}</string>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </widget>

@@ -18,8 +18,10 @@ userInterface::userInterface(QWidget *parent) :
         break;
     case(-1): qDebug() << "arduino is not available" ;
     }
-    QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
-    //data=A.read_from_arduino();
+    QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_msg()));
+    data=A.read_from_arduino();
+    qDebug() << "DATA :" <<data;
+
 
     //Timer
     QTimer *timer_p=new QTimer(this);
@@ -125,22 +127,27 @@ void userInterface::on_ajouter_commande_clicked()
     if(test)
        { ui->tab_afficher_commande->setModel(Com.afficher_commande());
           A.write_to_arduino("2");
-        QMessageBox::information(nullptr, QObject::tr("Commande a ajouter"),
-                     QObject::tr("Commande a  ajouter.\n"
-                                 "Click Cancel to exit."), QMessageBox::Ok);}
-    else{
+       }
+    else
         A.write_to_arduino("1");
-        QMessageBox::critical(nullptr, QObject::tr("Commande non ajouter"),
-                     QObject::tr("Commande non ajouter.\n"
-                                 "Click Cancel to exit."), QMessageBox::Cancel);
-    }
-
 }
 
+//OFF led
 void userInterface::on_OFF_Led_clicked()
 {
     A.write_to_arduino("0");
     A.write_to_arduino("3");
+    ui->update_msg->setText("");
+}
+
+//update msg
+void userInterface::update_msg()
+{
+ data=A.read_from_arduino();
+ if(data=="2")
+     ui->update_msg->setText("Commande ajouter");
+ else if (data=="1")
+     ui->update_msg->setText("Commande non ajouter");
 }
 
 
@@ -150,18 +157,8 @@ void userInterface::on_supprimer_commande_clicked()
     int reference=ui->reference_commande_e3->text().toInt();
     bool test=Com.supprimer_commande(reference);
     if(test)
-    {     ui->tab_afficher_commande_2->setModel(Com.afficher_commande());
-        QMessageBox::information(nullptr, QObject::tr("Commande a supprimer"),
-                     QObject::tr("Produit supprimer.\n"
-                                 "Click Cancel to exit."), QMessageBox::Ok);
-    }
-    else {
-                    QMessageBox::critical(nullptr, QObject::tr("Commande a supprimer"),
-             QObject::tr("Produit non supprimer.\n"
-                         "Click Cancel to exit."), QMessageBox::Ok);
-           }
+        ui->tab_afficher_commande_2->setModel(Com.afficher_commande());
 }
-
 
 void userInterface::on_radioButton_produit_clicked()
 {
@@ -391,4 +388,6 @@ void userInterface::on_pushButton_envoyerMail_clicked()
 
         smtp->sendMail("projet.esprit11@gmail.com", ui->ecrire_mail->text() , ui->ecrire_objet->text() ,ui->ecrire_txt->toPlainText());
 }
+
+
 
