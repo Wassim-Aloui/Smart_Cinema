@@ -34,16 +34,19 @@ CONFIG += c++11
 SOURCES += \
     abonnee.cpp \
     abonnement.cpp \
+    admin.cpp \
     arduino_led.cpp \
     commande.cpp \
     conge.cpp \
     employe.cpp \
     film.cpp \
+    login.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
     planning.cpp \
     produit.cpp \
+    salles.cpp \
     smtp.cpp \
     smtp_employe.cpp \
     smtp_produit.cpp \
@@ -58,15 +61,18 @@ SOURCES += \
 HEADERS += \
     abonnee.h \
     abonnement.h \
+    admin.h \
     arduino_led.h \
     commande.h \
     conge.h \
     employe.h \
     film.h \
+    login.h \
         mainwindow.h \
     connection.h \
     planning.h \
     produit.h \
+    salles.h \
     smtp.h \
     smtp_employe.h \
     smtp_produit.h \
@@ -79,6 +85,8 @@ HEADERS += \
     user_interface.h
 
 FORMS += \
+        admin.ui \
+        login.ui \
         mainwindow.ui \
         stat2.ui \
         stat_conge.ui \

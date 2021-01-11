@@ -32,6 +32,8 @@
 #include <QMediaPlayer>
 #include <QSound>
 #include <QThread>
+#include "salles.h"
+#include "admin.h"
 
 namespace Ui {
 class user_interface;
@@ -46,6 +48,23 @@ public:
     ~user_interface();
 
 private slots:
+    void on_ajouter_salle_clicked();
+
+    void on_btn_supprimer_clicked();
+
+    void on_btn_modifier_clicked();
+
+    void on_refresh_clicked();
+
+    void on_refresh_3_clicked();
+
+    void on_btn_nom_trier_clicked();
+
+    void on_btn_id_trier_clicked();
+
+    void on_btn_pdf_clicked();
+
+    void on_btn_chercher_clicked();
     void on_g_film_clicked();
 
     void on_g_plng_clicked();
@@ -303,6 +322,23 @@ private slots:
 
     void on_statistiques_film_clicked();
 
+    void on_g_salle_clicked();
+
+    void on_compte_clicked();
+    void on_btn_creer_compte_clicked();
+
+    void on_btn_modC_clicked();
+
+    void on_btn_supprimerC_clicked();
+
+    void on_btn_searchC_clicked();
+
+    void on_btn_refreshC_clicked();
+
+    void on_btn_pdfC_clicked();
+
+    void on_compte_pressed();
+
 private:
     Ui::user_interface *ui;
     planning tmpplanning;
@@ -316,6 +352,8 @@ private:
     Abonnee tmpabonnee;
     QMediaPlayer* player;
     Abonnement tmpabonnement;
+    Salles tmpsalle;
+    Admin tmpa;
 };
 
 #endif // USER_INTERFACE_H

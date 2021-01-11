@@ -16,6 +16,10 @@
 #include<QTimer>
 #include<QDateTime>
 #include<QTextStream>
+#include <QColor>
+#include <QPalette>
+#include <QSqlQuery>
+#include <QTableWidget>
 
 
 user_interface::user_interface(QWidget *parent) :
@@ -56,6 +60,8 @@ user_interface::user_interface(QWidget *parent) :
     ui->heure_conge_e_4->setValidator(int_val);
     ui->ref_conge_e2->setValidator(int_val);
     ui->duree_conge_e_2->setValidator(int_val);
+
+
 
     ui->tab_affichage_planning->setModel(tmpplanning.afficher());
     ui->id_planning_e_1->setValidator(new QIntValidator(0,99999999,this));
@@ -411,7 +417,7 @@ void user_interface::on_Exporter_planning_clicked()
         QSqlQuery q;
         q.prepare("SELECT * FROM PLANNING ");
         q.exec();
-        QString pdf="<br> <img src='C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Pathé_Logo.png' height='42' width='144'/> <h1  style='color:red'>       LISTE DU PLANNING  <br></h1>\n <br> <table>  <tr>  <th> ID </th> <th> NOM </th> <th> DATE </th> <th> HEURE  </th>   </tr>" ;
+        QString pdf="<br> <img src='C/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Pathé_Logo.png' height='42' width='144'/> <h1  style='color:red'>       LISTE DU PLANNING  <br></h1>\n <br> <table>  <tr>  <th> ID </th> <th> NOM </th> <th> DATE </th> <th> HEURE  </th>   </tr>" ;
 
 
         while ( q.next()) {
@@ -481,10 +487,7 @@ void user_interface::on_tab_Widget_planning_currentChanged(int index)
 
 
 void user_interface::on_Exporter_film_clicked()
-{   player = new QMediaPlayer;
-    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
-                 player->play();
-                 qDebug()<<player->errorString();
+{
     QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export PDF", QString(), "*.pdf");
         if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append("liste des films.pdf"); }
 
@@ -497,7 +500,7 @@ void user_interface::on_Exporter_film_clicked()
         QSqlQuery q;
         q.prepare("SELECT * FROM FILM ");
         q.exec();
-        QString pdf="<br> <img src='C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7-main/Pathé_Logo.png' height='42' width='144'/> <h1  style='color:red'>       LISTE DES FILMS  <br></h1>\n <br> <table>  <tr>  <th> ID </th> <th> NOM </th> <th> DATE </th> <th> DUREE</th>  <th> NOTE </th> <th> GENRE  </th>   </tr>" ;
+        QString pdf="<br> <img src='C/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Pathé_Logo.png' height='42' width='144'/> <h1  style='color:red'>       LISTE DES FILMS  <br></h1>\n <br> <table>  <tr>  <th> ID </th> <th> NOM </th> <th> DATE </th> <th> DUREE</th>  <th> NOTE </th> <th> GENRE  </th>   </tr>" ;
 
 
         while ( q.next()) {
@@ -853,14 +856,7 @@ void user_interface::on_supprimer_employe_clicked()
         ui->tab_employe->setModel(tmpemploye.afficher());
         ui->combo2->clear();
                 ui->combo2->addItems(tmpemploye.listemploye());
-        //ui->comboBox->clear();
-        //ui->comboBox->addItems(tmpemploye.listemploye());
 
-        //ui->comboBox_id_emp->clear();
-        //ui->comboBox_id_emp->addItems(tmpemploye.listemploye());
-
-        //ui->comboBox_id_emp_2->clear();
-        //ui->comboBox_id_emp_2->addItems(tmpemploye.listemploye());
     }
     else{
         QMessageBox::critical(nullptr, QObject::tr("Employe"),
@@ -882,8 +878,7 @@ void user_interface::on_supprimer_conge_clicked()
     else{
         QMessageBox::critical(nullptr, QObject::tr("Conge"),
                     QObject::tr("Echec!\n"), QMessageBox::Cancel);
-        //ui->comboc1->clear();
-        //ui->comboc1->addItems(tmpconge.listconge());
+
         ui->comboBox_4->clear();
         ui->comboBox_4->addItems(tmpconge.listconge());
     }
@@ -969,8 +964,6 @@ void user_interface::on_ajouter_employe_2_clicked()
         ui->comboBox_id_emp->clear();
         ui->comboBox_id_emp->addItems(tmpemploye.listemploye());
 
-       //ui->comboBox_id_emp_2->clear();
-        //ui->comboBox_id_emp_2->addItems(tmpemploye.listemploye());
         A.write_to_arduino("1");
     }
     else{
@@ -1320,9 +1313,7 @@ void user_interface::on_load_commande_ref_clicked()
 void user_interface::on_pdf_commande_clicked()
 {
     player = new QMediaPlayer;
-    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
-                 player->play();
-                 qDebug()<<player->errorString();
+
     QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Open PDF", QString(), "*.pdf");
                     if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append("Commande.pdf"); }
 
@@ -1335,7 +1326,7 @@ void user_interface::on_pdf_commande_clicked()
                     QSqlQuery q;
                     q.prepare("SELECT * from COMMANDE");
                     q.exec();
-            QString pdf="<br> <img src='C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7-main/Pathé_Logo' height='42' width='144'/> <body style='background-color:LightYellow'> <h1  style='color:DarkKhaki'>  Liste des commandes :  <br></h1>\n <br>  <table>  <tr><th>REFERENCE</th>   <th> DESCRIPTION </th>     <th> ETAT</th>   <th> QUANTITE</th>  </tr>" ;
+            QString pdf="<br> <img src='C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/ppp.png' height='42' width='144'/> <body style='background-color:LightYellow'> <h1  style='color:DarkKhaki'>  Liste des commandes :  <br></h1>\n <br>  <table>  <tr><th>REFERENCE</th>   <th> DESCRIPTION </th>     <th> ETAT</th>   <th> QUANTITE</th>  </tr>" ;
 
 
                     while ( q.next()) {
@@ -1349,10 +1340,7 @@ void user_interface::on_pdf_commande_clicked()
 }
 //reclamation write
 void user_interface::on_pushButton_write_clicked()
-{    player = new QMediaPlayer;
-     player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
-                  player->play();
-                  qDebug()<<player->errorString();
+{
     QFile file_reclamation("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Reclamation.txt");
       if(!file_reclamation.open(QFile::WriteOnly | QFile::Text))
       {QMessageBox::warning(this,"title","file not open");}
@@ -1760,12 +1748,9 @@ void user_interface::on_statis_chart_clicked()
 }
 
 void user_interface::on_write1_clicked()
-{   player = new QMediaPlayer;
-    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
-                 player->play();
-                 qDebug()<<player->errorString();
+{
     //read and write in myfile
-       QFile file("C:/Users/mariem/Desktop/upload integration/Smart_Cinema_2A7/myfile.txt");
+       QFile file("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7//myfile.txt");
        if(!file.open(QFile::WriteOnly| QFile::Text)){
            QMessageBox::warning(this,"title","file not open");
 
@@ -1783,11 +1768,8 @@ void user_interface::on_write1_clicked()
 
 
 void user_interface::on_read1_clicked()
-{   player = new QMediaPlayer;
-    player->setMedia(QUrl::fromLocalFile("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/Ding Sound Effect.mp3"));
-                 player->play();
-                 qDebug()<<player->errorString();
-    QFile file("C:/Users/mariem/Desktop/upload integration/Smart_Cinema_2A7/myfile.txt");
+{
+    QFile file("C:/Users/Wassim/Desktop/Integration/Smart_Cinema_2A7/myfile.txt");
    if(!file.open(QFile::ReadOnly| QFile::Text)){
        QMessageBox::warning(this,"title","file not open");
    }
@@ -1812,6 +1794,8 @@ void user_interface::on_pushButton_envoyerMail_clicked()
 
 void user_interface::on_g_emp_pressed()
 {
+    ui->compte->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
     ui->g_abonnes->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
     ui->g_abonnements->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
     ui->g_cmd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
@@ -1829,6 +1813,8 @@ void user_interface::on_g_emp_pressed()
 
 void user_interface::on_g_cong_pressed()
 {
+    ui->compte->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
     ui->g_abonnes->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
     ui->g_abonnements->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
     ui->g_cmd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
@@ -1846,6 +1832,8 @@ void user_interface::on_g_cong_pressed()
 
 void user_interface::on_g_film_pressed()
 {
+    ui->compte->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
     ui->g_abonnes->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
     ui->g_abonnements->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
     ui->g_prd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
@@ -1861,6 +1849,8 @@ void user_interface::on_g_film_pressed()
 
 void user_interface::on_g_plng_pressed()
 {
+    ui->compte->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
     ui->g_abonnes->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
     ui->g_abonnements->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
     ui->g_prd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
@@ -1877,6 +1867,8 @@ void user_interface::on_g_plng_pressed()
 
 void user_interface::on_g_salle_pressed()
 {
+    ui->compte->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
     ui->g_abonnes->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
     ui->g_abonnements->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
     ui->g_prd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
@@ -1892,6 +1884,8 @@ void user_interface::on_g_salle_pressed()
 
 void user_interface::on_g_prd_pressed()
 {
+    ui->compte->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
     ui->g_abonnes->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
     ui->g_abonnements->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
     ui->g_cmd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
@@ -1907,6 +1901,8 @@ void user_interface::on_g_prd_pressed()
 
 void user_interface::on_g_cmd_pressed()
 {
+    ui->compte->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
     ui->g_abonnes->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
     ui->g_abonnements->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
     ui->g_film->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
@@ -1921,6 +1917,8 @@ void user_interface::on_g_cmd_pressed()
 
 void user_interface::on_g_abonnes_pressed()
 {
+    ui->compte->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
     ui->g_abonnements->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
 
     ui->g_film->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
@@ -1936,6 +1934,8 @@ void user_interface::on_g_abonnes_pressed()
 
 void user_interface::on_g_abonnements_pressed()
 {
+    ui->compte->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
     ui->g_film->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
     ui->g_cong->setStyleSheet("background-color :#FFD700;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
     ui->g_emp->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
@@ -1992,4 +1992,277 @@ void user_interface::on_statistiques_film_clicked()
                  qDebug()<<player->errorString();
     statfilm *s=new statfilm();
         s->show();
+}
+
+
+void user_interface::on_ajouter_salle_clicked()
+{
+   /* notifier = new QSystemTrayIcon(this);
+            notifier->setIcon(QIcon("notification.png"));
+            notifier->show();
+            notifier->showMessage("Mriguel","Playlist ajouté",QSystemTrayIcon::Warning,10000);*/
+
+        int id=ui->id_label->text().toInt();
+        QString nomsalle= ui->nomsalle_label->text();
+        int capacite = ui->capacite_label->text().toInt();
+        int numbloc = ui->numbloc_label->text().toInt();
+
+      Salles p(id,nomsalle,capacite,numbloc);
+      bool test=p.ajouter();
+      if(test)
+    {ui->tab_salle->setModel(tmpsalle.afficher()); //refresh
+    QMessageBox::information(nullptr, QObject::tr("Ajouter une Salle"),
+                      QObject::tr("Salle ajoutée.\n"
+                                  "Click Cancel to exit."), QMessageBox::Cancel);
+
+    }
+      else
+          QMessageBox::critical(nullptr, QObject::tr("Ajouter une Salle"),
+                      QObject::tr("Erreur !.\n"
+                                  "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+
+
+
+void user_interface::on_btn_supprimer_clicked()
+{
+    QSqlQuery query;
+
+        int id = ui->id_a_supprimer->text().toInt();
+
+        query.prepare("delete from salle where id=:id");
+        query.bindValue(":id", id);
+        bool v =query.exec();
+        if(v)
+        {ui->tab_salle->setModel(tmpsalle.afficher());//refresh
+            QMessageBox::information(nullptr, QObject::tr("Supprimer une salle"),
+                        QObject::tr("Salle supprimé.\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);
+
+        }
+        else
+            QMessageBox::critical(nullptr, QObject::tr("Supprimer une salle"),
+                        QObject::tr("Erreur !.\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void user_interface::on_btn_modifier_clicked()
+{
+    int id=ui->ex_id->text().toInt();
+
+        QString nomsalle= ui->nv_nomsalle->text();
+        int capacite= ui->nv_capacite->text().toInt();
+        int numbloc= ui->nv_numbloc->text().toInt();
+
+
+       Salles p(id,nomsalle,capacite,numbloc);
+      bool test=p.modifier(id,nomsalle,capacite,numbloc);
+      if(test)
+    {
+          ui->tab_salle->setModel(tmpsalle.afficher());
+    QMessageBox::information(nullptr, QObject::tr("Modifier une Salle"),
+                      QObject::tr("Salle modifiée.\n"
+                                  "Click Cancel to exit."), QMessageBox::Cancel);
+
+    }
+      else
+          QMessageBox::critical(nullptr, QObject::tr("Modifier une Salle"),
+                      QObject::tr("Erreur !.\n"
+                                  "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void user_interface::on_refresh_clicked()
+{
+     ui->tab_salle->setModel(tmpsalle.afficher());
+}
+
+
+
+void user_interface::on_btn_nom_trier_clicked()
+{
+     ui->tab_salle->setModel(tmpsalle.trier());
+}
+
+void user_interface::on_btn_id_trier_clicked()
+{
+   ui->tab_salle->setModel(tmpsalle.trier1());
+}
+
+void user_interface::on_btn_pdf_clicked()
+{
+    QPrinter *printer = new QPrinter(QPrinter::HighResolution);
+           printer->setOutputFormat(QPrinter::NativeFormat);
+           printer->setPageSize(QPrinter::A4);
+           printer->setOrientation(QPrinter::Portrait);
+           printer->setFullPage(true);
+
+
+       QPrintDialog *printDialog = new QPrintDialog(printer,this);
+       printDialog->setWindowTitle("Impression PDF");
+       if(printDialog->exec())
+       {
+          QPainter painter;
+          if(painter.begin(printer))
+          {
+              double xscale = double(ui->tab_salle->width() / 65);
+              double yscale = double(ui->tab_salle->height() / 65);
+              painter.scale(xscale, yscale);
+              ui->tab_salle->render(&painter);
+              painter.end();
+          }
+          else
+          {
+              qWarning("failed to open file");
+             QMessageBox::warning(nullptr,QObject::tr("PDF echoue"),QObject::tr("click cancel to exit!"),QMessageBox::Cancel);
+          }
+       }
+}
+
+void user_interface::on_btn_chercher_clicked()
+{  QString nomsalle = ui->nom_a_chercher->text();
+    if(tmpsalle.verifierExnoms(nomsalle)==false)
+    {QMessageBox::warning(this,"ERREUR","Salle n'existe pas");}
+    else
+    ui->tab_salle->setModel(tmpsalle.recherche_nom(nomsalle));
+}
+
+void user_interface::on_g_salle_clicked()
+{
+      ui->stackedWidget->setCurrentIndex(5);
+}
+
+void user_interface::on_compte_clicked()
+{
+      ui->stackedWidget->setCurrentIndex(0);
+}
+
+void user_interface::on_btn_creer_compte_clicked()
+{
+    int id=ui->id_labelc->text().toInt();
+    QString nom= ui->nomsalle_labelc->text();
+     QString prenom= ui->prenom_labelc->text();
+      QString username= ui->username_labelc->text();
+       QString password= ui->password_labelc->text();
+
+  Admin p(id,nom,prenom,username,password);
+  bool test=p.ajouter();
+  if(test)
+{
+QMessageBox::information(nullptr, QObject::tr("Ajouter un compte"),
+                  QObject::tr("Compte ajoutée.\n"
+                              "Click Cancel to exit."), QMessageBox::Cancel);
+
+}
+  else
+      QMessageBox::critical(nullptr, QObject::tr("Ajouter une Salle"),
+                  QObject::tr("Erreur !.\n"
+                              "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void user_interface::on_btn_modC_clicked()
+{
+    int id=ui->id_ex_c->text().toInt();
+
+    QString nom= ui->nv_nomC->text();
+     QString prenom= ui->nv_prenomC->text();
+      QString username= ui->nv_usernameC->text();
+       QString password= ui->nv_passwordC->text();
+
+
+     Admin p(id,nom,prenom,username,password);
+      bool test=p.modifier(id,nom,prenom,username,password);
+      if(test)
+    {
+          ui->tabCompte->setModel(tmpa.afficher());
+    QMessageBox::information(nullptr, QObject::tr("Modifier un Compte"),
+                      QObject::tr("Compte modifiée.\n"
+                                  "Click Cancel to exit."), QMessageBox::Cancel);
+
+    }
+      else
+          QMessageBox::critical(nullptr, QObject::tr("Modifier un Compte"),
+                      QObject::tr("Erreur !.\n"
+                                  "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void user_interface::on_btn_supprimerC_clicked()
+{
+    QSqlQuery query;
+
+        int id = ui->c_a_supp->text().toInt();
+
+        query.prepare("delete from compte where id=:id");
+        query.bindValue(":id", id);
+        bool v =query.exec();
+        if(v)
+        {ui->tabCompte->setModel(tmpa.afficher());//refresh
+            QMessageBox::information(nullptr, QObject::tr("Supprimer un Compte"),
+                        QObject::tr("Compte supprimé.\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);
+
+        }
+        else
+            QMessageBox::critical(nullptr, QObject::tr("Supprimer un Compte"),
+                        QObject::tr("Erreur !.\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void user_interface::on_btn_searchC_clicked()
+{
+    QString nomc = ui->compte_a_chercher->text();
+        if(tmpa.verifierExnoms(nomc)==false)
+        {QMessageBox::warning(this,"ERREUR","Compte n'existe pas");}
+        else
+        ui->tabCompte->setModel(tmpa.recherche_nom(nomc));
+}
+
+void user_interface::on_btn_refreshC_clicked()
+{
+  ui->tabCompte->setModel(tmpa.afficher());
+}
+
+void user_interface::on_btn_pdfC_clicked()
+{
+    QPrinter *printer = new QPrinter(QPrinter::HighResolution);
+           printer->setOutputFormat(QPrinter::NativeFormat);
+           printer->setPageSize(QPrinter::A4);
+           printer->setOrientation(QPrinter::Portrait);
+           printer->setFullPage(true);
+
+
+       QPrintDialog *printDialog = new QPrintDialog(printer,this);
+       printDialog->setWindowTitle("Impression PDF");
+       if(printDialog->exec())
+       {
+          QPainter painter;
+          if(painter.begin(printer))
+          {
+              double xscale = double(ui->tabCompte->width() / 65);
+              double yscale = double(ui->tabCompte->height() / 65);
+              painter.scale(xscale, yscale);
+              ui->tabCompte->render(&painter);
+              painter.end();
+          }
+          else
+          {
+              qWarning("failed to open file");
+             QMessageBox::warning(nullptr,QObject::tr("PDF echoue"),QObject::tr("click cancel to exit!"),QMessageBox::Cancel);
+          }
+       }
+}
+
+void user_interface::on_compte_pressed()
+{
+    ui->compte->setStyleSheet("background-color :#A9A9A9 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_abonnes->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_abonnements->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_prd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_cmd->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
+    ui->g_film->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_cong->setStyleSheet("background-color :#FFD700;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_emp->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_plng->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+    ui->g_salle->setStyleSheet("background-color :#FFD700 ;color: white;font-size:20px;text-align: left;font-family:Arial, Helvetica, sans-serif;border:none;border: 1px solid #A9A9A9");
+
 }
